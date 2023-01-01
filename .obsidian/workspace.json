@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Membrane Framework.md",
+                "file": "membrane-framework.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Membrane Framework.md",
+                "file": "membrane-framework.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Membrane Framework.md",
+                "file": "membrane-framework.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Membrane Framework.md"
+                "file": "membrane-framework.md"
               }
             }
           },
@@ -154,6 +154,6 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "dd5bc9670f9e0278",
+  "active": "5bfa3185b8cb4c68",
   "lastOpenFiles": []
 }
