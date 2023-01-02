@@ -1,1 +1,1 @@
-This is an aspirational project for doing a lot of my res
+This is an aspirational project for doing a lot of my researcd
