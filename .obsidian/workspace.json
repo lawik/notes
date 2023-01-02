@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "71c1b2c6534eedbd",
+        "id": "021d8a63b6f45274",
         "type": "tabs",
         "children": [
           {
-            "id": "dd5bc9670f9e0278",
+            "id": "086982b95412320a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "membrane-framework.md",
+                "file": "New note test.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "membrane-framework.md",
+                "file": "New note test.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "membrane-framework.md",
+                "file": "New note test.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "membrane-framework.md"
+                "file": "New note test.md"
               }
             }
           },
@@ -154,6 +154,8 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5bfa3185b8cb4c68",
-  "lastOpenFiles": []
+  "active": "086982b95412320a",
+  "lastOpenFiles": [
+    "membrane-framework.md"
+  ]
 }
