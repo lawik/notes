@@ -7,12 +7,4 @@ Likely basis for upcoming conference talk.
 - Generic pipelines aside from media (eg. text)
 - Live stream management, bleeping, fixing captions manually, working with a delay, buffering for caption processing plus editing
 - LiveView UI for fixing captions?
-
-
-Let's see if this syncs :)
-
-Woo!
-
-Remote notes sync?
-
-I wrote something.``
+``
