@@ -1,1 +1,1 @@
-These 
+This is
