@@ -1,0 +1,1 @@
+what events does VS Code expose?
