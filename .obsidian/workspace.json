@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "New note test.md",
+                "file": "membrane-framework.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "New note test.md",
+                "file": "membrane-framework.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "New note test.md",
+                "file": "membrane-framework.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "New note test.md"
+                "file": "membrane-framework.md"
               }
             }
           },
@@ -156,7 +156,7 @@
   },
   "active": "0fa53d925a4c6db6",
   "lastOpenFiles": [
-    "membrane-framework.md",
-    "New note test.md"
+    "New note test.md",
+    "membrane-framework.md"
   ]
 }
