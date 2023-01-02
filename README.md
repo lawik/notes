@@ -1,1 +1,1 @@
-This is an aspirational project for doing a lot of my thinking and not-t in the open.
+This is an aspirational project for doing a lot of my thinking and note-taking in the open.
