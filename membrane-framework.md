@@ -15,4 +15,4 @@ Woo!
 
 Remote notes sync?
 
-I wrote someth
+I wrote something.
