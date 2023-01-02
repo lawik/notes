@@ -18,8 +18,33 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "7fc670726f7e57fd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "elixir-ml.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f32b8a26369090ff",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "nerves-workshop.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -85,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "nerves-workshop.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "nerves-workshop.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "nerves-workshop.md"
               }
             }
           },
@@ -154,8 +179,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0fa53d925a4c6db6",
+  "active": "f32b8a26369090ff",
   "lastOpenFiles": [
+    "elixir-ml.md",
+    "README.md",
     "New note test.md",
     "membrane-framework.md"
   ]
