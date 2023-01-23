@@ -1,0 +1,4 @@
+- Reasonable default: Postgres
+- Fun and tighter: Sqlite (Litestream for)
+- Embedded but painful in distributed use: Mnesia
+- Geodistr
