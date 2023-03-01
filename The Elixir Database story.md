@@ -1,4 +1,4 @@
 - Reasonable default: Postgres
-- Fun and tighter: Sqlite (Litestream for)
+- Fun and tighter: Sqlite (Litestream for backup)
 - Embedded but painful in distributed use: Mnesia
 - Geodistr

@@ -1,0 +1,8 @@
+- a special purpose editor
+- Text-editing is a fallback mode for broken and non-elixir files
+- with Elixir it should offer structured editing
+- Should work off of partial AST for unfinished modules or when the project can't launch
+- Should be able to work off of a running beam instance and introspection otherwise
+- Navigation sidebar navigates module structures first, offers file tree fallback
+- Interactively offer tracing?
+- Connect to running beam instances as well (loses saving)
