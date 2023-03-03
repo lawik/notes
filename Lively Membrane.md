@@ -1,4 +1,25 @@
 
+Outline
+
+- Membrane in one slide
+- LiveView in one slide
+- Membrane provides a lot of potential signal
+	- Visual
+		- Picture
+		- Dimensions
+		- Framerate
+		- Bitrate
+	- Audio
+		- Sound
+		- Waveform
+	- Transformed with ML?
+		- Facial tracking
+		- Transcribed audio
+- Any signal you can capture can be visualized in LiveView
+- The more types of information we can get, the richer the presentation
+- We can do everything in one Phoenix/Membrane app
+- ?Membrane is not limited to video or audio, streaming other transformations
+
 ## Prototype Talk, synopsis for Krakow meetup
 
 **Going beyond video with Membrane?**
