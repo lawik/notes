@@ -1,0 +1,1 @@
+connect the difficulty of the work, the skill required to effortlessly focus on exploration and execution. How the difficulty is everywhere as you start and that mak
