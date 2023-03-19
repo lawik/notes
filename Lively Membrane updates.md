@@ -16,3 +16,6 @@ connect the difficulty of the work, the skill required to effortlessly focus on 
 		- LiveView receives notifications but doesn't do anything with them
 		- All activities are delegated to a stub module to allow replacing ad hoc.
 		- Indicate update process somehow cleanly 
+		- Build a module that can build the code from a series of function strings. Don't want code snippets to have to include the whole module. Map of function names to code and then prefix module name should be all the data structure needed. Keep the module data structure in the LV
+		- Code build-up 
+
