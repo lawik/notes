@@ -1,0 +1,4 @@
+- Face detection with landmarks
+- Object segmentation
+- Primary subject detection (u2net)
+- Sketching faces
