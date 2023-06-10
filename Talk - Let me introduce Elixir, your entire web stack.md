@@ -1,20 +1,4 @@
-- Cold open, the too-good-to-be-true pitch
-- The language, Elixir
-	- The Erlang runtime experience
-		- Proven: Whatsapp, Ericsson, Cisco
-	- The Ruby developer experience 
-	- Massively concurrent, resilient
-	- High level and dynamic
-		- Dynamic with good reason (more on this later, runtime observability)
-- The web framework, Phoenix
-	- All the normal stuff, pretty much MVC
-	- Performant, concurrent & parallel, very fast rendering
-	- Scales extremely far (WebSocket experiment)
-	- No Node or NPM by default, Esbuild and Tailwind included if wanted
-- The new paradigm, LiveView
-	- Full stack, server first
-	- Highly interactive, realtime UI
-	- Write little or no Javascript
+
 
 COLD OPEN.
 
@@ -129,9 +113,26 @@ Time to get serious.
 
 A full stack paradigm which covers 90% of use-cases by putting the server first and pushing the Actor model all the way to the edge. With real functional programming and immutability, highly optimized templates and diffing you get a fully interactive web app while only writing Elixir code.
 
-A simple design that covers immense ground. A LiveView marries a small Javascript library, a WebSocket and a server-side Actor that holds state
+A simple design that covers immense ground. A LiveView marries a small Javascript library, a WebSocket and a server-side Actor that holds state. This allows us to leverage the runtime's immense capabilities with managing state ans operating concurrently. We retain near-realtime latency. It spares us from maintaining layers of API and building out a full-fledged frontend app in some other framework.
 
-- The new paradigm, LiveView
-	- Full stack, server first
-	- Highly interactive, realtime UI
-	- Write little or no Javascript
+This is time to market. This is good beating out perfect. This is velocity and shipping. Keep It Simple Stupid. This is doing less. Leveraging a powerful runtime and well-designed frameworks.
+
+But the devil is in the details right?
+It is not for offline-first. It is not for super-intense interactivity.
+But you can mix it with other approaches as well.
+
+And it grows beyond the prototype. It has components, slots and all the things you would expect from a frontend framework. It has a file upload implementation to die for.
+
+Even being still pre-1.0 it is seeing heavy use throughout the community.
+
+And you don't have to write Javascript. But you can and there are escape hatches and integration points for what you need to get done.
+
+## Builder stack
+
+This is a web stack by builders for builders. I've been to ElixirConf. It is dominated by people who use the language and framework to get stuff done.
+
+FP without pretention. A replacement for your Ruby, your Python, your Node.js that can do multiple things at the same time. And a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in the 80's (TODO: verify).
+
+A community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered generally done several years ago.
+
+This is how you make something different.
