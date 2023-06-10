@@ -115,13 +115,22 @@ The Phoenix web framework was built by another rubyist. Chris Mccord (TODO: spel
 
 He jumped at the opportunity of working with a more performant language with a similar approach.
 
-They started with fundamentals so we essentially have an MVC framework that most web devs will find familiar. Thanks to Erlang it is highly concurrent and parallel. It has highly optimized templating which me
+They started with fundamentals so we essentially have an MVC framework that most web devs will find familiar. Thanks to Erlang it is highly concurrent and parallel. It has highly optimized templating which means server-side rendering is really fast. It also does really well as an API.
 
-- The web framework, Phoenix
-	- All the normal stuff, pretty much MVC
-	- Performant, concurrent & parallel, very fast rendering
-	- Scales extremely far (WebSocket experiment)
-	- No Node or NPM by default, Esbuild and Tailwind included if wanted
+They quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. Phoenix Channels. At this time they ran a benchmarking pushing the Phoenix WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets on a single beefy box.
+
+In a recent move for simplicity there is no longer any Node or NPM by default. Instead it ships esbuild and Tailwind CSS as syandalone binaries. You can change this fairly easily as well, nothing ia deeply integrated.
+
+All in all a fundamentally very strong web framework. This is just the beginning.
+
+Time to get serious.
+
+## Phoenix LiveView
+
+A full stack paradigm which covers 90% of use-cases by putting the server first and pushing the Actor model all the way to the edge. With real functional programming and immutability, highly optimized templates and diffing you get a fully interactive web app while only writing Elixir code.
+
+A simple design that covers immense ground. A LiveView marries a small Javascript library, a WebSocket and a server-side Actor that holds state
+
 - The new paradigm, LiveView
 	- Full stack, server first
 	- Highly interactive, realtime UI
