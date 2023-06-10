@@ -37,29 +37,31 @@ Through Perl, PHP, JavaScript and Python I got into Elixir.
 I've worked professionally with Elixir for four years, used it for six.
 I have learned it, used it, taught it, recruited for it and contributed to it in various way.
 
-It is not the most well-known or widely used language. But it is a much appreciated and growing contender according to what I've seen.
+It is not the most well-known or widely used language. But it is a much appreciated and growing contender according to what I've seen and surveys.
 
 It is fine to take everything about me and what I say with a pinch of salt. I'm an enthusiastic person. It's fine.
 
-Aright. Lets back some claims.
+Alright. Lets back some claims.
 
 ## The runtime, Erlang & the BEAM
 
 When building a programming language runtime you make design choices that enshrine trade-offs.
 
 - Ruby & Python, high-level, elegant language, dynamic, mutable and very flexible. Dog slow, terrible concurrency.
-- Java & .Net, everything plus the kitchen sink. General, generic, safe. Okay everywhere, exceptional nowhere.
-- Javascript's V8, high single-thread performance, cooperative multi-threading, fast if IO-bound.
+- Java & .Net, everything plus the kitchen sink. General, generic, safe. Okay everywhere, exceptional nowhere. Fast, due to immense investment.
+- Javascript's V8, high single-thread performance, cooperative multi-threading, fast if IO-bound. Very sensitive to CPU-bound work. Fast, due to immense investment.
 
 Erlang, the Ericsson language, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, consistently low latency, high availability, soft realtime, live code updates, reliability and robustness. Concurrency and parallellism came later as a consequence of designing for this. It also provides immense possibilities at runtime, in production.
 
-The BEAM virtual machine has proven itself over and over again, at Ericsson, Whatsapp, Blizzard, Riot Games and many, many more. It can run millions of lightweight processes, distribute workloads across a global cluster.
+The BEAM virtual machine has proven itself over and over again, at Ericsson, Whatsapp, Blizzard, Riot Games and many, many more. It can run millions of lightweight processes and easily distribute workloads across a global cluster.
 
 Erlang has been a nice language and the secret sauce of many cool products and projects. It never achieved wide public popularity.
 
+The BEAM VM is performant, by design, without massive investment. Ask the Erlang/OTP team how many they are compared to the JVM folks.
+
 ## The language, Elixir
 
-Built by a Rubyist, José Valim, looking for something more performant. Elixir is very reminiscent to Ruby at the surface level. One layer deeper than syntax you quickly find it is a high-level, dynamic, functional programming language. Precisely like Erlang but a fair bit more approachable.
+Built by a Rubyist, José Valim, looking for something more performant. Elixir is very reminiscent to Ruby at the surface level. One layer deeper than syntax you quickly find it is a high-level, dynamic, functional programming language. Precisely like Erlang but a fair bit more approachable. I covers skmilar ground to Clojure but with a different foundation.
 
 TODO: Optimize code sample
 
@@ -111,7 +113,9 @@ We have no time to cover the fundamentals of how Erlang achieves reliability. Su
 
 The Phoenix web framework was built by another rubyist. Chris Mccord (TODO: spelling). He spent a ton of time in Ruby trying to build something that abstracted doing live and realtime web UI in a simple way. It was really slow and difficult.
 
-He jumped at the opportunity of working with a more performant
+He jumped at the opportunity of working with a more performant language with a similar approach.
+
+They started with fundamentals so we essentially have an MVC framework that most web devs will find familiar. Thanks to Erlang it is highly concurrent and parallel. It has highly optimized templating which me
 
 - The web framework, Phoenix
 	- All the normal stuff, pretty much MVC
