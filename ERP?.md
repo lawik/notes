@@ -13,3 +13,9 @@ What does an ERP need to do?
 - Integration points
 - Analytics data
 
+What are your data structures?
+
+- Entities (a customer, a user, a payment, an order)
+	- has field
+	- Defines operations that can be taken on them to change their data
+- Workflow
