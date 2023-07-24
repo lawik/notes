@@ -16,6 +16,6 @@ What does an ERP need to do?
 What are your data structures?
 
 - Entities (a customer, a user, a payment, an order)
-	- has field
+	- has fields
 	- Defines operations that can be taken on them to change their data
 - Workflow
