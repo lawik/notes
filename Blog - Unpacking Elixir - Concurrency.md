@@ -12,7 +12,9 @@ Planned topics:
 - Experimental (ML/AI)
 - Reworking (type system)
 
-Elixir, the thing I probably write the most about. It is my main programming language since a number of years back. This is not for any particular religious reason. I find it suits my brain, the kind of work I enjoy and I find it has very few drawbacks. Rather than writing yet another wide post trying to summarize what I think is beneficial about the language I want to try and go a bit deeper on one particular aspect I like. I hope this will be a series of stand-alone posts. We will see. This time we are unpacking Elixir concurrency (and parallelism).
+---
+
+Elixir is the thing I do most of my public writing and speaking about. It is my default programming language for the last 5-6 years. It suits my brain. Performs well for the kind of work I typically do. And usi very few drawbacks. Rather than writing yet another wide post trying to summarize what I think is beneficial about the language I want to try and go a bit deeper on one particular aspect I like. I hope this will be a series of stand-alone posts. We will see. This time we are unpacking Elixir concurrency (and parallelism).
 
 I came up with PHP and then transitioned to Python. In PHP the concurrency model is pretty much whatever your web server (mod_php) and possible app server (php-fpm?) decides it should be. PHP generally assumes a shared-nothing model and each request is clear of whatever work is done in the others. In this regard they can run concurrently but they can also not share anything. Python .. it depends. But it is really bad at concurrency. The best solution seems to be just running more interpreters or using Python multiprocess or whatever it was called as threads and gevent are all subject to the GIL. I liked Python. I didn't enjoy trying to do performant concurrency in Python.
 
