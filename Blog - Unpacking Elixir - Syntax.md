@@ -152,7 +152,7 @@ case File.stat(my_path) do
 end
 ```
 
-You can also do nice things using the `if` macro, the `with` statement and a bunch of other things. I won't attempt to cover all the synt One very nice place to use pattern matching is in function heads. Elixir supports overloading of a sort.
+You can also do nice things using the `if` macro, the `with` statement and a bunch of other things. I won't attempt to cover all the syntax. The `for` macro comprehension thing is wildly feature-filled. One very nice place to use pattern matching is in function heads. Elixir supports overloading of a sort.
 
 ```
 defmodule MyApp.MyModule do
@@ -175,7 +175,78 @@ defmodule MyApp.MyModule do
 		{:ok, "I will consider it a #{num}."}
 	end
 
+    # Convention dictates _ to ignore a value in a match
 	def eat_value(_), do: {:ok, :nothing_special}
 end
 ```
 
+This fundamentally compiles down to a case statement in a single function and if none of the cases match it will raise a specific error. You can also apply guards for numeric ranges and such. This example has matching for; Specific value `nil`. Value of a key in a map. Value of a key in a map to a binding and using it later. Head of a list. 
+
+The `with is_integer(..` stuff is a guard clause. It also shows the convention of `_` marking unused bindings, either with a name like `_bla` or just the plain `_`.
+
+Anonymous/lambda functions are an important thing in most functional programming and we certainly have those.
+
+```
+# We can bind an existing function to a value with this syntax
+referenced_function = &File.stat/1
+
+# Anonymous function, full syntax
+anon = fn arg1, arg2 ->
+	arg1 + arg2
+end
+
+# Anonymous function, short syntax
+anon = & &1 + &2
+
+# Anonymous function, multiple clauses
+anon = fn
+  {:ok, result} -> result + 5
+  {:error, reason} -> {:error, :bad, reason}
+  other -> other
+end
+
+# Calling an anonymous function
+anon.(my_first_arg)
+```
+
+These are commonly used in pipelines for things like the very important Enum module:
+
+```
+File.ls!()
+|> Enum.map(fn filename ->
+  Path.join(my_path, filename)
+end)
+```
+
+Something that is not Elixir syntax so much as something you run into using libraries within Elixir are macros and DSLs (domain-specific-languages) built from macros. Elixir does not allow a ton of hiding things in normal code. The code is explicit and mostly goes in a straight line. To avoid some things becoming very unwieldy, such as the Phoenix web framework's routing and the Ecto database library's schema/migration definitions they have built small sets of macros that generate the relevant functions for you. This is one of few places where I find things often feel a bit woo-woo and magical. But it is almost exlusively where the alternative would be worse, either for a technical reason or for a human reason.
+
+So when you run into things that don't feel like normal Elixir code. Odds are you are dealing with macros. They can define custom blocks and they can define custom keywords that are mostly like functions but actually expanded at compile-time.
+
+Example of an Ecto database schema:
+
+```
+defmodule MyApp.MyUser do
+	use Ecto.Schema
+
+	schema "users" do
+		field :username, :string
+		field :password, :string, redact: true
+		timestamps()
+	end
+end
+```
+
+This generates a model with everything the database layer needs to know about the schema. Your `MyApp.MyUser` module will have a `__schema__()` function. `use Ecto.Schema` is what brings that magic into your module and your subsequent calls to the macro `schema`, `field` and `timestamps` do the rest.
+
+This brings us to one thing that is a bit messy but learnable. `alias`, `import`, `require` and `use`. This is [also covered in the official guide](https://elixir-lang.org/getting-started/alias-require-and-import.html) which is where I learned Elixir mostly.
+
+- `alias` shortens the name of a module or lets you change the name you use for a module.
+- `require` makes macros available from a particular function.
+- `import` brings in functions AND macros.
+- `use` lets the specific module inject any code functions through macro madness.
+
+This is already a bunch to go through. I have not covered all syntax in the language but I think I've given it a fair shake. I hope this is beneficial to you if you are curious to try the language or figure out if it is something you might enjoy.
+
+---
+
+If you have questions, comments or concerns you can reach me by my email at {{< lars_email >}} or on the socials {{< lars_twitter >}}.
