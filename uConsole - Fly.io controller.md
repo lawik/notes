@@ -1,1 +1,1 @@
-Base Linux OS + Fly CLI + JSON + LiveView ap
+Base Linux OS + Fly CLI + JSON + LiveView app
