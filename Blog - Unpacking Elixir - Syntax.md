@@ -1,6 +1,6 @@
-Elixir is a language with syntactical roots in Ruby. Ruby is an object-oriented language, Elixir is functional language. Overall I would say the Elixir syntax is pretty approachable and reasonable to learn.
+Elixir is a language with syntactical roots in Ruby. It also carries the Erlang legacy. Legacy used here as in "a great legacy" and not as in "system you don't like anymore". Ruby is an object-oriented language. Elixir is functional language. The Erlang part has an impact as Elixir was designed to provide strong interoperability with Erlang. Like Ruby and Erlang, Elixir is a high-level of abstraction and very dynamic language. Overall I would say the Elixir syntax is pretty approachable and reasonable to learn. Let's unpack it.
 
-This is another piece of my series on "Unpacking Elixir". The other piece right now is [concurrency](/unpacking-elixir-concurrency.html).
+This is another piece of my series on "Unpacking Elixir". The previously published part was on [concurrency](/unpacking-elixir-concurrency.html).
 
 My background is Python so I wasn't familiar with Ruby before-hand and ran into all these Ruby-isms with some confusion. Overall it was still a pretty smooth ride for me. I had done PHP, Javascript, Python, some C/C++, C#. It is a slightly new style but it didn't scare me.
 
