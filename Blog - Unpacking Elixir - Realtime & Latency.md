@@ -22,4 +22,12 @@ One of the early bigger things from that was Phoenix Channels which is a bit of 
 
 The next big thing has been LiveView. This is again where that latency being a user experience thing comes to play. Phoenix LiveView allows you to write Elixir instead of JavaScript frontend code to a very large extent. Components, interactivity and all you really want from a frontend framework. But you write Elixir and your state only lives on one side of the connection. The server. It does require that connection and to be a great experience it requires that latency stays low. LiveView lets you do a lot with a little. It has been copied by most major web framework ecosystems. But they can't copy the BEAM runtime and as such they can't quite get the same deal.
 
-LiveV
+LiveView is not a panacea. Not a silver bullet. Not the solution for every problem.
+
+LiveView is very much Erlang. It solves a solid set of problems people actually have with abstractions that make those problems trivial to work with. It seems unconcerned with a theoretical ideal and gets on with doing the work.
+
+And it is quite quick about it.
+
+---
+
+Have any latency horror stories to share? Notes, questions or concerns about this thing I wrote? Feel free to reach out through {{< lars_twitter >}} or on email {{< lars_email >}}. Have a good one.
