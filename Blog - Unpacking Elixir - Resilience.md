@@ -1,0 +1,5 @@
+The nine nines. 99.9999999% of uptime. Whether the AXD301 actually deserves to be held up as a system of nine nines seems debatable. I am not particularly interested in that debate. Erlang has a strong record for reliability and a design intended to help you as a developer and operator achieve your nines. Maybe just five of them. Up to you really.
+
+Previous episodes of this article series has unpacked [Concurrency](/unpacking-elixir-concurrency.html), [Real-time & Latency](/unpacking-elixir-realtime-latency.html) and [the syntax](/unpacking-elixir-syntax.html). In this one we talk about how Elixir and Erlang achieve reliability.
+
+There are agressive, defensive and rigorous practices you can adopt in a variety of ways to achieve reliability and resilience. Testing, profiling, specifications, design, observability, culture, operations and so on. This is not about those.
