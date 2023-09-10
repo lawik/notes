@@ -24,8 +24,6 @@ This is where the Erlang "Let it Crash" idea comes from. It is a bit of a meme b
 
 I don't think I've seen an up-and-running Elixir application go down due to exhausting the Supervision tree with erroring out. I have seen it many times as a failure mode for a misconfigured deploy, typically missing an env variable, where starting the initial supervision tree fails.
 
-Another step in this is the Erlang heart. That's a module that can be used to detect the Erlang application itself going down and being able to start it again. An almost-supervisor for your entire application.
-
 Supervision is the fundamental building block in Erlang's resilience story.
 
 How is it used in Elixir? Not much. As in, we don't typically need to think about it. Phoenix ships a practical and helpful Supervision tree. Ecto ships a good Supervision tree for your database connections and all that. These Supervision trees live a peaceful secretive life under the guise of library code and you get all the advantage with none of the work. And the moment you start coloring outside the lines and building your own GenServers the facilities are there for you.
@@ -38,4 +36,18 @@ You can hear more about [how Bandit operates](https://www.beamrad.io/53) on the 
 
 Separately you'll have `MyApp.PubSub` which starts the Process Groups (pg2) or Redis adapter for doing cool PubSub stuff. This is not strictly web-related, so it has a separate sub-tree. Someone did a thinking.
 
-I appreciate that Phoenix doesn't try to hide this stuff from you any more than abstracting away the details. If you want to run your app without the web part you can quickly get to the idea of dropping the Endpoint from the list. You simply don't start it. Same with the DB.
+I appreciate that Phoenix doesn't try to hide this stuff from you any more than abstracting away the details. If you want to run your app without the web part you can quickly get to the idea of dropping the Endpoint from the list. You simply don't start it. Same with the DB, just cut out the Repo. Likewise if you need multiple DBs or multiple web services. You can make more Repos and Endpoints. It is explicit. The code is right there. It uses the standard Erlang and Elixir way of starting things.
+
+Anyway, that's a detour from resilience and reliability. Fundamentally you have these supervisors, strategies as a structure to contain the blast radius of errors. The places this approach falls down is if you build a native implemented function (NIF) in C or similar. A crash in that brings down the whole VM. This is why doing work in BEAM code is preferred in most cases and why you'll often see attempts to re-implement things in Elixir/Erlang rather than just binding to an existing C library. Rust and Rustler, Zig and Zigler both offer NIF implementations with some additional safety. Of course they don't entirely remove the risks of native code.
+
+Rustler uses [dirty schedulers](https://medium.com/@jlouis666/erlang-dirty-scheduler-overhead-6e1219dcc7) and I expect Zigler does something similar or at least supports the old and the new options for building NIFs. So they should play nice-ish with Erlang scheduling. But fundamentally native code doesn't quite offer the same safety or same behavior.
+
+Beyond Supervision trees there are more aspects of Erlang that are resilient. Scheduling and pre-empting was intended to produce [consistently low latencies](/unpacking-elixir-realtime-latency.html) but it also protects you from heavy workloads bogging things down, it prevents infinitely looping bugs from slowing the system to a crawl and in general makes things resilient to things not being ideal all the time.
+
+Another thing is the Erlang heart. That's a module that can be used to detect the Erlang application itself going down and being able to start it again. An almost-supervisor for your entire application. The IoT [Nerves project](https://nerves-project.org/) also uses a variant of this to help ensure a resilient device.
+
+---
+
+Do you have lessons learned that you'd like to share about building for resiliency? Does the Erlang way of doing it resonate with you? Let me know over email at {{< lars_email >}} or via {{< lars_twitter >}}.
+
+
