@@ -30,3 +30,12 @@ Supervision is the fundamental building block in Erlang's resilience story.
 
 How is it used in Elixir? Not much. As in, we don't typically need to think about it. Phoenix ships a practical and helpful Supervision tree. Ecto ships a good Supervision tree for your database connections and all that. These Supervision trees live a peaceful secretive life under the guise of library code and you get all the advantage with none of the work. And the moment you start coloring outside the lines and building your own GenServers the facilities are there for you.
 
+With your regular generated Phoenix web application all you see is that your `application.ex` file contains a few entries for different purposes. These are the first branches of your supervision tree and all that you really see.
+
+You get `MyApp.Repo` for your Ecto Repo which is the abstraction for all your database connectivity, hiding your connection pools and whatnot. You get `MyApp.Endpoint` which wraps up your HTTP server (Cowboy or Bandit) in Plug and Phoenix abstractions to respond. Under this you will build up a subtree with a variety of jobs. For HTTP requests you have processes that respond. I believe Cowboy uses a pool and Bandit spawns more ad-hoc. There are also the WebSockets and the specific Phoenix Channels or LiveView processes that belong to the state of your application. This all branches out from your Endpoint as it is all related to your web serving.
+
+You can hear more about [how Bandit operates](https://www.beamrad.io/53) on the BEAM Radio episode we did with Mat Trudel. We got into the process usage a decent bit there.
+
+Separately you'll have `MyApp.PubSub` which starts the Process Groups (pg2) or Redis adapter for doing cool PubSub stuff. This is not strictly web-related, so it has a separate sub-tree. Someone did a thinking.
+
+I appreciate that Phoenix doesn't try to hide this stuff from you any more than abstracting away the details. If you want to run your app without the web part you can quickly get to the idea of dropping the Endpoint from the list. You simply don't start it. Same with the DB.
