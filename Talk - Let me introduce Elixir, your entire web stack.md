@@ -2,15 +2,15 @@
 
 COLD OPEN.
 
-I am here to tell you about a stack that has the productivity- and developer-focus of Ruby with Rails. In contrast to Ruby it is quite performant. It brings concurrency and parallellism trivial that blows Node JS out of the water. It is a high-level language working at an expressive abstraction level. In the ecosystem we have an opinionated web framework with great performance and productivity, a darling of the startup world. A clear and productive database layer that prevents SQL injection at compile time. A clean and friendly frontend web UI solution that is similar to Vue JS and leaves React in the dust.
+I am here to tell you about a stack that has the productivity- and developer-focus of Ruby with Rails. In contrast to Ruby it is quite performant. It brings concurrency and parallellism that blows Node JS out of the water. It is a high-level language working at an expressive abstraction level. In the ecosystem we have an opinionated web framework with great performance and productivity, a darling of the startup world. A clear and productive database layer that prevents SQL injection at compile time. A clean and friendly frontend web UI solution that is similar to Vue JS and leaves React in the dust.
 
-It is your completely normal web dev but better at every step. This is what reimagining your foundation can do.
+It is your completely normal web dev but better at every step. This is what reimagining your foundation can do for you.
 
 Built on a almost 40 year old (TODO: Verify) foundation of Swedish innovation it has deep roots and high branches. Used by unicorns, gaming giants and telecom for its scalability, performance and reliability.
 
 Oh. And it makes it trivial to do realtime, use audio and video, run machine learning inference and it simplifies your infrastructure. There is also a great IoT framework.
 
-Survey says the developers are among the best paid and most satisfied.
+The most recent Stack Overflow survey says that the developers working in the language are among the best paid and most satisfied.
 
 I'm Lars Wikman. I run a site and company called Underjord.io. Let me tell you about Elixir.
 
@@ -23,21 +23,21 @@ Through Perl, PHP, JavaScript and Python I got into Elixir.
 I've worked professionally with Elixir for four years, used it for six.
 I have learned it, used it, taught it, recruited for it and contributed to it in various way.
 
-It is not the most well-known or widely used language. But it is a much appreciated and growing contender according to what I've seen and according to surveys.
+It is not the most well-known or widely used language. But it is a much appreciated and growing contender both according to what I've seen and according to surveys.
 
 It is fine to take everything about me and what I say with a pinch of salt. I'm an enthusiastic person. It's fine.
 
-Alright. Lets back some claims.
+Alright. Lets back up some of those claims.
 
 ## The runtime, Erlang & the BEAM
 
 When building a programming language runtime you make design choices that enshrine trade-offs.
 
 - Ruby & Python, high-level, elegant language, dynamic, mutable and very flexible. Dog slow, terrible concurrency.
-- Java & .Net, everything plus the kitchen sink. General, generic, safe. Okay everywhere, exceptional nowhere. Fast, due to immense investment.
-- Javascript's V8, high single-thread performance, cooperative multi-threading, fast if IO-bound. Very sensitive to CPU-bound work. Fast, due to immense investment.
+- Java & .Net, everything plus the kitchen sink. General, generic, safe. Okay everywhere, exceptional nowhere. Fast, due to immense investment more than fundamental design.
+- Javascript's V8, high single-thread performance, cooperative multi-threading, fast if IO-bound. Very sensitive to CPU-bound work. Fast, due to immense investment in overcoming limitations.
 
-Erlang, the Ericsson language, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, consistently low latency, high availability, soft realtime, live code updates, reliability and robustness. 
+Erlang, the Ericsson language, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness. 
 
 Concurrency and parallellism came later as a consequence of designing for this. It also provides immense possibilities at runtime, in production.
 
@@ -97,9 +97,11 @@ As a modern language there is great package management and sweet tooling.
 
 We have no time to cover the fundamentals of how Erlang achieves reliability. Suffice to say it has a very significant and well-respected legacy. Look up Supervision trees for a start. Elixir inherits that foundation and uses it for everything. It is a fundamental part of the language and runtime.
 
+If you are curious I can direct you to my Unpacking Elixir blog series that covers a lot of it.
+
 ## Phoenix - The Web Framework
 
-The Phoenix web framework was built by another rubyist. Chris Mccord (TODO: spelling). He spent a ton of time in Ruby trying to build something that abstracted doing live and realtime web UI in a simple way. It was really slow and difficult.
+The Phoenix web framework was built by another rubyist. Chris McCord. He spent a ton of time in Ruby trying to build something that abstracted doing live and realtime web UI in a simple way. It was really slow and difficult.
 
 He jumped at the opportunity of working with a more performant language that was still familiar.
 
@@ -135,7 +137,7 @@ And you don't have to write Javascript. But you can and there are escape hatches
 
 This is a web stack by builders for builders. I've been to ElixirConf. It is dominated by people who use the language and framework to get stuff done.
 
-FP without pretention. A replacement for your Ruby, your Python, your Node.js that can do multiple things at the same time. And a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in the 80's (TODO: verify).
+FP without pretention. A replacement for your PHP, your Ruby, your Python, your Node.js that can do multiple things at the same time. And a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in the 80's (TODO: verify).
 
 A community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered generally done several years ago.
 
