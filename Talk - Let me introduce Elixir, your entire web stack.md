@@ -39,7 +39,7 @@ When building a programming language runtime you make design choices that enshri
 
 Erlang, the Ericsson language, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness. 
 
-Concurrency and parallellism came later as a consequence of designing for this. It also provides immense possibilities at runtime, in production.
+Concurrency and parallellism came later as a consequence of designing for this. It also provides immense possibilities at runtime, in production (??? TODO).
 
 The BEAM virtual machine has proven itself over and over again, at Ericsson, Whatsapp, Discord, Blizzard, Riot Games and many, many more. It can run millions of lightweight processes and easily distribute workloads across a global cluster.
 
@@ -119,7 +119,7 @@ Time to get serious.
 
 ## Phoenix LiveView
 
-A full stack paradigm which covers 90% of use-cases by putting the server first and pushing the Actor model all the way to the edge. With real functional programming, actual immutability, highly optimized templates and diffing to minimize data over the wire you get a fully interactive web app while only writing Elixir code.
+A full stack paradigm which covers 90% of use-cases by putting the server first and pushing the Actor model all the way to the edge. With real functional programming, actual immutability, highly optimized templates and diffing to minimize data over the wire you get a fully interactive web app while only writing Elixir code. That's Phoenix LiveView.
 
 A simple design that covers immense ground. A LiveView marries a small Javascript library, a WebSocket and a server-side Actor that holds state. This allows us to leverage the runtime's immense capabilities with managing state and operating concurrently. We retain near-realtime latency. It spares us from maintaining layers of API and building out a full-fledged frontend app in some other framework.
 
@@ -139,8 +139,11 @@ And you don't have to write Javascript. But you can and there are escape hatches
 
 This is a web stack by builders for builders. I've been to ElixirConf. It is dominated by people who use the language and framework to get stuff done.
 
-Functional Programming without pretention. A replacement for your PHP, your Ruby, your Python, your Node.js that can do multiple things at the same time. And a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in the 1998 .
+Functional Programming without pretention. A replacement for your PHP, your Ruby, your Python, your Node.js that can do multiple things at the same time. And a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in 1998 .
 
 A community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered generally done several years ago.
 
 This is how you make something different.
+
+
+(clocked 11:34)
