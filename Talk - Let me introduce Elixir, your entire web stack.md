@@ -6,7 +6,7 @@ I am here to tell you about a stack that has the productivity- and developer-foc
 
 It is your completely normal web dev but better at every step. This is what reimagining your foundation can do for you.
 
-Built on a almost 40 year old (TODO: Verify) foundation of Swedish innovation it has deep roots and high branches. Used by unicorns, gaming giants and telecom for its scalability, performance and reliability.
+Built on a almost 40 year old foundation of Swedish innovation it has deep roots and high branches. Used by unicorns, gaming giants and telecom for its scalability, performance and reliability.
 
 Oh. And it makes it trivial to do realtime, use audio and video, run machine learning inference and it simplifies your infrastructure. There is also a great IoT framework.
 
@@ -49,7 +49,7 @@ The BEAM VM is performant, by design, without the massive investment of the JVM,
 
 ## The language, Elixir
 
-Built by a Rubyist, José Valim, looking for something more performant. Elixir is very reminiscent to Ruby at the surface level. One layer deeper than syntax you quickly find it is a high-level, dynamic, **functional** programming language. Precisely like Erlang, semantically equivalent, but more approachable.
+Built by a Rubyist, José Valim, looking for something more performant. Elixir is very reminiscent of Ruby at the surface level. One layer deeper than syntax you quickly find it is a high-level, dynamic, **functional** programming language. Precisely like Erlang, semantically equivalent, but more approachable.
 
 TODO: Optimize code sample
 
@@ -95,9 +95,11 @@ As a modern language there is great package management and sweet tooling.
 
 ## Actor model, supervision trees & more
 
-We have no time to cover the fundamentals of how Erlang achieves reliability. Suffice to say it has a very significant and well-respected legacy. Look up Supervision trees for a start. Elixir inherits that foundation and uses it for everything. It is a fundamental part of the language and runtime.
+We have no time to cover the fundamentals of how Erlang achieves reliability. Suffice to say it has a very significant and well-respected legacy.
 
-If you are curious I can direct you to my Unpacking Elixir blog series that covers a lot of it.
+The debate is whether the nine nines are really a truthful representation of Ericsson's AXD301 and its reliability or a mere 5 nines is more accurate. You know 5.2 minutes of downtime per year.
+
+If you want to understand the resiliency model, look up Supervision trees for a start. Elixir inherits this foundation and uses it for everything. It is a fundamental part of the language and runtime. I can also direct you to my Unpacking Elixir blog series that covers a lot of this ground.
 
 ## Phoenix - The Web Framework
 
@@ -105,11 +107,11 @@ The Phoenix web framework was built by another rubyist. Chris McCord. He spent a
 
 He jumped at the opportunity of working with a more performant language that was still familiar.
 
-They started with fundamentals so we essentially have an MVC framework that most web devs will find familiar. Thanks to Erlang it is highly concurrent and parallel. It has highly optimized templating which means server-side rendering is really fast. It also does really well as an API.
+They started with fundamentals so we essentially have an MVC framework that most web devs will find familiar. Thanks to Erlang it is highly concurrent and parallel. It has highly optimized templating which means server-side rendering is really fast. It also does really well as an API service.
 
-They quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. Phoenix Channels. At this time they ran a benchmarking effort pushing the Phoenix WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets on a single beefy box.
+They quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. Phoenix Channels. At this time they ran a benchmarking effort pushing the Phoenix WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets on a single beefy box and called it good.
 
-In a recent move for simplicity there is no longer any Node or NPM by default. Instead it ships esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well, nothing is deeply integrated.
+In a recent move for simplicity there is no longer any Node or NPM by default. Instead it ships esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well, nothing is too deeply integrated.
 
 All in all a fundamentally very strong web framework. This is just the beginning.
 
@@ -117,7 +119,7 @@ Time to get serious.
 
 ## Phoenix LiveView
 
-A full stack paradigm which covers 90% of use-cases by putting the server first and pushing the Actor model all the way to the edge. With real functional programming, actual immutability, highly optimized templates and diffing you get a fully interactive web app while only writing Elixir code.
+A full stack paradigm which covers 90% of use-cases by putting the server first and pushing the Actor model all the way to the edge. With real functional programming, actual immutability, highly optimized templates and diffing to minimize data over the wire you get a fully interactive web app while only writing Elixir code.
 
 A simple design that covers immense ground. A LiveView marries a small Javascript library, a WebSocket and a server-side Actor that holds state. This allows us to leverage the runtime's immense capabilities with managing state and operating concurrently. We retain near-realtime latency. It spares us from maintaining layers of API and building out a full-fledged frontend app in some other framework.
 
@@ -137,7 +139,7 @@ And you don't have to write Javascript. But you can and there are escape hatches
 
 This is a web stack by builders for builders. I've been to ElixirConf. It is dominated by people who use the language and framework to get stuff done.
 
-FP without pretention. A replacement for your PHP, your Ruby, your Python, your Node.js that can do multiple things at the same time. And a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in the 80's (TODO: verify).
+Functional Programming without pretention. A replacement for your PHP, your Ruby, your Python, your Node.js that can do multiple things at the same time. And a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in the 1998 .
 
 A community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered generally done several years ago.
 
