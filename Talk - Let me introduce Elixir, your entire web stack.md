@@ -27,7 +27,23 @@ It is not the most well-known or widely used language. But it is a much apprecia
 
 It is fine to take everything about me and what I say with a pinch of salt. I'm an enthusiastic person. It's fine.
 
-Alright. Lets back up some of those claims.
+## The Demo
+
+First step. Let me show you something.
+
+(remix of ElixirConf demo)
+
+- Let's just show what I'm saying on the page.
+- Kind of neat. This is all a web app listening to my microphone.
+- Very little JavaScript, enough to open the mic and ship samples.
+- The rest is Elixir code through Phoenix LiveView.
+- The media processing is all written in Elixir. I never need to think about ffmpeg. This is the Membrane Framework.
+- And I can get pretty detailed information about the media stream. I can ask it to please enable the waveform.
+- The machine learning inference is all done from Elixir. Not a trace of Python. This is the Bumblebee project.
+- (TODO) Maybe do alpha masking from Evision with Image?
+- Every part of this holds to the same Actor model abstractions. The web UI, the steps in the media processing pipeline, the machine learning model. There are no surprises.
+
+Alright. Lets back up some of those claims I made.
 
 ## The runtime, Erlang & the BEAM
 
@@ -145,5 +161,30 @@ A community that has spawned, grown and progressed without a megacorp at the hel
 
 This is how you make something different.
 
+## Getting fancy: Media
 
-(clocked 11:34)
+Most web developers end up using converting videos to web formats at some point. Almost everyone will use ffmpeg for that. They should. It is very capable. You create a worker on a queue, you shell out, wait for the command to complete and do something with the output. Or you start one for a live session of some sort and hope to the gods above it does not crash.
+
+Managing a complex ffmpeg pipeline is not particularly fun, you have limited control, poor insight into the process and orchestrating it well is hard.
+
+In Elixir we use Membrane. For some workloads it will shell out to ffmpeg, or portaudio or whatever it needs. The flow of processing and many of the actual processing steps are done entirely inside Elixir.
+
+I've done media processing in Python. It was never this powerful or easy. They have not built a set of ffmpeg bindings and called it good. They've built a framework for media processing with a focus on robust live streaming. Completely in tune with the historic strengths of Erlang.
+
+## Getting crafty: Machine Learning
+
+The Bumblebee project builds on the Nx project. Nx stands for Numerical Elixir and is an audacious act of tackling a thing Elixir should be terrible at. Number crunching. It builds on other tools, Google's XLA libraries, TorchX and other accelerators to enable us to write numerical calculations in Elixir that are then run in an accelerated fashion. This means that Machine Learning can be ported to Elixir. Nx is a building block to orchestrate number crunching and write it with high-level code.
+
+Bumblebee is the project that lets completely mathless web devs like myself casually bring ML models into my day-to-day work. Simple models for sentiment analysis of text run trivially on CPU. The Whisper speech-to-text model can run quite well on CPU. If you have a GPU you can do a lot more with models like Stable Diffusion and some LLMs that have been ported. The Bumblebee abstraction level makes it trivial.
+
+There is also a very ambitious set of OpenCV bindings that really cover your typical image recognition needs.
+
+Bumblebee and Nx are not just a ways to run some Python code that runs your ML models for you. They are an ambitious stab at the weakest part of the stack and it has already enabled a ton of practical use. It slots right into the toolset.
+
+## Getting hands-on: Embedded Linux
+
+The IoT framework Nerves is appropriate for most jobs where an embedded Linux is appropriate. Not microcontrollers, rather single-board computers and the like.
+
+It treats Linux as a thin substrate and brings up the BEAM VM as the primary operating system. Elixir sets up your networking. Elixir talks to your custom hardware. Elixir checks for updates and pulls down binary diffs. Elixir does the blue/green partition switch.
+
+Instead of writing a sensitive piece of hardware in a language that is finicky and hard to get right, like C. You write it in a language known for resilience and reliability. 
