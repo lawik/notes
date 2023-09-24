@@ -53,7 +53,7 @@ When building a programming language runtime you make design choices that enshri
 - Java & .Net, everything plus the kitchen sink. General, generic, safe. Okay everywhere, exceptional nowhere. Fast, due to immense investment more than fundamental design.
 - Javascript's V8, high single-thread performance, cooperative multi-threading, fast if IO-bound. Very sensitive to CPU-bound work. Fast, due to immense investment in overcoming limitations.
 
-Erlang, the Ericsson language, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness. 
+Erlang, the Ericsson language, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness. It implements The Actor Model as a way to provide a high-level structured paradigm to organize your system.
 
 Concurrency and parallellism came later as a consequence of designing for this. It also provides immense possibilities at runtime, in production (??? TODO).
 
@@ -155,9 +155,9 @@ And you don't have to write Javascript. But you can and there are escape hatches
 
 This is a web stack by builders for builders. I've been to ElixirConf. It is dominated by people who use the language and framework to get stuff done.
 
-Functional Programming without pretention. A replacement for your PHP, your Ruby, your Python, your Node.js that can do multiple things at the same time. And a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in 1998 .
+Functional Programming without pretention. No monads required. A replacement for your PHP, your Ruby, your Python, your Node.js that can do multiple things at the same time. And a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in 1998 .
 
-A community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered generally done several years ago.
+A community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered largely complete several years ago. The language is mostly being polished. Meanwhile the ecosystem grows around it.
 
 This is how you make something different.
 
@@ -185,6 +185,39 @@ Bumblebee and Nx are not just a ways to run some Python code that runs your ML m
 
 The IoT framework Nerves is appropriate for most jobs where an embedded Linux is appropriate. Not microcontrollers, rather single-board computers and the like.
 
-It treats Linux as a thin substrate and brings up the BEAM VM as the primary operating system. Elixir sets up your networking. Elixir talks to your custom hardware. Elixir checks for updates and pulls down binary diffs. Elixir does the blue/green partition switch.
+It treats Linux as a thin substrate and brings up the BEAM VM as the primary operating system. Elixir sets up your networking. Elixir talks to your custom hardware. Elixir checks for updates and pulls down binary diffs of payloads. Elixir does the blue/green partition switch.
 
-Instead of writing a sensitive piece of hardware in a language that is finicky and hard to get right, like C. You write it in a language known for resilience and reliability. 
+Instead of writing a sensitive piece of hardware in a language that is finicky and hard to get right, like C. You write it in a language known for resilience and reliability. You get granular error handling and fault recovery. And you get to write your product in a high-level language without sacrificing too much in performance. Without losing control of your hardware.
+
+Nerves is a pretty tight bundle. If you have a Raspberry Pi in a drawer somewhere, I suggest you give it a try.
+
+## Deployment
+
+Most people deploy Elixir the way they deploy everything else. In a Docker container. You can also compile a release which is essentially an archive that contains everything required to run your application. A kind of complicated variant of a static binary. Why is it complicated?
+
+Because Erlang and Elixir support hot code updates. This facility is not commonly used but if you want to hear about people who do use it I suggest watching Erlang talks from Whatsapp or listen to BEAM Radio episode 12 with Bryan Hunter, titled Punking the Servers. Fundamentally this allows them to update the code of the system without ever bringing it down.
+
+Elixir is often deployed with clustering, commonly called Erlang Distribution, which means all nodes are connected to each other and can exchange messages. This enables a lot of cool stuff without needing separate infrastructure for coordination.
+
+So we deploy just like everyone else. But also better.
+
+## Observability & introspection
+
+While Elixir is a good citizen of the world and supports Open Telemetry and has some really nice regular tools around logging, metrics and traces it also does not stop there. The BEAM VM allows us to do much, much more. A default Phoenix install brings in Live Dashboard which allows you to look at a bunch of statistics about your application at runtime as well as delve into process resource usage and much more.
+
+Erlang has tools for introspecting and manipulating a running system and all of those tools are available to us. This is what a real high-level of abstraction should look like.
+
+Introduce a memory leak? Alright, just sort your processes by memory usage and see which one it is. Everything runs in a process. Has to be one of them.
+
+Want to trace function calls in your system live and inspect what your code is seeing as the calls come in? Sure, that's available. There are even high-level tools like the Orion web UI that let you run distributed traces to profile particular functions and graph the performance numbers.
+
+What can you pull from your system at run-time? What can you do to figure out why, at run-time?
+
+## A Future built four decades ago
+
+When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends up sounding too good to be true. It sounds a bit futuristic. I would expect someone to say that they are still in the early days of this roadmap and that they would love to have us along for the journey as they ship their 0.1. It sounds like unfounded hype that will never come to pass.
+
+Fortunately for us someone decided to build something futuristic almost four decades ago. And then Elixir put a spotlight on it about a decade ago. You can just get started.
+
+As William Gibson said: the future is already here, it is just not evenly distributed yet.
+
