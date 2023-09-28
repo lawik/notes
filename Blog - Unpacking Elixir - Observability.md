@@ -1,0 +1,1 @@
+Elixir supports the usual supects of observability. Open Telemetry
