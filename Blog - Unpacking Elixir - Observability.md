@@ -1,1 +1,31 @@
-Elixir supports the usual supects of observability. Open Telemetry
+Elixir supports the usual supects of observability. Open Telemetry (OTel), log handlers, capturing metrics. And it does it well. This post will mostly focus on the observability you have on the BEAM that is either incredibly rare to see or simply does not exist elsewhere.
+
+The previous posts on [concurrency](/unpacking-elixir-concurrency.html) and [resilience](/unpacking-elixir-resilience.html) might give useful context around how processes work and how supervision trees are structured. I will try not to lean too heavily on them but if you feel the need to understand more, consider reading them.
+
+I don't know if my understanding is accurate to the truth of the system here but I'll take a stab. Elixir and Erlang applications do not change their shape in compilation. I imagine the VM-level code still has an understanding of the fundamental parts of the language we see. Modules. Functions. It certainly knows about processes, messages and all that.
+
+Why would someone build it this way? It has to be fundamentally inefficient compared to say .. C++. Your compiled C or C++ program will be very different from the code you wrote. Who knows the compiler will feel like doing. It will be semantically equivalent, meaning will be retained. There is a ton of additional debugging information required if you want to retain the meaning and ideas of the original code during execution of the end product.
+
+Other high-level dynamic languages also seem to keep more of their general structure. If the program can mutate itself significantly during runtime it limits how much the compiler can be allowed to mangle things.
+
+Erlang was built to provide hot code updates. I think this is the fundamental reason it is so introspectable at runtime. Hot code updates, while they can be done rigorously and should be treated seriously for production systems, is essentially the biggest monkey patch facility imaginable. I guess any language that can patch itself at runtime could start implementing hot code updates. But Erlang is designed to allow it and do it gracefully.
+
+Let's start with the tool that Elixir devs tend to use daily. The REPL, the shell, iEx. It is a great part of the developer workflow but if you package an Erlang Release of your project you also end up with `my_app remote` which is a command that pops an iex shell, connects to your app over Erlang distribution and lets you poke your application. It lets you operate your application. All your modules and functions are intact and you can just make function calls, send messages to the nodes in your cluster. Whatever you need, anything that's available in Erlang and Elixir plus any new code your a willing to type or paste into the interpreter.
+
+What facilities do we have? Well. The Erlang `sys.get_state/1` function lets you pull the state of an "Actor"-style process (GenServer, GenStage, gen_event, gen_statem, etc). If they are part of how Erlang runs supervision trees, implementing those protocols it should also be able to give you the state it is holding. So you can inspect your running state.
+
+Elixir offers `Process.list/0` to get a plain list of all the process IDs (PIDs) on the local node. With this you can do `Process.info/1` to find out what is going on and investigate things like memory usage, reduction count (number of function calls), initial function call and much more. Things that are part of the Erlang protocol for a well-behaved process.
+
+This is all underpinnings for higher-level tools such as Erlang's fun desktop UI app `observer` which can show you a graph of your supervision tree, it can show you an activity monitor for your processes (order by memory used descending, oh there's the memory leak). You can kill processes, you can get system-level stats. It has a bit of everything.
+
+Of course with LiveView coming to Elixir this was pushed a bit further. A default Phoenix app has a single line to uncomment to enable LiveDashboard which is a view that gives you much of the same information as well as collected telemetry for Phoenix and Ecto. You also get system-level information (disk, RAM, CPU), BEAM-level information (memory allocation types, resource usage, schedulers running) and a bit more. You also get a Process listing here in a nice and neat web view. If you are new in Elixir and want to make some waves I think pushing LiveDashboard further would be a good place to poke around.
+
+LiveDashboard I believe established a convenient pattern for libraries that work under Phoenix. It provides a plug. Meaning you can shove it in any part of your router that you like. Usually behind an admin access check. I've since seen this done with Oban (job processing library) web UI and I believe the same thing is done with Orion.
+
+Let's talk about Orion because it feeds right into this story. It is a recent development by Thomas Depierre. Dubbed as a Dynamic Distributed Profiler it does something that requires a lot of instrumentation to do in any ecosystem and which is probably impossible to do fully in some. It was entirely achieved with existing Erlang facilities in this case. You can enter a module name, a function name and an arity, hit Run. It will start to capture the performance of that function being called across your entire cluster. It then graphs that and gives you a sense of how things are going with regards to that function. There are many cool directions to extend this tool, let's get into that.
+
+Tracing in Erlang is a mechanism for capturing information around the execution of a function. It is not limited to performance numbers. I've used both raw Erlang `dbg`, `recon` and a little bit of `recon_ex` to do tracing on production systems when I needed to figure something out. I don't know of any other system that makes this possible. Maybe I'm missing a world of tools in different ecosystems. Let me know. But essentially you formulate a type of pattern match for which invocations of the function you want to capture and in what way. Typically I want the inputs and the outputs along with execution time.
+
+Think about this for a moment. If you have a function that seems to end up getting called with a null/nil value for some unclear reason, and only in production, you could set up a trace and either wait for or trigger the behavior and just watch the answers come in. Oh, you need to know what happens one function deeper? Set another trace.
+
+There are so many tools that haven't even been built on top of this yet. I jus
