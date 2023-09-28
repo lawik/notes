@@ -26,6 +26,26 @@ Let's talk about Orion because it feeds right into this story. It is a recent de
 
 Tracing in Erlang is a mechanism for capturing information around the execution of a function. It is not limited to performance numbers. I've used both raw Erlang `dbg`, `recon` and a little bit of `recon_ex` to do tracing on production systems when I needed to figure something out. I don't know of any other system that makes this possible. Maybe I'm missing a world of tools in different ecosystems. Let me know. But essentially you formulate a type of pattern match for which invocations of the function you want to capture and in what way. Typically I want the inputs and the outputs along with execution time.
 
-Think about this for a moment. If you have a function that seems to end up getting called with a null/nil value for some unclear reason, and only in production, you could set up a trace and either wait for or trigger the behavior and just watch the answers come in. Oh, you need to know what happens one function deeper? Set another trace.
+Think about this for a moment. If you have a function that seems to end up getting called with a null/nil value for some unclear reason, and only in production, you could set up a trace and either wait for it to happen or if you can trigger the behavior. Then you just watch the answers come in.
 
-There are so many tools that haven't even been built on top of this yet. I jus
+Oh, you need to know what happens one function deeper? Set another trace. There are limits and considerations for how much tracing you should do at once but you have a lot of room to play. Most of the tools built on top of the Erlang primitives try to protect you a bit from overloading your system with trace messages.
+
+There are so many tools that haven't even been built on top of this yet. I don't think most Elixir developers are even aware that it is possible. There is no particular reason you couldn't trigger an automatic trace after a new type of error surfaces and try to capture more info on the next run, ship that to your devs. Or build a UI for picking modules, functions and args to match so that you can capture these traces. If you want you could probably adapt the results to go into your Open Telemetry trace storage. There is a world to explore here.
+
+And to some it won't be available at all. If you run your stuff on Heroku and don't add some tool for accessing a shell through the web or something you might have no way of reaching your server to pop the shell.
+
+I should have asked for a [Fly](https://fly.io) sponsorship here. This is why I'm excited about their platform. Wireguard private networking by default makes clustering much easier. It also makes connecting to servers simpler which means getting at an iex shell straightforward. I guess you could replicate most of it with Tailscale or if you really want to work for it, custom infra. It makes sense that they anchor their presence in the Elixir ecosystem by funding Chris McCord's work on LiveView. Their infra offering fits very well with Elixir. A bunch of asterisks on the maturity of the offering still and they've owned up to that. Feature-wise I really like it.
+
+A regular VPS or dedicated server is also perfectly convenient to shell into.
+
+This capability, especially with Wireguard networking, also allows you to connect a Livebook (collaborative code notebook for Elixir) to a running system. This lets you build a recipe-book of things you might want to do in your system. Rather than writing ad-hoc code that will get lost in your terminal history. I haven't put this into practice but it should be perfectly feasible.
+
+To revisit. The BEAM retains the shape of your application. You modules, your functions, they still exist. Your processes are not just abstractions that are flattened out by the compiler. They are real and exist. It has protocols and systems in place that make it possible to observe the running system at a high level for an overview as well as dive in and inspect any particular part.
+
+The unique nature of these incredibly dynamic systems warranted unusual solutions and that gave us the Erlang tracing facilities. It is not a wildly monkey-patching library from some APM provider. It is not a hack to interject into the operation of the software, it is a fundamental facility of the runtime.
+
+Playing nice with existing ecosystems and standard practices such as Open Telemetry is important. Elixir and Erlang are used for serious stuff and in mixed environments. It can't all be special, unique and quirky. And I think the telemetry handling, metrics libraries like PromEx (TODO link) and the OTel implementation make great use of the BEAM and do not require external tools to operate aside from where to store the data.
+
+Then when you look at the stuff that really is special, unique and quirky there is immense potential to go beyond what is feasible in other runtimes and languages. I think this is a big space for innovation on top of Elixir, Erlang and the runtime. The tools I've seen in this area are still fairly crude and there is so much potential.
+
+This is what you get working with a higher level of abstraction. Where the abstraction is not just about convenience and syntax but about achieving particular goals.. (TODO edit down)
