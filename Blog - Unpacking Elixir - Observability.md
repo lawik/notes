@@ -52,4 +52,8 @@ Then when you look at the stuff that really is special, unique and quirky there 
 
 This is what you get working with a higher level of abstraction that had a deeper purpose. Here the abstraction is not just about convenience and syntax but a deeply worked design that serves larger objectives. Python is a high level of abstraction primarily to make a sleek and convenient language. I am not convinced that the design of the language and runtime had clearer objectives more elevated than nice and convenient syntax. That's fine but it has long-term consequences.
 
-I think obsse
+I think observability and introspectability, of arbitrary parts of the system, at runtime, is one of those things that people don't know or really think about with Erlang and Elixir. But the magic of the BEAM is in the runtime and at runtime. It always was.
+
+---
+
+What would you want to see in observability? Am I missing fantastic contenders in other ecosystems? Let me know via email at {{< lars_email >}} or on the fedi {{< lars_twitter >}}. I really enjoy exchanges with 
