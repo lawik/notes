@@ -40,7 +40,6 @@ First step. Let me show you something.
 - The media processing is all written in Elixir. I never need to think about ffmpeg. This is the Membrane Framework.
 - And I can get pretty detailed information about the media stream. I can ask it to please enable the waveform.
 - The machine learning inference is all done from Elixir. Not a trace of Python. This is the Bumblebee project.
-- (TODO) Maybe do alpha masking from Evision with Image?
 - Every part of this holds to the same Actor model abstractions. The web UI, the steps in the media processing pipeline, the machine learning model. There are no surprises.
 
 Alright. Lets back up some of those claims I made.
@@ -51,15 +50,15 @@ When building a programming language runtime you make design choices that enshri
 
 - Ruby & Python, high-level, elegant language, dynamic, mutable and very flexible. Dog slow, terrible concurrency.
 - Java & .Net, everything plus the kitchen sink. General, generic, safe. Okay everywhere, exceptional nowhere. Fast, due to immense investment more than fundamental design.
-- Javascript's V8, high single-thread performance, cooperative multi-threading, fast if IO-bound. Very sensitive to CPU-bound work. Fast, due to immense investment in overcoming limitations.
+- Javascript's V8, high single-thread performance, cooperative multi-threading, fast if IO-bound. Very sensitive to CPU-bound work. Fast, due to immense investment in overcoming the limitations of an absurdly rushed design.
 
 Erlang, the Ericsson language, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness. It implements The Actor Model as a way to provide a high-level structured paradigm to organize your system.
 
-Concurrency and parallellism came later as a consequence of designing for this. It also provides immense possibilities at runtime, in production (??? TODO).
+Concurrency and parallellism came later as a consequence of designing for this. The choices made provide immense capabilities at runtime, once your app i is actually in production.
 
 The BEAM virtual machine has proven itself over and over again, at Ericsson, Whatsapp, Discord, Blizzard, Riot Games and many, many more. It can run millions of lightweight processes and easily distribute workloads across a global cluster.
 
-Erlang has been a nice language and the secret sauce of many cool products and projects. It never achieved wide public popularity.
+Erlang has been a cool niche language and the secret sauce of many cool products and projects. It never achieved wide public popularity but has been used in many rather serious applications.
 
 The BEAM VM is performant, by design, without the massive investment of the JVM, .Net or V8. Ask the Erlang/OTP team how many they are compared to the JVM folks.
 
