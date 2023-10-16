@@ -174,6 +174,9 @@ The Bumblebee project builds on the Nx project. Nx stands for Numerical Elixir a
 
 Bumblebee is the project that lets completely mathless web devs like myself casually bring ML models into my day-to-day work. Simple models for sentiment analysis of text run trivially on CPU. The Whisper speech-to-text model can run quite well on CPU. If you have a GPU you can do a lot more with models like Stable Diffusion and some LLMs that have been ported. Recently, Llama 2 became available. The Bumblebee abstraction level makes it trivial.
 
+TODO multi gpu
+TODO Livebook
+
 There is also a very ambitious set of OpenCV bindings that really cover your typical image recognition needs.
 
 Bumblebee and Nx are not just a ways to run some Python code that runs your ML models for you. They are an ambitious stab at the weakest part of the stack and it has already enabled a ton of practical use. It slots right into the toolset. And the ecosystem is growing around it.
@@ -198,7 +201,7 @@ Because Erlang and Elixir support hot code updates. This facility is not commonl
 
 Elixir is often deployed with clustering, commonly called Erlang Distribution, which means all nodes are connected to each other and can exchange messages. This enables a lot of cool stuff without needing separate infrastructure for coordination.
 
-So we deploy just like everyone else. But also better.
+So we deploy just like everyone else. But also better. And with more possibilities. The ceiling of potential is very high.
 
 ## Observability & introspection
 
@@ -212,6 +215,7 @@ Want to trace function calls in your system live and inspect what your code is s
 
 What can you pull from your system at run-time? What can you do to figure out why, at run-time?
 
+TODO maybe a section on Ash as a move into enterprise?
 ## A Future built four decades ago
 
 When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends up sounding too good to be true. It sounds a bit futuristic. I would expect someone to say that they are still in the early days of this roadmap and that they would love to have us along for the journey as they ship their 0.1. It sounds like unfounded hype that will never come to pass.
@@ -221,3 +225,4 @@ Fortunately for us someone decided to build something futuristic almost four dec
 As William Gibson said: the future is already here, it is just not evenly distributed yet.
 
 (timed 22:39, troligen okej, lär inte prata lika fort där)
+22
