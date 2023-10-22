@@ -225,4 +225,4 @@ Fortunately for us someone decided to build something futuristic almost four dec
 As William Gibson said: the future is already here, it is just not evenly distributed yet.
 
 (timed 22:39, troligen okej, lär inte prata lika fort där)
-22
+22:55
