@@ -1,0 +1,3 @@
+This series covers a lot of fundamentals about the underlying BEAM VM and Erlang as consequence of covering Elixir fundamentals. A lot has been said about The Actor Model when it comes to Erlang. That's kind of funny. Because the only thing that could be called actors in the Erlang world are Bjarne Däcker, Joe Armstrong, Mike Williams and Robert Virding as featured in [Erlang: The Movie](https://www.youtube.com/watch?v=xrIjfIjssLE). And it is quite charitable to call them actors. I suspect the would agree.
+
+[The Actor Model](https://en.wikipedia.org/wiki/Actor_model) is generally a model for concurrent computation. 
