@@ -52,9 +52,9 @@ When building a programming language runtime you make design choices that enshri
 - Java & .Net, everything plus the kitchen sink. General, generic, safe. Okay everywhere, exceptional nowhere. Fast, due to immense investment more than fundamental design.
 - Javascript's V8, high single-thread performance, cooperative multi-threading, fast if IO-bound. Very sensitive to CPU-bound work. Fast, due to immense investment in overcoming the limitations of an absurdly rushed design.
 
-Erlang, the Ericsson language, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness. It implements The Actor Model as a way to provide a high-level structured paradigm to organize your system.
+Erlang, the Ericsson language, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, concurrency, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness. It implements The Actor Model as a way to provide a high-level structured paradigm to organize your system.
 
-Concurrency and parallellism came later as a consequence of designing for this. The choices made provide immense capabilities at runtime, once your app is actually in production.
+Phenomenal multicore support with parallelism came later as a consequence of designing for concurrency and distributed execution. The choices made in the initial design provide immense capabilities at runtime. It doesn't end just because you app is in production.
 
 The BEAM virtual machine has proven itself over and over again, at Ericsson, Whatsapp, Discord, Blizzard, Riot Games and many, many more. It can run millions of lightweight processes and easily distribute workloads across a global cluster.
 

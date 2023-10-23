@@ -87,3 +87,20 @@ please hold
 	- JavaScript & V8, sensitive concurrency model
 - Erlang was designed for
 	- Concurrent operation
+	- Consistently low latencies
+	- High availability & robustness
+	- Hot code updates
+
+---
+
+## The Erlang Way
+
+- Created at Ericsson
+- Open sourced by a fluke of destiny (via Jane Walerud)
+- Large amounts of lightweight "processes"
+- Message passing
+- Supervision trees
+
+## The Elixir Story
+
+- 
