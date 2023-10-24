@@ -176,10 +176,10 @@ The Bumblebee project builds on the Nx project. Nx stands for Numerical Elixir a
 
 Bumblebee is the project that lets completely mathless web devs like myself casually bring ML models into my day-to-day work. Simple models for sentiment analysis of text run trivially on CPU. The Whisper speech-to-text model can run quite well on CPU. If you have a GPU you can do a lot more with models like Stable Diffusion and some LLMs that have been ported. Recently, Llama 2 became available as well as Mistral. The Bumblebee abstraction level makes it trivial.
 
-TODO multi gpu
-TODO Livebook
+Python leaves on C++ libraries like Ray for multi-node orchestration of GPU hardware. Nx already has that. Erlang made it easy.
+Every ML/AI venture is trying to ensure efficient batching of GPU loads. Nx already does it.
 
-There is also a very ambitious set of OpenCV bindings that really cover your typical image recognition needs.
+Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is collaborative, straightforward and actually useful beyond data. And you can use it to ship applications
 
 Bumblebee and Nx are not just a ways to run some Python code that runs your ML models for you. They are an ambitious stab at the weakest part of the stack and it has already enabled a ton of practical use. It slots right into the toolset. And the ecosystem is growing around it.
 
@@ -216,13 +216,11 @@ Introduce a memory leak? Alright, just sort your processes by memory usage and s
 Want to trace function calls in your system live and inspect what your code is seeing as the calls come in? Sure, that's available. There are even high-level tools like the Orion web UI that let you run distributed traces to profile particular functions and graph the performance numbers.
 
 What can you pull from your system at run-time? What can you do to figure out why, at run-time?
-
-TODO maybe a section on Ash as a move into enterprise?
 ## A Future built four decades ago
 
 When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends up sounding too good to be true. It sounds a bit futuristic. I would expect someone to say that they are still in the early days of this roadmap and that they would love to have us along for the journey as they ship their 0.1. It sounds like unfounded hype that will never come to pass.
 
-Fortunately for us someone decided to build something futuristic almost four decades ago. And then Elixir put a spotlight on it about a decade ago. You can just get started.
+Fortunately for us someone decided to build something futuristic almost four decades ago. And then Elixir put a spotlight on it about a decade ago. You can just get started. 
 
 As William Gibson said: the future is already here, it is just not evenly distributed yet.
 
