@@ -2,7 +2,7 @@
 
 COLD OPEN.
 
-I am here to tell you about a stack that has the productivity- and developer-focus of Ruby with Rails. **In contrast** to Ruby it is quite performant. It brings concurrency and parallellism that blows Node JS out of the water. It is a high-level language working at an expressive abstraction level. In the ecosystem we have an opinionated web framework with great performance and productivity, a darling of the startup world. Our clear and productive database layer prevents SQL injection at compile time. A clean and friendly frontend web UI solution that is similar to Vue JS and leaves React in the dust. Legendary reliability and unique runtime capabilities.
+I am here to tell you about a stack that has the productivity- and developer-focus of Ruby with Rails. **In contrast** to Ruby it is quite performant. It brings concurrency and parallellism that blows Node JS out of the water. It is a high-level language working at an expressive abstraction level. In the ecosystem we have an opinionated web framework with great performance and productivity, a darling of the startup world. Our clear and productive database layer prevents SQL injection at compile time. We also have a clean and friendly frontend web UI solution that is similar to Vue JS and leaves React in the dust, eliminating most needs for Javascript. Legendary reliability and unique runtime capabilities are a part of the deal.
 
 It is your completely normal web dev but better at every step. This is what reimagining your foundation can do for you.
 
