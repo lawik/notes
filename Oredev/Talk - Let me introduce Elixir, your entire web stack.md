@@ -6,7 +6,7 @@ I am here to tell you about a stack that has the productivity- and developer-foc
 
 It is your completely normal web dev but better at every step. This is what reimagining your foundation can do for you.
 
-Built on a almost 40 year old foundation of Swedish innovation it has deep roots and high branches. Used by unicorns, gaming giants and telecom for its scalability, performance and reliability. Used by startups for its velocity.
+Built on a almost 40 year old foundation of Swedish innovation it has deep roots and high branches. Used by unicorns, gaming giants and telecom for its scalability, performance and reliability. Used by startups and indie hackers for its velocity and maintainability.
 
 Oh. And it makes it trivial to do realtime, use audio and video, run machine learning inference and it simplifies your infrastructure. There is also a great IoT framework.
 
