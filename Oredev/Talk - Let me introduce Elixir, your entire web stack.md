@@ -2,9 +2,9 @@
 
 COLD OPEN.
 
-I am here to tell you about a stack that has the productivity- and developer-focus of Ruby with Rails. **In contrast** to Ruby it is quite performant. It brings concurrency and parallellism that blows Node JS out of the water. It is a high-level language working at an expressive abstraction level. In the ecosystem we have an opinionated web framework with great performance and productivity, a darling of the startup world. Our clear and productive database layer prevents SQL injection at compile time. We also have a clean and friendly frontend web UI solution that is similar to Vue JS and leaves React in the dust, eliminating most needs for Javascript. Legendary reliability and unique runtime capabilities are a part of the deal.
+I am here to tell you about a stack that has the productivity- and developer-focus of Ruby and Rails. **In contrast** to Ruby it is quite performant. It brings concurrency and parallellism that blows Node JS out of the water. It is a high-level language working at an expressive abstraction level. In the ecosystem we have an opinionated web framework with great performance and productivity, a darling of the startup world. Our clear and productive database layer prevents SQL injection at compile time. We also have a clean and friendly frontend web UI solution that is similar to Vue JS and leaves React in the dust, eliminating most needs for Javascript. Legendary reliability and unique runtime capabilities are a part of the deal.
 
-It is your completely normal web dev but better at every step. This is what reimagining your foundation can do for you.
+It is your completely normal web dev but better at every step. This is what reimagining your foundation can do for you. This is what a community and ecosystem can do.
 
 Built on a almost 40 year old foundation of Swedish innovation it has deep roots and high branches. Used by unicorns, gaming giants and telecom for its scalability, performance and reliability. Used by startups and indie hackers for its velocity and maintainability.
 
@@ -20,6 +20,7 @@ I just made a ton of claims and I want to address them all in turn to underline 
 
 Self-taught web dev.
 Through Perl, PHP, JavaScript and Python I got into Elixir.
+Done twenty years of programming.
 I've worked professionally with Elixir for four years, used it for six.
 I have learned it, used it, taught it, recruited for it and contributed to it in various way.
 
@@ -185,7 +186,7 @@ Bumblebee is the project that lets completely mathless web devs like myself casu
 Python leans on C++ libraries like Ray for multi-node orchestration of GPU hardware. Nx already has that. Erlang made it easy.
 Every ML/AI venture is trying to ensure efficient batching of GPU loads. Nx already does it.
 
-Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is collaborative, straightforward and actually useful beyond data. And you can use it to ship applications. And with 
+Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is collaborative, straightforward and actually useful beyond data. And you can use it to ship applications. And with immutability you get
 
 Bumblebee and Nx are not just a ways to run some Python code that runs your ML models for you. They are an ambitious stab at the weakest part of the stack and it has already enabled a ton of practical use. It slots right into the toolset. And the ecosystem is growing around it.
 
