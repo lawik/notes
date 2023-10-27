@@ -37,10 +37,10 @@ First step. Let me show you something.
 - Let's just show what I'm saying on the page.
 - Kind of neat. This is all a web app listening to my microphone.
 - Very little JavaScript, enough to open the mic and ship samples.
-- The rest is Elixir code through Phoenix LiveView.
-- The media processing is all written in Elixir. I never need to think about ffmpeg. This is the Membrane Framework.
-- And I can get pretty detailed information about the media stream. I can ask it to please enable the waveform.
-- The machine learning inference is all done from Elixir. Not a trace of Python. This is the Bumblebee project.
+- The rest is Elixir code driving the UI.
+- The media processing is all written in Elixir. I never need to think about ffmpeg. 
+- And I can get pretty detailed information about the media stream. I can ask it to please enable the waveform. Or even the fancy waveform.
+- The machine learning inference is all done from Elixir. Not a trace of Python in this project.
 - Every part of this holds to the same Actor model abstractions. The web UI, the steps in the media processing pipeline, the machine learning model. There are no surprises.
 
 Alright. Lets unpack some of those claims I made.
@@ -49,21 +49,25 @@ Alright. Lets unpack some of those claims I made.
 
 When building a programming language runtime you make design choices that enshrine trade-offs.
 
-- Ruby & Python, high-level, elegant language, dynamic, mutable and very flexible. Dog slow, terrible concurrency.
+- Ruby & Python, high-level, elegant languages, dynamic, mutable and very flexible. Dog slow, terrible concurrency.
 - Java & .Net, everything plus the kitchen sink. General, generic, safe. Okay everywhere, exceptional nowhere. Fast, due to immense investment more than fundamental design.
 - Javascript's V8, high single-thread performance, cooperative multi-threading, fast if IO-bound. Very sensitive to CPU-bound work. Fast, due to immense investment in overcoming the limitations of an absurdly rushed design.
 
 Elixir is built on Erlang and the BEAM Virtual Machine.
 
-Erlang, the Ericsson language or more truthfully named after the mathematician, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, concurrency, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness. It implements The Actor Model as a way to provide a high-level structured paradigm to organize your system.
+Erlang, the Ericsson language or more truthfully named after the mathematician, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, concurrency, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness.
 
-Phenomenal multicore support with parallelism came later as a consequence of designing for concurrency and distributed execution. The choices made in the initial design provide immense capabilities at runtime. It doesn't end just because you app is in production.
+Erlang ended up implementing something close to The Actor Model as a way to provide a high-level structured paradigm to organize your system.
+
+Every attempt to make a good concurrency API ends up avoiding shared state and communicating through message passing. Everything else ends up struggling with locks of some sort. Erlang is a functional language with immutability, which ensures that state cannot be shared at the language level. It has message passing as language primitive.
+
+Phenomenal multicore support with parallelism came later as a consequence of designing for concurrency and distributed execution. These are fundamentals of Erlang. The choices made in the initial design provide immense capabilities at runtime. It doesn't end just because you app is in production.
 
 The BEAM virtual machine has proven itself over and over again, at Ericsson, Whatsapp, Discord, Blizzard, Riot Games, AWS and many, many more. It can run millions of lightweight processes and easily distribute workloads across a global cluster.
 
 Erlang has been a cool niche language and the secret sauce of many impressive products and projects. It never achieved wide public popularity.
 
-The BEAM VM is performant, by design, without the massive investment of the JVM, .Net or V8. It made trade-offs optimized for building services.
+The BEAM VM is performant, by design, without the massive investment of the JVM, .Net or V8. It made trade-offs optimized for building services. And now our entire world is .. services.
 
 ## The language, Elixir
 
@@ -102,18 +106,21 @@ end
 
 ## The ecosystem of Elixir
 
-As a modern language there is great package management and sweet tooling.
+As a modern language Elixir has great package management and sweet tooling.
 
-TODO: revise, flow better
+The mix command-line tool does project generation, builds, dependency management, task running and almost everything else.
 
-- Mix - Project generation, build tooling, task running and more.
-- Hex - Dependency management, used through mix (TODO: IMAGES for hex.pm and hexdocs)
-- ExUnit - Testing (TODO: IMAGE)
-- ExDoc - Documentation & examples as doctests (TODO: IMAGE)
+The iex shell is a very full/featured REPL that is also incredibly useful when troubleshooting production systems.
+
+The hex.pm package repository and hexdocs documentation are best in class.
+
+Elixir brings ExUnit, a comprehensive and very fast testing framework, as well as ExDoc the documentation tools.
+
+There is an established Language Server that will work with your regular editors and a new, faster and more reliable one currently being developed.
 
 ## Actor model, supervision trees & more
 
-We have no time to cover the fundamentals of how Erlang achieves reliability. Suffice to say it has a very significant and well-respected legacy.
+We have no time to cover the fundamentals of how Erlang achieves reliability. Suffice to say it has a very significant and well-respected legacy in that regard.
 
 The debate is whether the nine nines are really a truthful representation of Ericsson's AXD301 and its reliability or a mere 5 nines is more accurate. You know a wretched 5.2 minutes of downtime per year.
 
@@ -127,7 +134,7 @@ He jumped at the opportunity of working with a more performant language that was
 
 They started with fundamentals so we essentially have an MVC framework that most web devs will find familiar. Thanks to Erlang it is highly concurrent and parallel. It has highly optimized templating which means server-side rendering is really fast. It also shines as an API service.
 
-They quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. Phoenix Channels. At this time they ran a benchmarking effort pushing the Phoenix WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets on a single beefy box and called it good.
+They quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. It iperates over WebSockets and is called Phoenix Channels. At this time they ran a benchmarking effort pushing the WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets on a single beefy box and called it good.
 
 In a recent move for simplicity there is no longer any Node or NPM by default. Instead Phoenix ships Esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well, nothing is too deeply integrated.
 
@@ -151,7 +158,7 @@ And it grows beyond the prototype. It has components, slots and all the things y
 
 Even being still pre-1.0 it is seeing heavy use throughout the community.
 
-And you don't have to write Javascript. But you can and there are escape hatches and integration points for what you need to get done.
+And if you use it you don't have to write Javascript. But you can. There are escape hatches and integration points for what you need to get done. This ecosystem is pragmatic that way.
 
 ## Builder stack
 
@@ -161,13 +168,13 @@ Erlang is an industry language. Ruby has always been a tool for creation. Elixir
 
 Functional Programming without pretention. No monads required. It is a workhorse replacement for your PHP, your Ruby, your Python, your Node.js that can do multiple things at the same time. And it offers a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in 1998. And some macros.
 
-Building with Elixir you join a community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered largely complete several years ago. The language is mostly being polished. Meanwhile the ecosystem grows around it.
+Building with Elixir you join a community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered largely complete several years ago. The language is mostly being polished at this point. Meanwhile the ecosystem grows around it.
 
 This is how you make something different.
 
 ## Getting fancy: Media
 
-Most web developers end up converting videos to web formats at some point. Almost everyone will use ffmpeg for that. They should. It is very capable. You create a worker on a queue, you shell out, wait for the command to complete and do something with the output. Or you start one for a live session of some sort and hope to the gods above it does not crash.
+For example. Most web developers end up converting videos to web formats at some point. Almost everyone will use ffmpeg for that. They should. It is very capable. You create a worker on a queue, you shell out, wait for the command to complete and do something with the output. Or you start one for a live session of some sort and hope to the gods above it does not crash.
 
 Managing a complex ffmpeg pipeline is not particularly fun, you have limited control, poor insight into the process and orchestrating it well is hard.
 
@@ -179,20 +186,20 @@ If you tackle live streaming, you solve regular offline transcoding as a by-prod
 
 ## Getting crafty: Machine Learning
 
-The Bumblebee project builds on the Nx project. Nx stands for Numerical Elixir and is an audacious act of tackling a thing Elixir should be terrible at. Number crunching. It builds on other tools, Google's XLA libraries, TorchX and other accelerators to enable us to write numerical calculations in Elixir that are then run in an accelerated fashion. This means that Machine Learning can be ported to Elixir. Nx is a building block to orchestrate number crunching and write it with high-level code.
+Another example. The Bumblebee project builds on the Nx project. Nx stands for Numerical Elixir and is an audacious act of tackling a thing Elixir should be terrible at. Number crunching. It builds on other tools, Google's XLA libraries, TorchX and other accelerators to enable us to write numerical calculations in Elixir that are then run in an accelerated fashion. This means that Machine Learning can be ported to Elixir. Nx is a building block to orchestrate number crunching and write it with high-level code.
 
-Bumblebee is the project that lets completely mathless web devs like myself casually bring ML models into my day-to-day work. Simple models for sentiment analysis of text run trivially on CPU. The Whisper speech-to-text model can run quite well on CPU. If you have a GPU you can do a lot more with models like Stable Diffusion and some LLMs that have been ported. Recently, Llama 2 became available as well as Mistral. The Bumblebee abstraction level makes it trivial to use in your app.
+Bumblebee is the project that lets completely mathless web devs like myself casually bring ML models into my day-to-day work. Simple models for sentiment analysis of text run trivially on CPU. The Whisper speech-to-text model can also run quite well that way. If you have a GPU you can do a lot more with models like Stable Diffusion and some LLMs that have been ported. Recently, Llama 2 became available as well as Mistral. The Bumblebee abstraction level makes it trivial to use in your app.
 
-Python leans on C++ libraries like Ray for multi-node orchestration of GPU hardware. Nx already has that. Erlang made it easy.
-Every ML/AI venture is trying to ensure efficient batching of GPU loads. Nx already does it.
+Python leans on C++ libraries like Ray for multi-node orchestration of GPU hardware. It actually implements something like the Actor model. Nx already has that. Erlang made it easy.
+Every ML/AI venture is also trying to ensure efficient batching of GPU loads. Nx already does it.
 
-Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is collaborative, straightforward and actually useful beyond data. And you can use it to ship applications. And with immutability you get
+Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is collaborative, straightforward and actually useful beyond data. And you can use it to ship applications. And with immutability you get almost perfect reproducability.
 
-Bumblebee and Nx are not just a ways to run some Python code that runs your ML models for you. They are an ambitious stab at the weakest part of the stack and it has already enabled a ton of practical use. It slots right into the toolset. And the ecosystem is growing around it.
+Bumblebee and Nx are not just ways to run some Python code that runs your ML models for you. They are an ambitious stab at the weakest part of the stack and it has already enabled a ton of practical use. It slots right into the toolset. And the ecosystem is growing around it.
 
 ## Getting hands-on: Embedded Linux
 
-The IoT framework Nerves is appropriate for most jobs where an embedded Linux is appropriate. Not microcontrollers, rather single-board computers and the like.
+How about hardware? The IoT framework Nerves is appropriate for most jobs where an embedded Linux is appropriate. Not microcontrollers, rather single-board computers and the like.
 
 It treats Linux as a thin substrate and brings up the BEAM VM as the primary operating system. Elixir sets up your networking. Elixir talks to your custom hardware. Elixir checks for updates and pulls down binary diffs of payloads. Elixir does the blue/green partition switch.
 
@@ -201,6 +208,8 @@ Instead of writing a sensitive piece of hardware in a language that is finicky a
 You also gain a lot in observability and debuggability.
 
 Nerves is a pretty tight bundle. If you have a Raspberry Pi in a drawer somewhere, I suggest you give it a try. My quickstart video for getting Nerves going was 1 minute and about 40 seconds long. It is not hard.
+
+I should also mention NervesHub which is a tool for managing a fleet of IoT devices deployed in the wild. Shipping updates to firmware, troubleshooting and all that.
 
 ## Deployment
 
@@ -225,7 +234,7 @@ Want to trace function calls in your system live and inspect what your code is s
 What can you pull from your system at run-time? What can you do to figure out why, at run-time?
 ## A Future built four decades ago
 
-When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends up sounding too good to be true. It sounds a bit futuristic. I would expect someone to say that they are still in the early days of this roadmap and that they would love to have us along for the journey as they ship their 0.1. It sounds like unfounded hype that will never come to pass.
+When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends up sounding too good to be true. It sounds a bit futuristic. I would expect someone to say that they are still in the early days of this roadmap and that they would love to have us along for the journey as they ship their developer preview. It sounds like unfounded hype that will never come to pass.
 
 Fortunately for us someone decided to build something futuristic almost four decades ago. And then Elixir put a spotlight on it about a decade ago. You can just get started. 
 
