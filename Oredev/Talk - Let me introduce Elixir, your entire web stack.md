@@ -2,7 +2,7 @@
 
 COLD OPEN.
 
-I am here to tell you about a stack that has the productivity- and developer-focus of Ruby and Rails. **In contrast** to Ruby it is quite performant. It brings concurrency and parallellism that blows Node JS out of the water. It is a high-level language working at an expressive abstraction level. In the ecosystem we have an opinionated web framework with great performance and productivity, a darling of the startup world. It brings a novel and complete database layer that leaves ORMs in the rearview. We also have a clean and friendly frontend web UI solution that is similar to Vue JS and leaves React in the dust, eliminating most needs for Javascript. Legendary reliability and unique runtime capabilities are a part of the deal.
+I am here to tell you about a stack that has the productivity- and developer-focus of Ruby and Rails. **In contrast** to Ruby it is quite performant. It brings concurrency and parallellism that blows Node JS out of the water. It is a high-level language working at an expressive abstraction level, in stark contrast to say Rust or Go. In the ecosystem we have an opinionated web framework with great performance and productivity, a darling of the startup world. It brings a novel and complete database layer that leaves ORMs in the rearview. We also have a clean and friendly frontend web UI solution that eliminates most Javascript and makes React jealous with actual immutability. Legendary reliability and unique runtime capabilities are a part of the deal.
 
 It is your completely normal web dev but better at every step. This is what reimagining your foundation can do for you. This is what a community and ecosystem can do.
 
@@ -12,11 +12,11 @@ Oh. And it makes it trivial to do realtime, use audio and video, run machine lea
 
 The most recent Stack Overflow survey says that the developers working in the language are among the best paid and most satisfied.
 
-I'm Lars Wikman. I run a site and company called Underjord.io. Let me tell you about Elixir.
+I'm Lars Wikman. I run a site and company called Underjord.io. Let me tell you about a language called Elixir.
 
 TRANSITION; BREATHER
 
-I just made a ton of claims and I want to address them all in turn to underline that I'm not actually blowing smoke or throwing unwarranted hype around. A good first step might be to share my background.
+I just made a ton of claims and I want to address them all in turn to underline that I'm not actually blowing smoke or throwing unwarranted hype around. All the hype is warranted. A good first step might be to share my background.
 
 Self-taught web dev.
 Through Perl, PHP, JavaScript and Python I got into Elixir.
