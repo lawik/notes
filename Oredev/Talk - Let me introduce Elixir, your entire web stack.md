@@ -55,7 +55,7 @@ When building a programming language runtime you make design choices that enshri
 
 Elixir is built on Erlang and the BEAM Virtual Machine.
 
-Erlang, the Ericsson language or more truthfully named after the mathematician, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, concurrency, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness.
+Erlang, the Ericsson language or more truthfully named after the mathematician, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, concurrency, consistently low latency, high availability, soft realtime, hot code updates to running systems, reliability and robustness. Those are some ambitious goals.
 
 Erlang ended up implementing something close to The Actor Model as a way to provide a high-level structured paradigm to organize your system.
 
@@ -114,7 +114,7 @@ The iex shell is a very full-featured REPL that is also incredibly useful when t
 
 The hex.pm package repository and hexdocs documentation are best in class.
 
-Elixir brings ExUnit, a comprehensive and very fast testing framework, as well as ExDoc the documentation tools.
+Elixir brings ExUnit, a comprehensive and very fast testing framework, as well as ExDoc for the documentation tooling.
 
 There is an established Language Server that will work with your regular editors and a new, faster and more reliable one currently being developed.
 
@@ -184,7 +184,7 @@ In Elixir we use Membrane. For some workloads it will bind to ffmpeg, or portaud
 
 I've done media processing in Python and PHP. It was never this powerful or easy. They have not built a set of ffmpeg bindings and called it good. They've built a framework for media processing with a focus on robust live streaming. Completely in tune with the historic strengths of Erlang. It is a design which tackles the difficult challenge first. The rest falls into place.
 
-If you tackle live streaming, you solve regular offline transcoding as a by-product.
+They tackled live streaming and they solved regular offline transcoding as a by-product.
 
 ## Getting crafty: Machine Learning
 
@@ -203,6 +203,8 @@ Most data shops use code notebooks to develop their stuff but they barely reprod
 
 Bumblebee and Nx are not just ways to run some Python code that runs your ML models for you. They are an ambitious stab at the weakest part of the stack and it has already enabled a ton of practical use. It slots right into the toolset. And the ecosystem is growing around it.
 
+How is this web?
+
 ## Getting hands-on: Embedded Linux
 
 How about hardware? The IoT framework Nerves is appropriate for most jobs where an embedded Linux is appropriate. Not microcontrollers, rather single-board computers and the like.
@@ -216,6 +218,8 @@ You also gain a lot in observability and debuggability.
 Nerves is a pretty tight bundle. If you have a Raspberry Pi in a drawer somewhere, I suggest you give it a try. My quickstart video for getting Nerves going was 1 minute and about 40 seconds long. It is not hard.
 
 I should also mention NervesHub which is a tool for managing a fleet of IoT devices deployed in the wild. Shipping updates to firmware, troubleshooting and all that.
+
+And if you need something low-level Erlang has escape hatches into C called NIFs. The community has aince built that out to also support Rust and Zig through libraries. You have options.
 
 ## Deployment
 
@@ -239,14 +243,23 @@ Did you introduce a memory leak? Alright, just sort your processes by memory usa
 
 Want to trace function calls in your system live and inspect what your code is seeing as the calls come in? Sure, that's available. There are even high-level tools like the Orion web UI that let you run distributed traces to profile particular functions and graph the performance numbers. No up front instrumentation required.
 
-What can you pull from your system at run-time? What can you do to figure out why, at run-time?
+What can you pull from your system at run-time? What can you do to figure out why, at run-time? Without redeploying?
+
+## Your whole stack
+
+Elixir and Erlang have an unusual ability to absorb work that is usually handled by external services. Caching, queues, workers, publish-subscribe messaging, clustering can all be handled in the application. Generally we don't need Redis or Nginx.
+
+Heck, Erlang ships with a full-fledged distributed database that is very capable. We still moatly use Postgres though.
+
+Phoenix LiveView continues that by taking a big bite out if the web frontend. Suddenly whole categories of apps can be self-contained without making any UX trade-offs.
+
+You application can perform multiple tasks without them disrupting each other. Your application is a whole system.
 ## A Future built four decades ago
 
 When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends up sounding too good to be true. It sounds a bit futuristic. I would expect someone to say that they are still in the early days of this roadmap and that they would love to have us along for the journey as they ship their developer preview. It sounds like unfounded hype that will never come to pass.
 
-Fortunately for us someone decided to build something futuristic almost four decades ago. And then Elixir put a spotlight on it about one decade ago. You can just get started. It exists.
+Fortunately for us someone decided to build something futuristic almost four decades ago. And then Elixir put a spotlight on it about one decade ago. You can just get started. It exists. I use it every day.
 
 As William Gibson said: the future is already here, it is just not evenly distributed yet.
 
-(timed 22:39, troligen okej, lär inte prata lika fort där)
-22:55
+30:29
