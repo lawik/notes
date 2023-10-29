@@ -4,7 +4,7 @@ This series covers a lot of fundamentals about the underlying BEAM VM and Erlang
 
 Regardless. The terminology of an "actor" does not exist* in Erlang or Elixir. There is spawning processes, sending messages and receiving them. The typical representative of a high-level, full-featured actor in Erlang is the gen_server (there are also gen_event, gen_statem and other abstractions with different features) and in Elixir we have the GenServer module, etc. A generic server. They are almost exclusively started with a link to the spawning process which should ideally be a Supervisor. I cover more of this under [the resilience part of the series](/unpacking-elixir-resilience.html).
 
-*\*  I actually recently found a use of "actor" in the ecosystem. The Ash Framework uses the term actor for the concept of "the acting party". Typically a user, team or organisation taking an action on a resource. It is unrelated and not in Elixir itself. Am*
+*\*  I actually recently found a use of "actor" in the ecosystem. The Ash Framework uses the term actor for the concept of "the acting party". Typically a user, team or organisation taking an action on a resource. It is unrelated and not in Elixir itself. Amusing though.*
 
 A GenServer is a bunch of logic started as the core loop of an Erlang process. It conforms to a number of useful APIs for debuggability, introspection and as mentioned they tend to be started with [a link](https://www.erlang.org/doc/man/erlang#link-1). Meaning the processes will be aware if the other end of the link exits.
 
@@ -16,7 +16,9 @@ One example of a typical actor usage is also one of the more agressive uses of t
 
 All Erlang processes including GenServers have a process ID, succinctly known as a PID. There are numerous ways of registering, aliasing, grouping and finally addressing them. This can be used to implement messaging patterns such as queue/broker and workers or publish/subscribe (pubsub) internally for the application. Messaging can also traverse an Erlang cluster transparently which is incredibly convenient and powerful. During messaging you don't have to be concerned about where your processes are in the cluster. If you have the PID you can reach them.
 
-Concretely, the Erlang `:pg` module handles Process groups and can register named groups across the cluster in an incredibly convenient way. This is the foundation of Phoenix PubSub. Unless you use the Redis adapter in which case you should probably move on from Heroku to get the best use out of Elixir.
+Concretely, the Erlang `:pg` module handles Process groups and can register named groups across the cluster in an incredibly convenient way. This is the foundation of Phoenix PubSub. Unless you use the Redis adapter in which case you should* probably move on from Heroku to get the best use out of Elixir.
+
+*\* I snark.*
 
 While all* code in Erlang and Elixir runs in processes and most libraries and tools you work with are built on top of gen_server and friends The Actor Model as implemented in Erlang is not as dominant to what you code looks like as Object-Oriented Programming is. It is not like in Python where "everything is an object" kind of dominates the language. Most of Elixir is a dynamic flavor of Functional Programming. You don't spend all your time doing Actor-stuff. Processes and messaging are underpinnings for the code you write and when you need to deal with state or work needs to be distributed across more units of concurrency. Certainly. However I find most of what I do is basic Functional Programming.
 
