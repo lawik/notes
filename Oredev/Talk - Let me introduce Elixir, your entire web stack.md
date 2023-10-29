@@ -249,9 +249,9 @@ What can you pull from your system at run-time? What can you do to figure out wh
 
 Elixir and Erlang have an unusual ability to absorb work that is usually handled by external services. Caching, queues, workers, publish-subscribe messaging, clustering can all be handled in the application. Generally we don't need Redis or Nginx.
 
-Heck, Erlang ships with a full-fledged distributed database that is very capable. We still moatly use Postgres though.
+Heck, Erlang ships with a full-fledged distributed database that is very capable. We still mostly use Postgres though.
 
-Phoenix LiveView continues that by taking a big bite out if the web frontend. Suddenly whole categories of apps can be self-contained without making any UX trade-offs.
+Phoenix LiveView continues that by taking a big bite out of the web frontend. Suddenly whole categories of apps can be self-contained without making any UX trade-offs.
 
 You application can perform multiple tasks without them disrupting each other. Your application is a whole system.
 ## A Future built four decades ago
