@@ -199,11 +199,11 @@ Every ML/AI venture is also trying to ensure efficient batching of GPU loads. Nx
 
 So you have a tool that can efficiently use multiple nodes with multiple GPUs and apply batching to maximise utilization. Out of the box.
 
-Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is fully collaborative, text-based, straightforward and actually useful beyond data. And you can use it to ship applications. And with immutability you get almost perfect reproducability.
+Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is fully collaborative, text-based, straightforward and actually useful beyond data. Many devs use it for operations scripting, running it against their production nodes. And you can use it to ship applications. And with immutability you get almost perfect reproducability.
 
 Bumblebee and Nx are not just ways to run some Python code that runs your ML models for you. They are an ambitious stab at the weakest part of the stack and it has already enabled a ton of practical use. It slots right into the toolset. And the ecosystem is growing around it.
 
-How is this web?
+How is this web? Well, I don't know about you but my clients talk a lot about AI right now. And this type of deep stack development, where full stack is not enough and we have to go off into data and ML is only getting more common.
 
 ## Getting hands-on: Embedded Linux
 
@@ -217,9 +217,9 @@ You also gain a lot in observability and debuggability.
 
 Nerves is a pretty tight bundle. If you have a Raspberry Pi in a drawer somewhere, I suggest you give it a try. My quickstart video for getting Nerves going was 1 minute and about 40 seconds long. It is not hard.
 
-I should also mention NervesHub which is a tool for managing a fleet of IoT devices deployed in the wild. Shipping updates to firmware, troubleshooting and all that.
+I should also mention NervesHub which is a tool for managing a fleet of IoT devices deployed in the wild. Shipping updates to firmware, troubleshooting, reverse console and all that.
 
-And if you need something low-level Erlang has escape hatches into C called NIFs. The community has aince built that out to also support Rust and Zig through libraries. You have options.
+And if you need something low-level Erlang has escape hatches into C called NIFs. The community has since built that out to also support Rust and Zig through libraries. You have options.
 
 ## Deployment
 
@@ -249,7 +249,7 @@ What can you pull from your system at run-time? What can you do to figure out wh
 
 Elixir and Erlang have an unusual ability to absorb work that is usually handled by external services. Caching, queues, workers, publish-subscribe messaging, clustering can all be handled in the application. Generally we don't need Redis or Nginx.
 
-Heck, Erlang ships with a full-fledged distributed database that is very capable. We still mostly use Postgres though.
+Heck, Erlang ships with a full-fledged distributed database that is very capable called mnesia. We still mostly use Postgres though.
 
 Phoenix LiveView continues that by taking a big bite out of the web frontend. Suddenly whole categories of apps can be self-contained without making any UX trade-offs.
 
