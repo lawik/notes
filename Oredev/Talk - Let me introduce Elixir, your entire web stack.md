@@ -26,7 +26,7 @@ I have learned it, used it, taught it, recruited for it and contributed to it in
 
 It is not the most well-known or widely used language. But it is a much appreciated and growing contender both according to what I've seen and according to surveys.
 
-It is fine to take everything about me and what I say with a grain of salt. I'm an enthusiastic person. It's fine.
+It is fine to take everything about me and what I say with a grain of salt. I'm an enthusiastic person. If you feel skeptical. Thats fine.
 
 ## The Demo
 
