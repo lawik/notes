@@ -59,7 +59,7 @@ Erlang, the Ericsson language or more truthfully named after the mathematician, 
 
 Erlang ended up implementing something close to The Actor Model as a way to provide a high-level structured paradigm to organize your system.
 
-Every attempt to make a good concurrency API ends up avoiding shared state and communicating through message passing. Everything else ends up struggling with locks of some sort. Erlang is a functional language with immutability, which ensures that state cannot be shared at the language level. Erlang also implements isolated processes as a unit of concurrent execution as well as message passing as language primitives.
+Every attempt to make a good concurrency API ends up avoiding shared state and communicating through message passing. Everything else ends up struggling with locks of some sort. Erlang is a functional language with immutability, which ensures that state cannot be shared at the language level. Erlang implements isolated processes as a unit of concurrent execution as well as message passing. These are language primitives.
 
 Phenomenal multicore support with parallelism came later as a consequence of designing for concurrency and distributed execution. These are fundamentals of Erlang. The choices made in the initial design provide immense capabilities at runtime. It doesn't end just because you app is in production.
 
