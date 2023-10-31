@@ -150,7 +150,7 @@ It has since inspired many similar projects. Laravels Livewire for example which
 
 It is a simple design that covers immense ground. A LiveView marries a small Javascript library, a WebSocket and a server-side Actor that holds state. This allows us to leverage the runtime's immense capabilities with managing state and operating concurrently. We retain near-realtime latency. It spares us from maintaining layers of API and building out a full-fledged frontend app in some other framework.
 
-This is time to market. This is good beating out perfect. This is velocity and shipping. Keep It Simple Stupid. This is doing less. Leveraging a powerful runtime and well-designed frameworks.
+This is time to market. This is good beating out perfect. This is velocity and shipping. Keep It Simple Stupid. This is doing less. Leveraging a powerful runtime and well-designed frameworks. This is healthy abstraction.
 
 But the devil is in the details right?
 It is not for offline-first. It is not for super-intense interactivity.
@@ -172,7 +172,7 @@ Erlang is an industry language not an academic one. Ruby has always been a tool 
 
 Functional Programming without pretention. No monads required. It is a workhorse replacement for your PHP, your Ruby, your Python, your Node.js that can do multiple things at the same time. And it offers a web framework which gives you as much abstraction as it can with minimal weird magic. Simply building on top of the powerful abstractions that escaped Ericsson in 1998. And some macros.
 
-Building with Elixir you join a community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered largely complete several years ago. The language is mostly being polished at this point. Meanwhile the ecosystem grows around it.
+Building with Elixir you join a community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered largely complete several years ago. The language is mostly being polished at this point. Meanwhile the ecosystem grows around it. That is where the innovation happens.
 
 This is how you make something fundamentally different.
 
@@ -213,7 +213,7 @@ How about hardware? The IoT framework Nerves is appropriate for most jobs where 
 
 It treats Linux as a thin substrate and brings up the BEAM VM as the primary operating system. Elixir sets up your networking. Elixir talks to your custom hardware. Elixir checks for updates and pulls down binary diffs of payloads. Elixir does the blue/green partition switch.
 
-Instead of writing a sensitive piece of hardware in a language that is finicky and hard to get right, like C. You write it in a language known for resilience and reliability. You get granular error handling and fault recovery. And you get to write your product in a high-level language without sacrificing too much in performance. Without losing control of your hardware.
+Instead of writing code for a sensitive piece of hardware in a language that is finicky and hard to get right, like C. You write it in a language known for resilience and reliability. You get granular error handling and fault recovery. And you get to write your product in a high-level language without sacrificing too much in performance.
 
 You also gain a lot in observability and debuggability.
 
@@ -227,13 +227,13 @@ And if you need something low-level Erlang has escape hatches into C called NIFs
 
 Most people deploy Elixir the way they deploy everything else. In a Docker container. You can also compile a release which is essentially an archive that contains everything required to run your application. A kind of complicated variant of a static binary. Why is it complicated?
 
-Because Erlang and Elixir support hot code updates. This facility is not commonly used but if you want to hear about people who do use it I suggest watching Erlang talks from Whatsapp or listen to BEAM Radio episode 12 with Bryan Hunter, titled Punking the Servers. Fundamentally this allows us to update the code of our system without ever bringing it down.
+Because Erlang and Elixir support hot code updates. This facility is not commonly used but if you want to hear about people who do use it I suggest watching Erlang talks from Whatsapp or listen to BEAM Radio episode 12 with Bryan Hunter, titled Punking the Servers. Fundamentally this allows us to update the code of our system without ever bringing it down. Supposedly Whatsapp ran for ten years before they did a full restart.
 
-It also powers the Phoenix dev server to do hot updates.
+It also powers the Phoenix dev server to do hot updates so we all use it every day in development.
 
 Elixir is often deployed with clustering, commonly called Erlang Distribution, which means all nodes are connected to each other and can exchange messages. This enables a lot of cool stuff without needing separate infrastructure for coordination. An Elixir app usually does not need Redis or RabbitMQ for coordination or caching.
 
-So we deploy just like everyone else. But also better. And with more possibilities. The ceiling of potential is very high.
+So we deploy just like everyone else. But also better. And with more possibilities. The ceiling of potential is very high. But the techniques you already know will work fine.
 
 ## Observability & introspection
 
