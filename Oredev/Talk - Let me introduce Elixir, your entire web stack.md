@@ -26,7 +26,7 @@ I have learned it, used it, taught it, recruited for it and contributed to it in
 
 It is not the most well-known or widely used language. But it is a much appreciated and growing contender both according to what I've seen and according to surveys.
 
-It is fine to take everything about me and what I say with a grain of salt. I'm an enthusiastic person. If you feel skeptical. Thats fine.
+It is fine to take everything about me and what I say with a grain of salt. I'm an enthusiastic person. If you feel skeptical. Thats fine. But do look into what I am talking about. See for yourself.
 
 ## The Demo
 
@@ -61,7 +61,7 @@ Erlang ended up implementing something close to The Actor Model as a way to prov
 
 Every attempt to make a good concurrency API ends up avoiding shared state and communicating through message passing. Everything else ends up struggling with locks of some sort. Erlang is a functional language with immutability, which ensures that state cannot be shared at the language level. Erlang implements isolated processes as a unit of concurrent execution as well as message passing. These are language primitives.
 
-Phenomenal multicore support with parallelism came later as a consequence of designing for concurrency and distributed execution. These are fundamentals of Erlang. The choices made in the initial design provide immense capabilities at runtime. It doesn't end just because you app is in production.
+Phenomenal multicore support with parallelism came later as a consequence of designing for concurrency, low latency and distributed execution. These are fundamentals of Erlang. The choices made in the initial design provide immense capabilities at runtime. It doesn't end just because you app is in production.
 
 The BEAM virtual machine has proven itself over and over again, at Ericsson, Whatsapp, Discord, Blizzard, Riot Games, AWS and many, many more. It can run millions of lightweight processes and easily distribute workloads across a global cluster.
 
@@ -145,6 +145,8 @@ Time to get disruptive.
 ## Phoenix LiveView
 
 Imagine a full stack paradigm which covers 95% of use-cases by putting the server first and pushing the Actor model all the way to where it can smell the browser. With real functional programming, actual immutability, highly optimized templates and diffing to minimize data over the wire you get a fully interactive web app while only writing Elixir code. That's Phoenix LiveView.
+
+It has since inspired many similar projects. Laravels Livewire for example which due to runtime differences is not as capable.
 
 It is a simple design that covers immense ground. A LiveView marries a small Javascript library, a WebSocket and a server-side Actor that holds state. This allows us to leverage the runtime's immense capabilities with managing state and operating concurrently. We retain near-realtime latency. It spares us from maintaining layers of API and building out a full-fledged frontend app in some other framework.
 
