@@ -74,37 +74,6 @@ To summarize the runtime and design. The BEAM VM is performant for certain workl
 
 Built by a Rubyist, José Valim, looking for something more performant. Elixir is very reminiscent of Ruby at the surface level. One layer deeper than syntax you quickly find it is a high-level, dynamic, **functional** programming language. Precisely like Erlang, semantically equivalent, but more approachable.
 
-```elixir
-
-@doc """
-Take the popular combination of a first name and a last name. Produces a full name in the typical style.
-
-### Examples
-
-  iex> to_fullname("Lars ", "Wikman")
-  "Lars Wikman"
-  iex> to_fullname("Lars", "Wikman", true)
-  "LARS WIKMAN"
-
-"""
-def to_fullname(firstname, lastname, airport_mode? \\ false) do
-	[firstname, lastname]
-	|> Enum.map(fn name ->
-		name
-		|> String.trim()
-		|> then(fn name ->
-		  if airport_mode? do
-			  String.upcase(name)
-		  else
-			  String.capitalize(name)
-		  end
-		end)
-	end)		
-	|> Enum.join(" ")
-end
-
-```
-
 ## The ecosystem of Elixir
 
 As a modern language Elixir has great package management and sweet tooling.
@@ -117,13 +86,13 @@ The hex.pm package repository and hexdocs documentation are best in class.
 
 Elixir brings ExUnit, a comprehensive and very fast testing framework, as well as ExDoc for the documentation tooling.
 
-There is an established Language Server that will work with your regular editors and a new, faster and more reliable one currently being developed.
+There is an established Language Server that should work with your regular editors. There is also a lot happening in this space.
 
 ## Actor model, supervision trees & more
 
 We have no time to cover the fundamentals of how Erlang achieves reliability. Suffice to say it has a very significant and well-respected legacy in that regard.
 
-The debate is whether the nine nines are really a truthful representation of Ericsson's AXD301 and its reliability or a mere 5 nines is more accurate. You know a wretched 5.2 minutes of downtime per year. Absolute garbage.
+The debate is whether the nine nines are really a truthful representation of Ericsson's AXD301 and its reliability or a mere 5 nines is more accurate. You know a wretched 5.2 minutes of downtime per year. Absolute garbage numbers.
 
 If you want to understand the resiliency model, look up Supervision trees for a start. Elixir inherits this foundation and uses it for everything. It is a fundamental part of the language and runtime. And it limits the impact of errors in your application. I can also direct you to my Unpacking Elixir blog series that covers a lot of this ground if you want to read up on it.
 
@@ -135,9 +104,9 @@ He jumped at the opportunity of working with a more performant language that was
 
 They started with fundamentals so we essentially have an MVC framework that most web devs will find familiar. Thanks to Erlang it is highly concurrent and parallel. It has highly optimized templating which means server-side rendering is really fast. It also shines as an API service.
 
-They quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. It operates over WebSockets and is called Phoenix Channels. At that time they ran a benchmarking effort pushing the WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets on a single beefy box and called it good.
+They quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. It operates over WebSockets and is called Phoenix Channels. At that time they ran a benchmarking effort pushing the WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets actively chattering on a single beefy box and called it good.
 
-In a recent move for simplicity there is no longer any Node or NPM by default. Instead Phoenix ships Esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well if you need more of the Javascript ecosystem but it was a constent source of frustration and weird bugs. And so it is no longer shipped by default. I really prefer this.
+In a recent move for simplicity there is no longer any Node or NPM by default. Instead Phoenix ships Esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well if you need more of the Javascript ecosystem. The Node integration was a constent source of frustration and weird bugs. And so it is no longer shipped by default. I really prefer this.
 
 All in all a fundamentally very strong web framework. This is just the beginning.
 
@@ -149,9 +118,9 @@ Imagine a full stack paradigm which covers 95% of use-cases by putting the serve
 
 It has since inspired many similar projects. Laravel's Livewire for example which due to runtime differences is not as capable. But the fundamental idea is useful enough that it is still powerful.
 
-It is a simple design that covers immense ground. A LiveView marries a small Javascript library, a WebSocket and a server-side Actor that holds state. This allows us to leverage the runtime's immense capabilities with managing state and operating concurrently. We retain near-realtime latency. It spares us from maintaining layers of API and building out a full-fledged frontend app in some other framework.
+LiveView is a simple design that covers immense ground. It marries a small Javascript library, a WebSocket and a server-side Actor that holds state. This allows us to leverage the runtime's immense capabilities with managing state and operating concurrently. We retain near-realtime latency. It spares us from maintaining layers of API and building out a full-fledged frontend app in some other framework.
 
-This is time to market. This is good beating out perfect. This is velocity and shipping. Keep It Simple Stupid. This is doing more with less. Leveraging a powerful runtime and well-designed frameworks. This is healthy abstraction.
+This is time to market. This is good beating out perfect. This is velocity and shipping. Keep It Simple Stupid. This is doing more with less. Leveraging a powerful runtime and well-designed frameworks. This is what healthy abstraction is all about.
 
 But the devil is in the details right?
 It is not for offline-first. It is not for super-intense interactivity.
@@ -167,7 +136,7 @@ This ecosystem is pragmatic that way.
 
 ## Builder stack
 
-This is a web stack by builders for builders. I've been to ElixirConf. It is dominated by people who use the language and framework to get stuff done.
+This is a web stack by builders for builders. I've been to ElixirConf. It is dominated by people who use the language and frameworks to get stuff done.
 
 Erlang is an industry language not an academic one. Ruby has always been a tool for creation. Elixir is a synthesis of those cultures and the software they built.
 
@@ -199,12 +168,12 @@ Bumblebee is the project that lets completely mathless web devs like myself casu
 
 Simple models for sentiment analysis of text run trivially on CPU. The Whisper speech-to-text model can also run quite well that way. If you have a GPU you can do a lot more with models like Stable Diffusion and some LLMs that have been ported. Recently, Llama 2 became available as well as Mistral. The Bumblebee abstraction level makes it trivial to use in your app.
 
-While Python leans on C++ libraries like Ray for multi-node orchestration of GPU hardware. In the end it actually implements something like the Actor model. Nx already has that. Erlang made it easy.
+The challenge with ML is orchestration. While Python leans on C++ libraries like Ray for multi-node orchestration of GPU hardware. In the end it actually implements something like the Actor model. Nx already has that. Erlang made it easy.
 Every ML/AI venture is also trying to ensure efficient batching of GPU loads. Nx already does it.
 
 So you have a tool that can efficiently use multiple nodes with multiple GPUs and apply batching to maximise utilization. Out of the box.
 
-Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is fully collaborative, text-based, straightforward and actually useful beyond data. Many devs use it for operations scripting, running it against their production nodes. And you can use it to ship applications. And with immutability you get almost perfect reproducability.
+Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is fully collaborative, text-based, straightforward and actually useful beyond data. Many devs use it for operations scripting, running it against their production nodes. And you can use it to ship small multiplayer applications. And with immutability you get almost perfect reproducability. It eliminates accidental global state.
 
 Bumblebee and Nx are not just ways to run some Python code that runs your ML models for you. They are an ambitious stab at the weakest part of the stack and it has already enabled a ton of practical use. It slots right into the toolset. And the ecosystem is growing around it.
 
@@ -219,7 +188,7 @@ How about hardware? The IoT framework Nerves is appropriate for most jobs where 
 
 It treats Linux as a thin substrate and brings up the BEAM VM as the primary operating system. Elixir sets up your networking. Elixir talks to your custom hardware. Elixir checks for updates and pulls down binary diffs of payloads. Elixir does the blue/green partition switch.
 
-Instead of writing code for a sensitive piece of hardware in a language that is finicky and hard to get right, like C. You write it in a language known for resilience and reliability. Cisco uses Erlang by the way. You get granular error handling and fault recovery. And you get to write your product in a high-level language without sacrificing too much in performance.
+Instead of writing code for a sensitive piece of hardware in a language that is finicky and hard to get right, like C. You write it in a language known for resilience and reliability. Cisco uses Erlang by the way, so shipping the BEAM on hardware is hardly new. You get granular error handling and fault recovery. And you get to write your product in a high-level language without sacrificing too much in performance. Consistently low latencies after all.
 
 You also gain a lot in observability and debuggability.
 
@@ -237,7 +206,7 @@ Because Erlang and Elixir support hot code updates. This facility is not commonl
 
 It also powers the Phoenix dev server to do hot updates so we all use it every day in development.
 
-Elixir is often deployed with clustering, commonly called Erlang Distribution, which means all nodes are connected to each other and can exchange messages. This enables a lot of cool stuff without needing separate infrastructure for coordination. An Elixir app usually does not need Redis or RabbitMQ for coordination or caching.
+Elixir is often deployed with clustering, commonly called Erlang Distribution, which means all nodes are connected to each other and can exchange messages. This enables a lot of cool stuff without needing separate infrastructure for coordination.
 
 So we deploy just like everyone else. But also better. And with more possibilities. The ceiling of potential is very high. But the techniques you already know will work fine.
 
@@ -249,25 +218,25 @@ Erlang has tools for introspecting and manipulating a running system and all of 
 
 Did you introduce a memory leak? Alright, just sort your processes by memory usage and see which one it is. Everything runs in a process. Has to be one of them.
 
-Want to trace function calls in your system live and inspect what your code is seeing as the calls come in? Sure, that's available. There are even high-level tools like the Orion web UI that let you run distributed traces to profile particular functions and graph the performance numbers across your cluster. No up front instrumentation required just install the library.
+Want to trace function calls in your system live and inspect what your code is seeing as the calls come in? Sure, that's available, it is called tracing. There are even high-level tools like the Orion web UI that let you run distributed traces to profile particular functions and graph the performance numbers across your cluster. No up front instrumentation required just install the library.
 
-What can you pull from your system at run-time? What can you do to figure out why, at run-time? Without redeploying?
+Let me ask you. What can you pull from your system at run-time? What can you do to figure out why, at run-time? Without redeploying?
 
 ## Your whole stack
 
-Elixir and Erlang have an unusual ability to absorb work that is usually handled by external services. Caching, queues, workers, publish-subscribe messaging, clustering can all be handled in the application. Generally we don't need Redis or Nginx.
+Elixir and Erlang have an unusual ability to absorb work that is usually handled by external services. Caching, queues, workers, publish-subscribe messaging, clustering can all be handled in the application. Generally we don't need Redis, RabbitMQ or Nginx.
 
 Heck, Erlang ships with a full-fledged distributed database that is very capable called mnesia. We still mostly use Postgres though.
 
 Phoenix LiveView continues that by taking a big bite out of the web frontend. Suddenly whole categories of apps can be self-contained without making any UX trade-offs.
 
-You application can perform multiple tasks without them disrupting each other. Your application is a whole system.
+You application can perform multiple tasks without them disrupting each other. Your application can be your whole system.
 ## A Future built four decades ago
 
-When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends up sounding too good to be true. It sounds a bit futuristic. I would expect someone to say that they are still in the early days of this roadmap and that they would love to have us along for the journey as they ship their developer preview. It sounds like unfounded hype that will never come to pass.
+When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends up sounding too good to be true. It sounds a bit futuristic. I would expect someone to say that they are still in the early days of this roadmap and that they would love to have us along for the journey as they ship their developer preview. Enter your email and sign up here. It sounds like unfounded hype that will never come to pass.
 
 Fortunately for us someone decided to build something futuristic almost four decades ago. And then Elixir put a spotlight on it about one decade ago. You can just get started. It exists. I use it every day.
 
 As William Gibson said: the future is already here, it is just not evenly distributed yet.
 
-30:29
+33:51
