@@ -26,8 +26,7 @@ I have learned it, used it, taught it, recruited for it and contributed to it in
 
 It is not the most well-known or widely used language. But it is a much appreciated and growing contender both according to what I've seen and according to surveys.
 
-It is fine to take everything about me and what I say with a grain of salt. I'm an enthusiastic person. If you feel skeptical. Thats fine. But do look into what I am talking about. See for yourself.
-
+It is fine to take everything about me and what I say with a grain of salt. I'm an enthusiastic person. If you feel skeptical. That's fine. But do look into what I am talking about. See for yourself.
 ## The Demo
 
 First off. Let me show you something.
@@ -43,7 +42,7 @@ First off. Let me show you something.
 - The machine learning inference is all done from Elixir. Not a trace of Python in this project.
 - Every part of this holds to the same Actor model abstractions. The web UI, the steps in the media processing pipeline, the machine learning model. There are no surprises.
 
-Alright. Lets dig into Elixir and what it is.
+Alright. Lets dig into Elixir and what it is. This requires us to talk about languages, runtimes and design.
 
 ## The runtime, Erlang & the BEAM
 
@@ -55,21 +54,21 @@ When building a programming language runtime you make design choices that enshri
 
 Elixir is built on Erlang and the BEAM Virtual Machine.
 
-Erlang, the Ericsson language or more truthfully named after the mathematician, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, concurrency, consistently low latency aka soft realtime, high availability, hot code updates to running systems, reliability and robustness. Those are some ambitious goals.
-
-Erlang ended up implementing something close to The Actor Model as a way to provide a high-level structured paradigm to organize your system.
+Erlang, the Ericsson language or more truthfully named after the mathematician, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, concurrency, consistently low latency aka soft realtime, high availability, hot code updates to running systems all in service of reliability and robustness. Those are some ambitious goals.
 
 Every attempt to make a good concurrency API ends up avoiding shared state and communicating through message passing. Everything else ends up struggling with locks of some sort. Erlang is a functional language with immutability, which ensures that state cannot be shared at the language level. Erlang implements isolated processes as a unit of concurrent execution as well as message passing. These are language primitives.
 
+Erlang ended up implementing something close to The Actor Model as a way to provide a high-level structured paradigm to organize your system. When I reference the Actor Model I refer to what Erlang implemented, not the original idea and concept.
+
 Phenomenal multicore support with parallelism came later as a consequence of designing for concurrency, low latency and distributed execution. These are fundamentals of Erlang. The choices made in the initial design provided immense capabilities as computers evolved and CPUs started scaling out horizontally with more cores.
 
-This high-level of abstraction also provides unique capabilities at runtime. It doesn't stop just because you app is in production.
+Robert Virding, one of the Erlang creators, has established a saying.
 
 The BEAM virtual machine has proven itself over and over again, at Ericsson, Whatsapp, Discord, Blizzard, Riot Games, AWS and many, many more. It can run millions of lightweight processes and easily distribute workloads across a global cluster.
 
 Erlang has been a cool niche language and the secret sauce of many impressive products and projects. It never achieved wide public popularity.
 
-The BEAM VM is performant, by design, without the massive investment of the JVM, .Net or V8. It made trade-offs optimized for building services. And now our entire world is .. services. The web is services.
+To summarize the runtime and design. The BEAM VM is performant for certain workloads, by design, without the massive investment of the JVM, .Net or V8. It made trade-offs optimized for building services. And now our entire world is .. services. The web is services.
 
 ## The language, Elixir
 
