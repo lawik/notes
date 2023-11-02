@@ -2,7 +2,7 @@
 
 COLD OPEN.
 
-I am here to tell you about a stack that has the productivity- and developer-focus of Ruby and Rails. **In contrast** to Ruby it is quite performant. It brings concurrency and parallellism that blows Node JS out of the water. It is a high-level language working at an expressive abstraction level, in stark contrast to say Go or Rust. In the ecosystem we have an opinionated web framework with great performance and productivity. It brings a novel and complete database layer that leaves ORMs in the rearview. We also have a clean and friendly frontend web UI solution that eliminates most Javascript and makes React jealous with actual immutability. Legendary reliability and unique runtime capabilities are a part of the deal.
+I am here to tell you about a stack that has the productivity- and developer-focus of Ruby and Rails. **In contrast** to Ruby it is quite performant. It brings concurrency and parallellism that blows Node JS out of the water. It is a high-level language working at an expressive abstraction level, in stark contrast to say Go or Rust. In the ecosystem we have an opinionated web framework with great performance and productivity. It brings a novel and complete database layer that leaves ORMs in the rearview. We also have a clean and friendly frontend web UI solution that eliminates the need for most Javascript and makes React jealous with actual functional programming. Legendary reliability and unique runtime capabilities are a part of the deal.
 
 It is your completely normal web dev but better at every step. This is what reimagining your foundation can do for you. This is what a community and ecosystem can do.
 
@@ -24,7 +24,7 @@ I've done twentyfive years of programming, mostly for the web.
 I've worked professionally with Elixir for four years, used it for six.
 I have learned it, used it, taught it, recruited for it and contributed to it in various way.
 
-It is not the most well-known or widely used language. But it is a much appreciated and growing contender both according to what I've seen and according to surveys.
+It is not the most well-known or widely used language. It is a growing contender.
 
 It is fine to take everything about me and what I say with a grain of salt. I'm an enthusiastic person. If you feel skeptical. That's fine. But do look into what I am talking about. See for yourself.
 ## The Demo
@@ -116,7 +116,7 @@ Time to get disruptive.
 
 Imagine a full stack paradigm which covers 95% of use-cases by putting the server first and pushing the Actor model all the way to where it can smell the browser. With real functional programming, actual immutability, highly optimized templates and diffing to minimize data over the wire you get a fully interactive web app while only writing Elixir code. That's Phoenix LiveView.
 
-It has since inspired many similar projects. Laravel's Livewire for example which due to runtime differences is not as capable. But the fundamental idea is useful enough that it is still powerful.
+It has since inspired many similar projects. Laravel's Livewire for example which due to runtime differences is not as capable. But the fundamental idea is useful enough that it is still great.
 
 LiveView is a simple design that covers immense ground. It marries a small Javascript library, a WebSocket and a server-side Actor that holds state. This allows us to leverage the runtime's immense capabilities with managing state and operating concurrently. We retain near-realtime latency. It spares us from maintaining layers of API and building out a full-fledged frontend app in some other framework.
 
@@ -142,7 +142,7 @@ Erlang is an industry language not an academic one. Ruby has always been a tool 
 
 Functional Programming without pretention. No monads required. It is a workhorse replacement for your PHP, your Ruby, your Python, your Node.js and it can do multiple things at the same time. And it offers a web framework which gives you as much abstraction as it can with minimal weird magic. It is simply building on top of the powerful abstractions that escaped Ericsson in 1998. And some macros.
 
-Building with Elixir you join a community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered largely complete several years ago. The language is mostly being polished at this point. Meanwhile the ecosystem grows around it. That is where the innovation happens. Outside of the core.
+Building with Elixir you join a community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered largely complete several years ago, an announcement that received massive applause. The language is mostly being polished at this point. Meanwhile the ecosystem grows around it. That is where the innovation happens. Outside of the core.
 
 Layers of good, thoughtful design gives us something fundamentally different.
 
@@ -171,7 +171,7 @@ Simple models for sentiment analysis of text run trivially on CPU. The Whisper s
 The challenge with ML is orchestration. While Python leans on C++ libraries like Ray for multi-node orchestration of GPU hardware. In the end it actually implements something like the Actor model. Nx already has that. Erlang made it easy.
 Every ML/AI venture is also trying to ensure efficient batching of GPU loads. Nx already does it.
 
-So you have a tool that can efficiently use multiple nodes with multiple GPUs and apply batching to maximise utilization. Out of the box.
+So you have a tool that can efficiently use multiple nodes with multiple GPUs and apply batching to maximise utilization. With no additional work.
 
 Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is fully collaborative, text-based, straightforward and actually useful beyond data. Many devs use it for operations scripting, running it against their production nodes. And you can use it to ship small multiplayer applications. And with immutability you get almost perfect reproducability. It eliminates accidental global state.
 
@@ -238,5 +238,7 @@ When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends u
 Fortunately for us someone decided to build something futuristic almost four decades ago. And then Elixir put a spotlight on it about one decade ago. You can just get started. It exists. I use it every day.
 
 As William Gibson said: the future is already here, it is just not evenly distributed yet.
+
+Thank 
 
 33:51
