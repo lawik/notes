@@ -104,7 +104,7 @@ They started with fundamentals so we essentially have an MVC framework that most
 
 They quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. It operates over WebSockets and is called Phoenix Channels. At that time they ran a benchmarking effort pushing the WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets actively chattering on a single beefy box and called it good.
 
-In a recent move for simplicity there is no longer any Node or NPM by default. Instead Phoenix ships Esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well if you need more of the Javascript ecosystem. The Node integration was a constent source of frustration and weird bugs. And so it is no longer shipped by default. I really prefer this.
+In a recent move for simplicity there is no longer any Node or NPM by default. Instead Phoenix ships Esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well if you need more of the Javascript ecosystem. The Node integration was a constant source of frustration and weird bugs. And so it is no longer shipped by default. I really prefer this.
 
 All in all a fundamentally very strong web framework. This is just the beginning.
 
@@ -169,7 +169,7 @@ Simple models for sentiment analysis of text run trivially on CPU. The Whisper s
 The challenge with ML is orchestration. While Python leans on C++ libraries like Ray for multi-node orchestration of GPU hardware. In the end it actually implements something like the Actor model. Nx already has that. Erlang made it easy.
 Every ML/AI venture is also trying to ensure efficient batching of GPU loads. Nx already does it.
 
-So you have a tool that can efficiently use multiple nodes with multiple GPUs and apply batching to maximise utilization. With no additional work.
+So you have a tool that can efficiently use multiple nodes with multiple GPUs each and apply batching to maximise utilization. With no additional work.
 
 Most data shops use code notebooks to develop their stuff but they barely reproduce, can't be shipped and are severely limited. Elixir has Livebook which is fully collaborative, text-based, straightforward and actually useful beyond data. Many devs use it for operations scripting, running it against their production nodes. And you can use it to ship small multiplayer applications. And with immutability you get almost perfect reproducability. It eliminates accidental global state.
 
