@@ -56,9 +56,7 @@ Elixir is built on Erlang and the BEAM Virtual Machine.
 
 Erlang, the Ericsson language or more truthfully named after the mathematician, was built to be a high-level, opinionated language for solving hard problems in the telecom space. The requirements were, concurrency, consistently low latency aka soft realtime, high availability, hot code updates to running systems all in service of reliability and robustness. Those are some ambitious goals.
 
-Every attempt to make a good concurrency API ends up avoiding shared state and communicating through message passing. Everything else ends up struggling with locks of some sort. Erlang is a functional language with immutability, which ensures that state cannot be shared at the language level. Erlang implements isolated processes as a unit of concurrent execution as well as message passing. These are language primitives.
-
-Erlang ended up implementing something close to The Actor Model as a way to provide a high-level structured paradigm to organize your system. When I reference the Actor Model I refer to what Erlang implemented, not the original idea and concept.
+Every attempt to make a good concurrency API ends up avoiding shared state and communicating through message passing. Everything else ends up struggling with locks of some sort. Erlang is a functional language with immutability, which ensures that state cannot be shared at the language level. Erlang implements isolated processes as a unit of concurrent execution as well as message passing. These are language primitives. This is close to a concept called The Actor Model but Erlang was not created with that in mind.
 
 Phenomenal multicore support with parallelism came later as a consequence of designing for concurrency, low latency and distributed execution. These are fundamentals of Erlang. The choices made in the initial design provided immense capabilities as computers evolved and CPUs started scaling out horizontally with more cores.
 
