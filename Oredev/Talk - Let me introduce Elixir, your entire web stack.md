@@ -144,7 +144,7 @@ Functional Programming without pretention. No monads required. It is a workhorse
 
 Building with Elixir you join a community that has spawned, grown and progressed without a megacorp at the helm. An ecosystem that is stable and where code rarely churns or changes. A language that was considered largely complete several years ago, an announcement that received massive applause. The language is mostly being polished at this point. Meanwhile the ecosystem grows around it. That is where the innovation happens. Outside of the core.
 
-Layers of good, thoughtful design gives us something fundamentally different.
+Layers of good, thoughtful design gives us something fundamentally different to build on.
 
 ## Getting fancy: Media
 
@@ -188,13 +188,13 @@ How about hardware? The IoT framework Nerves is appropriate for most jobs where 
 
 It treats Linux as a thin substrate and brings up the BEAM VM as the primary operating system. Elixir sets up your networking. Elixir talks to your custom hardware. Elixir checks for updates and pulls down binary diffs of payloads. Elixir does the blue/green partition switch.
 
-Instead of writing code for a sensitive piece of hardware in a language that is finicky and hard to get right, like C. You write it in a language known for resilience and reliability. Cisco uses Erlang by the way, so shipping the BEAM on hardware is hardly new. You get granular error handling and fault recovery. And you get to write your product in a high-level language without sacrificing too much in performance. Consistently low latencies after all.
+Instead of writing code for a sensitive piece of hardware in a language that is finicky and hard to get right, like C. You write it in a language known for resilience and reliability. Cisco uses Erlang by the way, so shipping the BEAM on hardware is hardly new. You get granular error handling and fault recovery. And you get to write your product in a high-level language without sacrificing too much in performance.
 
 You also gain a lot in observability and debuggability.
 
 Nerves is a pretty tight bundle. If you have a Raspberry Pi in a drawer somewhere, I suggest you give it a try. My quickstart video for getting Nerves going was 1 minute and about 40 seconds long. It is not hard.
 
-I should also mention NervesHub which is a tool for managing a fleet of IoT devices deployed in the wild. Shipping signed firmware updates, binary diffing, troubleshooting, reverse console and all that.
+I should also mention NervesHub which is an open source tool for managing a fleet of IoT devices deployed in the wild. Shipping signed firmware updates, binary diffing, troubleshooting, reverse console and all that.
 
 And if you need something low-level Erlang has escape hatches into C called NIFs. The community has since built that out to also support Rust and Zig through libraries. You have options.
 
@@ -216,11 +216,11 @@ While Elixir is a good citizen of the world and supports Open Telemetry and has 
 
 Erlang has tools for introspecting and manipulating a running system and all of those tools are available to us. This is what a real high-level of abstraction should look like.
 
-Did you introduce a memory leak? Alright, just sort your processes by memory usage and see which one it is. Everything runs in a process. Has to be one of them.
+If you introduce a memory leak you can just sort your processes by memory usage and see which one it is. Everything runs in a process. Has to be one of them.
 
 Want to trace function calls in your system live and inspect what your code is seeing as the calls come in? Sure, that's available, it is called tracing. There are even high-level tools like the Orion web UI that let you run distributed traces to profile particular functions and graph the performance numbers across your cluster. No up front instrumentation required just install the library.
 
-Let me ask you. What can you pull from your system at run-time? What can you do to figure out why, at run-time? Without redeploying?
+Let me ask you. What can you pull from your system at run-time? What can you do to figure out why, at run-time? Without redeploying? How much are you paying for it?
 
 ## Your whole stack
 
