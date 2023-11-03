@@ -239,6 +239,6 @@ Fortunately for us someone decided to build something futuristic almost four dec
 
 As William Gibson said: the future is already here, it is just not evenly distributed yet.
 
-Thank 
+Thank you for listening.
 
 33:51
