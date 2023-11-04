@@ -228,7 +228,7 @@ Heck, Erlang ships with a full-fledged distributed database that is very capable
 
 Phoenix LiveView continues that by taking a big bite out of the web frontend. Suddenly whole categories of apps can be self-contained without making any UX trade-offs.
 
-You application can perform multiple tasks without them disrupting each other. Your application can be your whole system.
+The preemptive multitasking design of the BEAM means that your application can perform multiple tasks without them disrupting each other. Your application can be your whole system.
 ## A Future built four decades ago
 
 When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends up sounding too good to be true. It sounds a bit futuristic. I would expect someone to say that they are still in the early days of this roadmap and that they would love to have us along for the journey as they ship their developer preview. Enter your email and sign up here. It sounds like unfounded hype that will never come to pass.
