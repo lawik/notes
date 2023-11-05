@@ -188,6 +188,8 @@ It treats Linux as a thin substrate and brings up the BEAM VM as the primary ope
 
 Instead of writing code for a sensitive piece of hardware in a language that is finicky and hard to get right, like C. You write it in a language known for resilience and reliability. Cisco uses Erlang by the way, so shipping the BEAM on hardware is hardly new. You get granular error handling and fault recovery. And you get to write your product in a high-level language without sacrificing too much in performance.
 
+You can use Phoenix, LiveView, all of it. On device.
+
 You also gain a lot in observability and debuggability.
 
 Nerves is a pretty tight bundle. If you have a Raspberry Pi in a drawer somewhere, I suggest you give it a try. My quickstart video for getting Nerves going was 1 minute and about 40 seconds long. It is not hard.
