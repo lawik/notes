@@ -88,9 +88,7 @@ There is an established Language Server that should work with your regular edito
 
 ## Actor model, supervision trees & more
 
-We have no time to cover the fundamentals of how Erlang achieves reliability. Suffice to say it has a very significant and well-respected legacy in that regard.
-
-The debate is whether the nine nines are really a truthful representation of Ericsson's AXD301 and its reliability or a mere 5 nines is more accurate. You know a wretched 5.2 minutes of downtime per year. Absolute garbage numbers.
+We have very little time to cover how Erlang achieves reliability. Suffice to say it has a very significant and well-respected legacy in that regard. It is known for putting up nines of uptime.
 
 If you want to understand the resiliency model, look up Supervision trees for a start. Elixir inherits this foundation and uses it for everything. It is a fundamental part of the language and runtime. And it limits the impact of errors in your application. I can also direct you to my Unpacking Elixir blog series that covers a lot of this ground if you want to read up on it.
 
@@ -102,9 +100,9 @@ He jumped at the opportunity of working with a more performant language that was
 
 They started with fundamentals so we essentially have an MVC framework that most web devs will find familiar. Thanks to Erlang it is highly concurrent and parallel. It has highly optimized templating which means server-side rendering is really fast. It also shines as an API service.
 
-They quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. It operates over WebSockets and is called Phoenix Channels. At that time they ran a benchmarking effort pushing the WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets actively chattering on a single beefy box and called it good.
+In a recent move for simplicity there is no longer any Node or NPM included as you generate a project. Instead Phoenix ships Esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well if you need more of the Javascript ecosystem. The Node integration was a constant source of frustration and weird bugs. And so it is no longer shipped by default.
 
-In a recent move for simplicity there is no longer any Node or NPM by default. Instead Phoenix ships Esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well if you need more of the Javascript ecosystem. The Node integration was a constant source of frustration and weird bugs. And so it is no longer shipped by default. I really prefer this.
+As the framework matured the Phoenix team quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. It operates over WebSockets and is called Phoenix Channels. At that time they ran a benchmarking effort pushing the WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets actively chattering on a single beefy box and called it good.
 
 All in all a fundamentally very strong web framework. This is just the beginning.
 
