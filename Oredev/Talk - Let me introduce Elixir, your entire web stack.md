@@ -165,7 +165,7 @@ Bumblebee is the project that lets completely mathless web devs like myself casu
 Simple models for sentiment analysis of text run trivially on CPU. The Whisper speech-to-text model can also run quite well that way. If you have a GPU you can do a lot more with models like Stable Diffusion and some LLMs that have been ported. Recently, Llama 2 became available as well as Mistral. The Bumblebee abstraction level makes it trivial to use in your app.
 
 The challenge with ML is orchestration. While Python leans on C++ libraries like Ray for multi-node orchestration of GPU hardware. In the end it actually implements something like the Actor model. Nx already has that. Erlang made it easy.
-Every ML/AI venture is also trying to ensure efficient batching of GPU loads. Nx already does it.
+And then we need to optimize utilization of the hardware. That's done by batching GPU loads. Nx already does it.
 
 So you have a tool that can efficiently use multiple nodes with multiple GPUs each and apply batching to maximise utilization. With no additional work.
 
@@ -228,7 +228,7 @@ Heck, Erlang ships with a full-fledged distributed database that is very capable
 
 Phoenix LiveView continues that by taking a big bite out of the web frontend. Suddenly whole categories of apps can be self-contained without making any UX trade-offs.
 
-The preemptive multitasking design of the BEAM means that your application can perform multiple tasks without them disrupting each other. Your application can be your whole system.
+The preemptive multitasking design of the BEAM means that your application can perform multiple jobs without them disrupting each other. Your application can be your whole system.
 ## A Future built four decades ago
 
 When you line up all the unique upsides of the BEAM, Erlang and Elixir it ends up sounding too good to be true. It sounds a bit futuristic. I would expect someone to say that they are still in the early days of this roadmap and that they would love to have us along for the journey as they ship their developer preview. Enter your email and sign up here. It sounds like unfounded hype that will never come to pass.
