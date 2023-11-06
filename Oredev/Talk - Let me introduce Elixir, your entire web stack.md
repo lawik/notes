@@ -100,7 +100,7 @@ He jumped at the opportunity of working with a more performant language that was
 
 They started with fundamentals so we essentially have an MVC framework that most web devs will find familiar. Thanks to Erlang it is highly concurrent and parallel. It has highly optimized templating which means server-side rendering is really fast. It also shines as an API service.
 
-In a recent move for simplicity there is no longer any Node or NPM included as you generate a project. Instead Phoenix ships Esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well if you need more of the Javascript ecosystem. The Node integration was a constant source of frustration and weird bugs. And so it is no longer shipped by default.
+In a recent move for simplicity there is no longer any Node or NPM included as you generate a project. Instead Phoenix ships Esbuild and Tailwind CSS as standalone binaries managed by Elixir libraries. You can change this fairly easily as well if you need more of the Javascript ecosystem.
 
 As the framework matured the Phoenix team quickly built an abstraction for doing more realtime things and exposing the Actor model more cleanly to the web browser. It operates over WebSockets and is called Phoenix Channels. At that time they ran a benchmarking effort pushing the WebSocket support to find the limits. The process is covered in a good blog post. They hit 2 million concurrent active websockets actively chattering on a single beefy box and called it good.
 
