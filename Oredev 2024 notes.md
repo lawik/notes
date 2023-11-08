@@ -3,7 +3,7 @@ Collaborative tech?
 
 Can we train models distributed over phones?
 
-Starting keynote going beyond the binary super good talk. Must share to team. Protopia 
+Starting keynote going beyond the binary super good talk. Must share to team. Protopia, all of it
 
 Accessibility, accessibility, accessibility. What can I do?
 
