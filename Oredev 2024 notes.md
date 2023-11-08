@@ -11,3 +11,4 @@ Accessibility, accessibility, accessibility. What can I do?
 
 ings, people planet"
 
+Galit Ariel presentation was okay. Subject was fair enough. Did not grab me as it walked a similar space as the keynote. I think I will get more out of the Kodsnack interview.
