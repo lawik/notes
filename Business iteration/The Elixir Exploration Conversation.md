@@ -4,3 +4,5 @@ This is a business call for unpacking your concerns and getting input from someo
 
 How do you make the best out of the community and ecosystem? Who should you connect with? Who has walked this path before?
 
+Preliminary pricing: €400
+60 minute session
