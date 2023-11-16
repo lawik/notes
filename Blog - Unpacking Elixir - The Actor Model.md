@@ -44,4 +44,6 @@ You will find that Phoenix generally generates modules for you that you then own
 
 Phoenix needs processes for what it does, concurrent requests, queries, pubsub. But it hands you that stuff. You can run many Phoenixes in your application if you need or want. The framework hands you the reigns.
 
-Wrapping up. The Actor Model as per what Erlang actually has is a mechanism mostly intended to provide a reasonable API for concurrency. It does shared-nothing and message passing. Like most higher-level reasonable concurrency APIs. The alternatives are to my understanding always more painful with much more nuanced performance trade-offs. Go does this. To my understanding the Rust async stuff currently in use does something similar.
+Wrapping up. The Actor Model that Erlang actually has is a mechanism mostly intended to provide a reasonable API for concurrency. And distribution. And also a way to model a system design with a highly dynamic functional language. It does shared-nothing and message passing. This is where many (perhaps most?) high-level concurrency APIs end up. The alternatives are to my understanding always more painful with much more nuanced performance trade-offs.
+
+If you have a need to argue about the nuances of Actors I am available explicitly for that practice (also business inquiries) over email as {{< lars_email >}} and out there on the fedi {{< lars_twitter >}}.
