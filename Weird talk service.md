@@ -1,1 +1,0 @@
-Grab user speech with whisper.cpp for
