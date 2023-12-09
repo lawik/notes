@@ -8,6 +8,8 @@
 	- Note Elixir option, recon_ex
 		- Show a trace with recon_ex
 - Show Entrace
+- Bonus? Sequential tracing
+- Bonus? Triggering specific traces from wide
 
 ## Redbug
 
