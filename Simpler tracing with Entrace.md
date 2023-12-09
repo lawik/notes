@@ -9,7 +9,8 @@
 		- Show a trace with recon_ex
 - Show Entrace
 - Bonus? Sequential tracing
-- Bonus? Triggering specific traces from wide
+- Bonus? Triggering specific traces from wide simpler traces
+
 
 ## Redbug
 
