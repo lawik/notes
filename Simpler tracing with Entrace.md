@@ -21,3 +21,9 @@ redbug:start("erlang:demonitor")
 ```
 redbug:start("erlang:demonitor->return,stack",[{msgs,2}])
 ```
+
+## recon
+
+## edbg
+
+https://github.com/etnt/edbg#tracing
