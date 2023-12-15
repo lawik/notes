@@ -1,0 +1,30 @@
+- Hello Phoenix
+- Well, actually Plug!
+- Composable, reasonable Plug
+- But really, Phoenix
+- Divergence from Rails/Django
+	- Less magic
+	- Some macros
+	- More explicit
+	- More annoying or clear, one of those
+- Featureset
+	- Project generator
+	- Ecto
+		- Repos
+		- Schemas
+		- Changesets
+	- Webbing
+		- Endpoint
+		- MyWeb module
+		- Router
+		- Controllers
+		- Templates/Components
+		- Channels
+		- LiveView
+	- PubSub
+	- Presence
+- BEAM things
+	- Your app is not just web
+	- Multiple Phoenixes
+	- Other workloads
+	- Less infrastructure
