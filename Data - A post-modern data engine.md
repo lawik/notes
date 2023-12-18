@@ -32,3 +32,37 @@ Anything that goes over the named streams is Arrow data. We could release the da
 Essentially they can name their streams and indicate what they do when they come in and how they leave and we can expose the right endpoints.
 
 How do you do demand-driven processing with Arrow Flight?
+
+## Where to start
+
+### Python proving parts
+
+Build out some of the stages in Python to pin down the concepts and the Arrow Flight interconnects.
+
+Probably SQLite via ADBC (podcast index 4Gb and static wikipedia 40Gb datasets give us some bulk to work with) that we can pretend is streaming. And then multiple processing steps.
+Do some crunching. Maybe wordcount? Classic demo.
+
+Make a small abstraction if we can, so that we can swap the interconnect and serialization.
+Time it end-to-end.
+
+- how many
+
+JSON VS Parquet VS Arrow
+
+This should indicate the gains in terms of end-to-end performance 
+
+### Show a GPU case
+
+Run SentenceTransformers on the text. Compare differences. Expecting:
+
+- GPU is more well-utilized producing slightly more results over a shorter period of time
+- CPU usage may go down as we reduce transformation work. It may go up as we feed the GPU more actively.
+- There may be other bottlenecks that become evident
+
+First test: workstation
+Second test: Scaleway or Fly GPU instance
+
+This should show the wins/gains.
+
+
+
