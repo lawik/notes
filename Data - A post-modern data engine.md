@@ -80,5 +80,23 @@ API conceptually like Flow but probably defined in config.
 ```
 Stage: "load podcast feeds"
 Image: load-podcast@v5
-Output: [ ]
+Arguments: {
+  url: "https://.."
+}
+Concurrency: 1
+Output: [ "split podcast descriptions", "split podcast titles" ]
+
+Stage: "split podcast descriptions"
+Image: split-strings@v2
+Arguments: {
+  fields: [ "description" ]
+}
+Inputs: [ "load podcast feeds" ]
+Outputs: [ "word partition" ]
+
+Stage: 
+
+
 ```
+
+Figure out partitions, concurrency, and how to define that stuff well. Maybe not in config
