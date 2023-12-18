@@ -45,11 +45,15 @@ Do some crunching. Maybe wordcount? Classic demo.
 Make a small abstraction if we can, so that we can swap the interconnect and serialization.
 Time it end-to-end.
 
-- how many
+- how many entities get processed over a set period of time?
+- How long does it take to process X number of total entries at 1/1000 batch size?
+- What is the min/avg/med/max/p99 latency for 1/10/100/1000/10.000/100.000 entities for the entire pipeline?
 
 JSON VS Parquet VS Arrow
 
-This should indicate the gains in terms of end-to-end performance 
+This should indicate the gains in terms of end-to-end performance as well as running latency for stream processing.
+
+Use Fly app with process groups for the demo.
 
 ### Show a GPU case
 
@@ -64,5 +68,15 @@ Second test: Scaleway or Fly GPU instance
 
 This should show the wins/gains.
 
+### LiveView app showing status
 
+Ingest OTel status information. Expose additional information about progress.
 
+### Orchestrate workloads
+Use Fly Machines as a backend much like Apache Beam does with Dataflow.
+
+API conceptually like Flow but probably defined in config.
+
+```
+Stage:
+```
