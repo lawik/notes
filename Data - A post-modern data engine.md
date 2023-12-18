@@ -78,5 +78,7 @@ Use Fly Machines as a backend much like Apache Beam does with Dataflow.
 API conceptually like Flow but probably defined in config.
 
 ```
-Stage:
+Stage: "load podcast feeds"
+Image: load-podcast@v5
+Output: [ ]
 ```
