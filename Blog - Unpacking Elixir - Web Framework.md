@@ -90,7 +90,21 @@ Plug is a rather elegant way of getting web stuff done. Good building blocks. I 
 
 ## Web servers
 
-Historically Phoenix has leaned on a web server called Cowboy written in Erlang. It has been a very reliable workhorse for a long time and has done well in that role. It connects to Plug via the `plug_cowboy` library. Increasingly I see projects pick up Bandit which is intended to be a replacement written in Elixir. This both allows the community a lower barrier to contribution and it also has some nuanced effects on how development is done. I neither want to or have room to unpack that here. We covered some of that in [an episode of BEAM Radio](https://www.beamrad.io/53). Supposedly Bandit also benchmarks as a bit faster than Cowboy which is of course a nice perk.
+Historically Phoenix has leaned on a web server called Cowboy written in Erlang. It has been a very reliable workhorse for a long time and has done well in that role. It connects to Plug via the `plug_cowboy` library. Increasingly I see projects pick up Bandit which is intended to be a replacement written in Elixir. This both allows the community a lower barrier to contribution as more people know Elixir than Erlang. It also has some nuanced effects on how development is done. I neither want to or have room to unpack that here. We covered some of that in [an episode of BEAM Radio](https://www.beamrad.io/53) if you are curious. Supposedly Bandit also benchmarks as a bit faster than Cowboy which is of course a nice perk.
 
-Something these web servers have in common is that they are not your Ruby or Python application web server
+Something these web servers have in common is that they are not your Ruby or Python application web servers. No reverse proxy required unless you want one. They can actually be trusted to do real frontline work. Erlang was built for it.
 
+## Phoenix
+
+Now I think we can tackle Phoenix. Ah yes, the "Rails of Elixir". But not nearly so similar. Now I don't have any significant experience with Rails but I talk to people who do. I have experience in Django. Both Django and Rails work hard to help the developer be productive for the common case. The Pareto Principle, 80/20 rule, all that. And beyond.
+
+In Django this is achieved through "magic". Mostly inheritance of classes that introspect what you put in them and do things based off of that. There are super-dynamic languages where monkey-patching and other fun stuff is incredibly available. This of course means you should limit how much you use the fun stuff as much as possible. A code-base without discipline can get very messy on top of these languages and frameworks.
+
+Phoenix tries not to rely on "magic". We call them macros instead. I kid. The macros are the more confusing parts of Phoenix but they are there to 
+
+But really, Phoenix
+- Divergence from Rails/Django
+	- Less magic
+	- Some macros
+	- More explicit
+	- More annoying or clear, one of those
