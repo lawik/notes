@@ -100,7 +100,11 @@ Now I think we can tackle Phoenix. Ah yes, the "Rails of Elixir". But not nearly
 
 In Django this is achieved through "magic". Mostly inheritance of classes that introspect what you put in them and do things based off of that. There are super-dynamic languages where monkey-patching and other fun stuff is incredibly available. This of course means you should limit how much you use the fun stuff as much as possible. A code-base without discipline can get very messy on top of these languages and frameworks.
 
-Phoenix tries not to rely on "magic". We call them macros instead. I kid. The macros are the more confusing parts of Phoenix but they are there to 
+Phoenix tries not to rely on "magic". We call them macros instead. I kid. The macros are among the more confusing parts of Phoenix as well as Plug but they are generally there to manage some inherent complexity for you and they are much of the time still in "your" code.
+
+Typically you start a Phoenix project using `mix phx.new` which generates a project that you then own. Sure, you have dependencies the code of which you don't own but your MyAppWeb module has macros for bringing in the necessary functions for Controllers or LiveView and you can adapt that to your way.
+
+I've heard multiple people go "that's a lot of files" when generating a Phoenix project and I agree, that's the impression you'll get. But most of the files have fairly clear purpose once you get to know them and they are there to make things explicit and hand you the reins instead of mysteriously and magically inheriting things at you. There are also hygiene things like gettext that you might not use in your first few projects that are there because they just ought to.
 
 But really, Phoenix
 - Divergence from Rails/Django
