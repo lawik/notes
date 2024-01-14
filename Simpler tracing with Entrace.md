@@ -10,6 +10,7 @@
 - Show Entrace
 - Bonus? Sequential tracing
 - Bonus? Triggering specific traces from wide simpler traces
+- Future? Run :telemetry events from traces to get them into your regular tools
 
 
 ## Redbug
