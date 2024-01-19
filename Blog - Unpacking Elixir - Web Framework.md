@@ -167,19 +167,80 @@ This holds your macros for controllers, channels and liveviews. These macros mos
 
 A controller handles a request. The Controller might produce JSON API responses, HTML, file chunks or whatever else. Doesn't matter. If you are rendering HTML you get into templating and components. A controller is actually also just a Plug.
 
-#### Templating (HeeX)
+#### Templating (Heex)
 
+Heex is an evolution of the regular Eex templating that ships with Elixir. Heex is HTML-aware and will tell you when you screw up your closing tags. It also has nice syntax for arguments beyond basic string interpolation and such.
 
-- Fundamental Webbing
-	- Endpoint
-	- MyWeb module
-	- Router
-	- Controllers
-	- Templates/Components
-		- Heex, HTML-aware templates
-- Asset pipeline
-- Innovation
-	- PubSub
-	- Presence
-	- Channels
-	- LiveView
+```elixir
+def render(assigns) do
+	~H"""
+		<div :for={thing <- @items} :if={thing.great?} class={@myclass}>
+			<.custom_component thingie={thing} />
+		</div>
+	"""
+```
+
+### Innovations
+
+I want to shine some light on the bits that I think offer capabilities beyond what we typically see in web frameworks or that do things better than most web frameworks.
+#### PubSub
+
+Functionality used as an underpinning for Phoenix Channels. PubSub is a publish/subscribe mechanism for loose coupling of communication across your application. It uses Erlang's process groups and Erlang distribution. Unless you are on Heroku in which case you need the Redis adapter. You should be clustering or Chris McCord will be upset with you.
+
+Phoenix PubSub is incredibly practical for letting processes track a topic and receive messages when things happen on that. And as GenServers, Channels and LiveViews are processes that can handle messages you can use these for many niceties. A common one is informing a LiveView that content it is showing has in fact changed. It can then do whatever it considers appropriate to inform the user.
+
+#### Presence
+
+Built to support usage in Channels but usable as a more general tool. Phoenix Presence lets you track the ephemeral presence of things (usually users). Are they online? Busy? Away with a small message? Are they on mobile only? It uses a CRDT approach to minimize how much data it needs to keep around while creating an eventually consistent model of the world without requiring a separate storage backend.
+
+#### Channels
+
+An abstraction, intended to go on top of WebSockets though it will do long polling if necessary, it provides an abstraction for connecting to channels and joining rooms within them. Each WebSocket is backed by a GenServer on the server side and will let you keep state about the connected user. Typically you connect to it with a JavaScript client which handles failures, reconnects and provides some API niceties.
+
+Fundamentally the most important bits are WebSockets and server-side actors. But the rest is nice too.
+
+#### LiveView
+
+The belle of the ball for most of us. The point of LiveView is to eliminate the need to write JavaScript for most web development tasks. It allows driving highly interactive web UI based on server state. This typically happens over a Channels-style WebSocket. You can annotate your Heex templates and components with attributes such as `phx-click` and similar to allow sending events to the server. The event is processed to update server state and a minimal diff is calculated and passed back to the browser which can then patch the DOM using morphdom.
+
+You would have a very hard time getting payloads this lean using a SPA with your own API implementation. It also leans hard on an Erlangism: consistently low latencies.
+
+There is also support for driving certain simpler JS/CSS updates without a server round-trip, animation support, streamed listings, functional stateless component, stateful components and more that I'm forgetting.
+
+It is also trivial to push server-side changes to relevant LiveViews, thanks to the BEAM and Phoenix PubSub.
+
+Here we have a very opinionated design. It sacrifices offline support for not needing to write as much code or maintain as many interfaces. It is an immense time-saver. There are many more posts about LiveView out there. We can leave it at this point.
+
+### Asset pipeline
+
+Once upon a time Phoenix shipped brunch I think. Then they switched to the industry standard: Webpack. Then they grew sick of the massive support burden it was to help people keep their node and npm setups working. Phoenix switched to Esbuild delivered through an Elixir library via Hex.pm.
+
+I think this was a very good move. I have so many fewer asset problems now.
+
+### Mailer
+
+Phoenix ships with Swoosh which is an abstraction for email. It has plug-ins for many popular transactional email providers. So once you go into production you have an easy time doing password resets or magic links.
+
+It also has a very nice little dev tool that lets you check a mailbox for the mail that has been "sent".
+
+### Live Dashboard
+
+Underpromoted cool thing. It is an observability dashboard web UI that you can ship by default in your admin and do simple things like:
+
+- Investigate your running processes
+- See breakdowns of memory usage
+- See OS metrics
+- See ETS table usage
+- Capture request logs
+
+And more. For no effort you get a practical first-look tool for investigating a misbehaving system. This is very Elixir. All the primitives and possibilities come from the BEAM and have been possible in Erlang since forever. But Elixir made it nice, simple and for most of us it is there by default (because Phoenix).
+
+## Your app is not just "web"
+
+Most systems have more duties than just serving web traffic. Often this is delegated to queues/brokers, workers, other services, Redis, databases, cloud functions or whatever else. A Phoenix app is a BEAM application first. You can run many other workloads in this
+
+BEAM things
+	- Your app is not just web
+	- Multiple Phoenixes
+	- Other workloads
+	- Less infrastructure
