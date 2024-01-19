@@ -24,6 +24,7 @@
 		- Controllers
 		- Templates/Components
 			- Heex, HTML-aware templates
+	- Asset pipeline
 	- Innovation
 		- PubSub
 		- Presence
@@ -127,4 +128,55 @@ Overall I think Phoenix has been layered well and I find this restraint of opini
 I will try to capture the things that make up Phoenix. Major features as it were.
 ### Project generation
 
-Phoenix does a bit of inversion of ownership and as I've mentioned, produces a bunch of files that you can then own and evolve. I run `mix phx.new` on something like a weekly basis as I try a new hack of some so The generator has a bunch of options 
+Phoenix does a bit of inversion of ownership and as I've mentioned, produces a bunch of files that you can then own and evolve. I run `mix phx.new` on something like a weekly basis as I try a new hack of some sort. The generator has a bunch of options, choose database (postgres, mysql, sqlite) or skip Ecto and database details entirely. HTML or not. LiveView or not. Assets or not. This is the normal starting point.
+
+There are other starter templates. Legendary, Petal Pro and some others. I can't vouch for them. I've worked on a Petal Pro project, it was fine, it certainly brought more opinion around templating and layouts.
+
+### Ecto
+
+The database layer. Ecto provides relational database functionality to your app and stops you from making a bunch of mistakes that could lead to SQL injection attacks and the like. This informs Ecto's design in unusual ways. It relies a decent bit on compile-time macros for building queries. There are also escape hatches pretty much wherever you might need them.
+
+#### Repos (Ecto.Repo)
+A repo is an abstraction over a supervision tree that manages database connection pooling. A typical app deals with one Repo named `MyApp.Repo` and it provides all the query functions and such.
+
+If you are dealing with two separate databases you can easily set up and additional repo. And if you are dealing with multi-tenancy or some other multi-database situation you have "dynamic repos" functionality which will let you work that way as well.
+
+#### Schemas (Ecto.Schema)
+
+The Schema module exposes a DSL for specifying database tables, mostly. It can also be used to specify schemas that are not backed by a database for various purposes. But mainly, this correlates with Django or Rails models while being significantly less magical in nature. They boil down to Elixir Structs.
+
+### Changesets (Ecto.Changeset)
+
+A way to define validation rules for schemas (and other data). This will help you produce good errors, integrate actual errors returned from the database gracefully and many other things. Changesets are used in and around inserts and updates. They are a large topic and well worth reading up on because they are quite and interesting and useful design.
+
+### Web stuff
+
+#### The Endpoint (MyAppWeb.Endpoint)
+
+This module is generated for you but when added to your supervision tree it starts a Phoenix Endpoint which contains a supervision tree for starting any Phoenix-owned process. Whether you use the Plug integration for Cowboy or Bandit it will set up your web server to listen for inbound requests and route them to Plug and the Endpoint. The Endpoint defines a bunch of fundamental plugs and config. It then typically defers to the Router for further handling of requests.
+
+#### Router (MyAppWeb.Router)
+
+The router module is where you use a combination of Phoenix and Plug plugs to handle requests and delegate them to Controllers and LiveViews. It is a nice central place for structuring this and also allows you to define pipelines for other plugs that need to be applied, such as checking authentication and authorization.
+
+#### MyAppWeb
+
+This holds your macros for controllers, channels and liveviews. These macros mostly bring in other Phoenix functionality but they are in your file and you can and should use them as an extension point for bringing in your own tools.
+
+### Controller (MyAppWeb.MyPageController)
+
+A controller handles a request. The Controller might produce JSON API responses or web content. Doesn't matter. It defers
+
+	- Fundamental Webbing
+		- Endpoint
+		- MyWeb module
+		- Router
+		- Controllers
+		- Templates/Components
+			- Heex, HTML-aware templates
+	- Asset pipeline
+	- Innovation
+		- PubSub
+		- Presence
+		- Channels
+		- LiveView
