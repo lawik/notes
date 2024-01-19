@@ -163,20 +163,23 @@ The router module is where you use a combination of Phoenix and Plug plugs to ha
 
 This holds your macros for controllers, channels and liveviews. These macros mostly bring in other Phoenix functionality but they are in your file and you can and should use them as an extension point for bringing in your own tools.
 
-### Controller (MyAppWeb.MyPageController)
+#### Controller (MyAppWeb.MyPageController)
 
-A controller handles a request. The Controller might produce JSON API responses or web content. Doesn't matter. It defers
+A controller handles a request. The Controller might produce JSON API responses, HTML, file chunks or whatever else. Doesn't matter. If you are rendering HTML you get into templating and components. A controller is actually also just a Plug.
 
-	- Fundamental Webbing
-		- Endpoint
-		- MyWeb module
-		- Router
-		- Controllers
-		- Templates/Components
-			- Heex, HTML-aware templates
-	- Asset pipeline
-	- Innovation
-		- PubSub
-		- Presence
-		- Channels
-		- LiveView
+#### Templating (HeeX)
+
+
+- Fundamental Webbing
+	- Endpoint
+	- MyWeb module
+	- Router
+	- Controllers
+	- Templates/Components
+		- Heex, HTML-aware templates
+- Asset pipeline
+- Innovation
+	- PubSub
+	- Presence
+	- Channels
+	- LiveView
