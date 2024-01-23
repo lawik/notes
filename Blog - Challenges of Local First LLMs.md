@@ -1,0 +1,10 @@
+
+*TLDR: the tricky part is "Large". "Language" and "Model" seems manageable. But largeness has all sorts of trouble associated with it for mobile devices. Not insurmountable, but challenging.*
+
+To start off, I am not an AI expert. I am not an ML engineer. I'm a web and systems dev that mostly works in Elixir these days. Through the Elixir community I got connected with [Electric SQL](TODO: Add video link) and have done some collaboration with them. *This post is done as part of my work with them and is paid work. I'll probably let them read it before publishing but this is all me and my perspectives. They just pay me to endure the Javascript ;)*
+
+Electric SQL are firmly in the local first ecosystem. Their open source project/product gives you a way to get eventual consistency between a server-side Postgres and a wherever-you-want SQLite. You handle the data model from the Postgres side with your normal tooling. Whenever your clients have a chance to reach the sync service/postgres proxy you'll get schema updates and whatever new data the server might have to your local thing. Anyway. Cool stuff and I hope to end up making an app with a decent demo off it. On to the local first inference!
+
+I really am not enjoying React Native here. Part of that is almost definitely that I'm poking around the immature ragged edge of what people have launched, like [llama.rn](TODO: link) (based on [llama.cpp](TODO: link)) and [the outdated example for transformers.js](TODO: oof link). There are no real paths and I'm not deep enough on mobile dev to patch up the holes well myself. I also don't know enough C/C++ to ship custom sqlite's with vector extensions and whatnot. Might get there but am not there.
+
+I know there are people who have made models run locally. I am not blazing a trail. But it is also not particularly mature. 
