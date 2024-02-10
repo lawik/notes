@@ -1,5 +1,5 @@
 
-*TLDR: the tricky part is "Large". "Language" and "Model" seems manageable. But largeness has all sorts of trouble associated with it for mobile devices. Not insurmountable, but challenging.*
+*TLDR: the tricky part is "Large". "Language" and "Model" seems manageable. But largeness has all sorts of trouble associated with it for mobile devices. Not insurmountable, but challenging. Also makes for finicky development.*
 
 To start off, I am not an AI expert. I am not an ML engineer. I'm a web and systems dev that mostly works in Elixir these days. Through the Elixir community I got connected with [Electric SQL](TODO: Add video link) and have done some collaboration with them. *This post is done as part of my work with them and is paid work. I'll probably let them read it before publishing but this is all me and my perspectives. They just pay me to endure the Javascript ;)*
 
