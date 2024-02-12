@@ -9,7 +9,7 @@ I really am not enjoying React Native here. Part of that is almost definitely th
 
 I know there are people who have made models run locally. I am not blazing a trail. But it is also not particularly mature as a space.
 
-So the current approaches I see for getting LLMs to work on phones is mostly quantization which to my understanding is the process of reducing the precision of the numbers and calculations to save heavily on space and memory usage. Taking [Llama2 7B](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF) you have this 13.5Gb model at 16bit floating point. Quantizing it with llama.cpp down to "Q2 K" I believe uses 2bit integers. Pretty lossy. But it brings it down to 2.6Gb and it can actually be run on a modern iPhone.
+So the current approaches I see for getting LLMs to work on phones is mostly quantization which to my understanding is the process of reducing the precision of the numbers and calculations to save heavily on space and memory usage. Taking [Llama2 7B](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF) you have this 13.5Gb model at 16bit floating point. Quantizing it with llama.cpp down to "Q2 K" I believe uses 2bit integers. Pretty lossy. But it brings it down to 2.6Gb and it can actually be run on a modern iPhone (mine is a 13 Pro).
 
 Now there are also efforts to rework models to be smaller fundamentally and then you have something like [TinyLlama-1.1B](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v0.3) ([GGUF](https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v0.3-GGUF)). This model is miniscule (relatively speaking) at 731Mb. It also produces unrelated stuff or the wrong language almost all of the time for me. Keep at it folks. I hope you get something good out of it.
 
