@@ -1,10 +1,9 @@
 TODO: try downgrading to linux 5
 
 ```
+The Linux version is specified in the nerves_defconfig. Copy/paste the linux-5.15 directory from an older Nerves system and update any paths in nerves_defconfig to downgrade.
+````
 The Linux version is specified in the `nerves_defconfig`. Copy/paste the `linux-5.15` directory from an older Nerves system and update any paths in `nerves_defconfig` to downgrade.
-```
-
-``
 
 The Clockwork Pi uConsole is a cool device with plenty of input, output and capabilities. I wanted to try if I could get it going with Nerves. In this post I will try to capture the tricksy things that have not been documented about implementing new device support for a reasonably open device in the Raspberry Pi family.
 
