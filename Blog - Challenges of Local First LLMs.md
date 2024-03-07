@@ -1,7 +1,7 @@
 
 *TLDR: the tricky part is "Large". "Language" and "Model" seems manageable. But largeness has all sorts of trouble associated with it for mobile devices. Not insurmountable, but challenging. Also makes for finicky development.*
 
-To start off, I am not an AI expert. I am not an ML engineer. I'm a web and systems dev that mostly works in Elixir these days. Through the Elixir community I got connected with [Electric SQL](TODO: Add video link) and have done some collaboration with them. *This post is done as part of my work with them and is paid work. I'll probably let them read it before publishing but this is all me and my perspectives. They have kindly paid me to endure JavaScript and experiment with their tools a bit :)*
+To start off, I am not an AI expert. I am not an ML engineer. I'm a web and systems dev that mostly works in Elixir these days. Through the Elixir community I got connected with [Electric SQL](https://youtu.be/_U5Z8AQy0hc?si=_0PPJmDwV91CMVLN) and have done some collaboration with them. *This post is done as part of my work with them and is paid work. I'll probably let them read it before publishing but this is all me and my perspectives. They have kindly paid me to endure JavaScript and experiment with their tools a bit :)*
 
 Electric SQL are firmly in the local first ecosystem. Their open source project/product gives you a way to get active-active replication with eventual consistency between a server-side Postgres and a wherever-you-want SQLite. You handle the data model from the Postgres side with your normal tooling. Whenever your clients have a chance to reach the sync service/postgres proxy you'll get schema updates and whatever new data the server might have to your local thing. Anyway. Cool stuff. On to the local first inference!
 
@@ -23,4 +23,16 @@ A challenge with these large models is of course that every app that wants to us
 
 Essentially this is the revival of the shared library. Assuming people do want LLM-sized models doing things on their phones it will quickly become unpleasant that every app ships their own Llama or Mistral. This might be resolved if Apple (and Google on Android) exposes their own on-device models that cover the desirable use-cases. We will find out.
 
-I haven't gotten into it but I want to try some [TensorFlow Lite/TFLite](TODO: link) models of various types as that seems well suited for phone-level devices. I just recently ran into [this library for React Native](https://github.com/mrousavy/react-native-fast-tflite). Like any React Native library I assume it will be torture to get going but has the potential to solve all my problems.
+I haven't gotten into it but I want to try some [TensorFlow Lite/TFLite](https://www.tensorflow.org/lite) models of various types as that seems well suited for phone-level devices. I just recently ran into [this library for React Native](https://github.com/mrousavy/react-native-fast-tflite). Like any React Native library I assume it will be torture to get going but has the potential to solve all my problems. Qualcomm recently released 80-or-so edge/mobile-friendly model variants [on HuggingFace](https://huggingface.co/qualcomm) so that's a good place to look if you want some TFLite to toy with.
+
+The work on this is paused for the foreseeable future but high on my list was to try more things with vector embeddings. Those seem perfectly feasible to generate on a phone. The [TFLite version of OpenAI CLIP](https://huggingface.co/qualcomm/OpenAI-Clip) is 304MB.
+
+I think there are many things that can be done and if you have some pain-tolerance you can already run a local model. It is kind of fun and a good challenge to get real use out of them. I certainly like the idea of not relying on cloud to achieve these things.
+
+Now one reason to pause this is that the Electric SQL folks have already made [some good progress](https://electric-sql.com/blog/2024/02/05/local-first-ai-with-tauri-postgres-pgvector-llama) with other parts of local-first ML/AI experiments. Postgres, pg_vector, Tauri and Llama2. Who needs React Native, really? They also shortly after launched a very exciting collab with the Neon Postgres folks: [pglite](https://github.com/electric-sql/pglite)
+
+You might have seen pglite if you frequent Hacker News and such. This would take the pg_vector opportunities further. An embeddable Postgres, eh? Not bad :)
+
+There is a repo from my experiments on my github if you go digging, it may be incomplete and not build. It may have junk in it. It is not a place of honor. Overall I think I explored some good stuff but most paths definitely hit a "oof, this is too rough" end. Trying to get SQLite with VSS was hairy. Trying to get Shortcuts working of all things proved incredibly frustrating. Realizing Transformers.js is missing stuff to make it work on React Native.
+
+Overall, if you want to get into this. I think I'd recommend doing it from Swift/Kotlin. The natives will save you from one layer of fragile indirection while you explore the bleeding edge.

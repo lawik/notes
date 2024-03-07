@@ -1,0 +1,17 @@
+In this part of the series we dive into one of the frameworks and toolsets that really got me going with both Elixir as a hobby and the community as a space full of helpful people. This will be all about [The Nerves Project](https://nerves-project.org/), oh, and touch on some related stuff.
+
+Before we dig in I should shout out some other BEAM, Elixir & Erlang-related things in the embedded space. [AtomVM](https://www.atomvm.net/) seems super cool and lets you do Erlang and Elixir on microcontrollers. ESP32s and such. I haven't tried it. I really should. There is also [the GRiSP boards](https://www.grisp.org/specs/) which does interesting stuff to push Erlang's soft real-time performance closer and closer to hard real-time. It also works with Nerves if you prefer some Linux in the picture.
+
+Erlang has been used for embedded Linux for a long time. The language started in the telco world which blurs with networking which blurs with industrial hardware. It all blurs with "embedded linux" which blurs with IoT and connected devices overall. It should not be surprising to hear that there are a decent number of people who have done custom linux + Erlang systems in the realm of embedded linux.
+
+I guess Frank Hunleth is one of those people. He did a bunch of embedded, mostly C and C++ before he started veering off into Erlang. Since Frank is a sweetheart we've [had him on](https://www.beamrad.io/9) the pod [twice](https://www.beamrad.io/64). I think the first one should give most detail on his backstory. When Elixir showed up there was more interest and more engagement there and Frank pivoted his IoT tooling plans towards where the collaboration and community felt most active. So Nerves was born into Elixir.
+
+What is Nerves then?
+
+It is Linux as mostly a hardware abstraction layer, source of drivers and OS fundamentals. Then it starts the BEAM and you take care of the rest from Elixir or Erlang. The linux variant is a custom Buildroot system adapted to whatever hardware you are building for. So the Raspberry Pi 4 will have different drivers and configuration than the Beaglebone Black. It supports all the Raspberry Pi computers (not the Pi Pico microcontroller) which means that if you have one in a drawer, time to bring it out.
+
+I got into Nerves by porting an eInk display driver from Python (which I knew) to Elixir (which I was learning). The Elixir Slack channel for #nerves was super helpful and friendly. At the time of writing I have been paid for Nerves work at least twice and am currently doing some. I really recommend trying some Nerves if you either enjoy tinkering with hardware OR have been looking for a reason to try Elixir.
+
+Okay. So it boots the BEAM. And that's your systemd or init system. Most of your system should be Elixir code with all the expressiveness, effortless performance, consistently low latencies and reliability that entails. Compared to anything I've set up on a Raspberry Pi before it is also a wonder of determinism. Your deps get locked. It becomes a real software project, not just a bunch of random tutorials you run through.
+
+There is also NervesHub which is an open source, self-hostable tool for managing fleets of Nerves devices. Firmware delivery, binary diffing for minimal updates, reverse consoles for troubleshooting
