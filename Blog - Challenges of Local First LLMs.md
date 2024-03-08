@@ -36,3 +36,5 @@ You might have seen pglite if you frequent Hacker News and such. This would take
 There is a repo from my experiments on my github if you go digging, it may be incomplete and not build. It may have junk in it. It is not a place of honor. Overall I think I explored some good stuff but most paths definitely hit a "oof, this is too rough" end. Trying to get SQLite with VSS was hairy. Trying to get Shortcuts working of all things proved incredibly frustrating. Realizing Transformers.js is missing stuff to make it work on React Native.
 
 Overall, if you want to get into this. I think I'd recommend doing it from Swift/Kotlin. The natives will save you from one layer of fragile indirection while you explore the bleeding edge.
+
+Thanks for reading. If you have questions or concerns, hit me up {{< lars_twitter >}} for the Fediverse/Mastodon or via {{< lars_email >}}.
