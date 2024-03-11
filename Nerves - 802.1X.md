@@ -1,0 +1,1 @@
+https://github.com/nerves-networking/vintage_net/blob/main/docs/notes/Wired-802.1X-PEAP-MSCHAPv2.md
