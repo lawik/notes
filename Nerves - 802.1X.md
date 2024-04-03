@@ -9,3 +9,6 @@ bo0tzz: https://discord.com/channels/269508806759809042/592366299573649440/12166
 ```
 <@162694898062065664> I'm not familiar enough with vintage_net to see if it's got an escape hatch to only configure 802.1X, but you should be able to skip it and just write the config directly a la https://github.com/nerves-networking/vintage_net/blob/main/docs/notes/Wired-802.1X-PEAP-MSCHAPv2.md, then bring up the interface [like so](https://github.com/nerves-networking/vintage_net/blob/main/docs/notes/Static-Wired-Ethernet.md#tested). I don't know what you're missing out on there by not using vintage_net though
 ```
+
+This looks like a decent way to test:
+https://superuser.com/a/1059992
