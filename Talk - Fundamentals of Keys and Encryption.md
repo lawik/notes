@@ -1,0 +1,12 @@
+- Not obfuscation
+- Not compression
+- Hashing / digests
+- Symmetric encryption/decryption/signing
+	- Shared secret
+- Asymmetric encryption/decryption/signing
+	- Certificate authorities
+	- PKI (infrastructure)
+- Securing messages 
+	- 
+- Securing hardware
+- 
