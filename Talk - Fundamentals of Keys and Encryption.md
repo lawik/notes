@@ -7,6 +7,6 @@
 	- Certificate authorities
 	- PKI (infrastructure)
 - Securing messages 
-	- 
+	- Signal's innovation
 - Securing hardware
 - 
