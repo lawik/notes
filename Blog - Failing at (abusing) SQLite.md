@@ -21,5 +21,3 @@ select id, title from podcasts limit 10 offset 0;
 ```
 
 So the above query and just keep moving the offset out. And it slows down. More and more. I would have expected that there was something clever that could be done to precisely fetch the byte ranges for an offset slice. But no such luck I'm afraid. And offset of 75000 will mean fetching a lot of data. 
-
-... Fixa 
