@@ -1,3 +1,4 @@
+TODO: make a better opening (https://maggieappleton.com/openings)
 I think Fly.io has an interesting proposition. I think they are not nearly there yet. And I want to suggest that Elixir will be the ecosystem most suited to take advantage of the offering. This blog post started as a conference talk and was given at GigCity Elixir by gracious support from both Tigris who sent mer there, as well as Bruce and Maggie Tate who invited me. And they offered me a keynote no less.
 
 *This work is sponsored and supported by Tigris. They are also part of the subject of the post. You'll see. It is not mainly about them though they play an interesting part.*
