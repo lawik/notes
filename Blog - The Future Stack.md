@@ -1,9 +1,9 @@
-TODO: make a better opening (https://maggieappleton.com/openings)
-I think Fly.io has an interesting proposition. I think they are not nearly there yet. And I want to suggest that Elixir will be the ecosystem most suited to take advantage of the offering. This blog post started as a conference talk and was given at GigCity Elixir by gracious support from both Tigris who sent mer there, as well as Bruce and Maggie Tate who invited me. And they offered me a keynote no less.
+
+Fly.io is a very visible cloud provider in the Elixir ecosystem and they put forward an interesting promise. They don't deliver on that promise currently but I think it would be very compelling if they get there. Especially for Elixir. Let's dig in.
 
 *This work is sponsored and supported by Tigris. They are also part of the subject of the post. You'll see. It is not mainly about them though they play an interesting part.*
 
-In the talk I went to the trouble of trying to underline the value and difficulty of making things simple. I will abbreviate those efforts significantly in this blog post. If you don't believe simplicity has value. Come back and read this later.
+This post is adapter from a talk I gave [at GigCity Elixir in Chattanooga](https://underjord.io/chattanooga-gigcityelixir-nervesconf-2024.html). In the talk I went to the trouble of trying to underline the value and difficulty of making things simple. I will abbreviate those efforts significantly in this blog post. If you don't believe simplicity has value. Come back and read this later.
 
 I will offer Gall's Law.
 (TODO: format quote)
@@ -50,10 +50,12 @@ Erlang sacrifices some types of performance to get immutability. Immutability is
 I wish the story was that the world realised Heroku, Rails and startups were too inefficient and came together to push for more efficient use of our resources.
 
 Instead someone put JavaScript on a server and it ate Rails' lunch.
+
 Salesforce bought Heroku.
+
 Startups are still a thing. Off and on. And off. And on.
 
-Startups did focus more on growth though. And I believe the interest in massive scalability, large engineering teams and unicorn valuations did shift technical priorities. This is not where Rails or Heroku shine. And it is where cloud native gets rolling.
+Startups did focus more on growth though. And I believe the interest in massive scalability, large engineering teams and unicorn valuations did shift technical priorities. This is not where Rails or Heroku shine. And it is where cloud native got rolling.
 
 The trade-offs made for Ruby and Rails had direct impact on performance and scalability. And Heroku was never the cheapest option. At larger scale and explosive growth your priorities change significantly. The performance you had traded off becomes a priority. The efficient scalability your MVP didn't need is suddenly strangling your progress. High cost at great scale is very concerning to a business. Even with massive VC funding.
 
@@ -66,8 +68,6 @@ If only someone would build an ecosystem that is really productive but scales di
 ...
 
 A good abstraction necessarily imposes constraints on you. The best constraints sacrifice things you don't want to be doing anyway. A lot of Elixir devs find that immutability makes their code easier to understand and follow. It reduces confusion. But it IS a constraint, when we apply that constraint we have lost a potential way to build things.
-
-We see giants like Google pushing towards HTTP3 to get away from the constraints of TCP. For the rest of us those constraints have served us quite well for a long time. Google are feeling the trade-offs that TCP made for reliable delivery more acutely as speed and throughput become ever more important. Most of us do not feel the pain of TCP acutely. Most of us are not Google.
 
 We certainly want nice things. In fact i think we want all the nice things.
 
@@ -94,9 +94,7 @@ At any point one of us can feel that one of these constraints chafe. That's the 
 
 ## Elixir and Opinions
 
-I talk to a lot of companies doing Elixir. I would say there is roughly a 50/50 split between LiveView and doing a separate frontend single-page application. Some of this is historical, LiveView is relatively young. Some of it is due to already having frontend people with frontend skills. Some of it is due to the API serving multiple needs, mobile, web, integrations and so on.
-
-I think if you take the constraints brought by LiveView you will find that it is a sweet-spot for a solo or small team building a web-based SaaS. An Elixir-developer can thrive end-to-end in such a project and reap many of the intended benefits of the abstraction. Bumblebee from Nx sneaks in and starts to expand this picture for many machine learning needs as well.
+If you take the constraints brought by LiveView you will find that it is a sweet-spot for a solo or small team building a web-based SaaS. An Elixir-developer can thrive end-to-end in such a project and reap many of the intended benefits of the abstraction. Bumblebee from Nx sneaks in and starts to expand this picture for many machine learning needs as well.
 
 Phoenix is not extremely heavy in opinions. At least not technically. We debate Contexts as a design decision and they are fundamentally quite open-ended. They don't impose constraints and they don't deliver much guidance.
 
@@ -120,7 +118,7 @@ But of course that is not enough. Because your app is generally not only your ap
 
 Today most developers want a managed database and S3-compatible object storage. These have become table-stakes.
 
-S3 made object storage a thing and is a prime example of a simple solution. And it blew away vast complexity that came before it. Typically NFS. Which was terrible. S3 gives a starkly limited API that enables the cloud provider behind it to scale essentially infinitely and offer great reliability. But one thing S3 does not offer is great latency, especially if you only store your files in us-east-1. Did I mention I live in Europe?
+S3 made object storage a thing and is a prime example of a simple solution. And it blew away vast complexity that came before it. Typically NFS. Which was terrible. S3 gives a starkly limited API that enables the cloud provider behind it to scale essentially infinitely and offer great reliability. But one thing S3 does not offer is great latency, especially if you only store your files in us-east-1. Did I mention I live in Sweden?
 
 So do you take on the complexity of adding a CDN for your files? For my sake?
 
@@ -138,17 +136,19 @@ It seems object storage is handled.
 
 The managed SQL database part on Fly is unsolved. And Fly has clearly tried to solve this a few ways indicating that, yes, this is important to them. Fly has a managed database via Supabase now and that's cool, good. Their old one is kinda gnarly so Supabase should be much better. But Supabase is not a magical geo-replicated database. Supabase is Postgres. It doesn't complete the vision.
 
-Fly are trying some stuff with SQLite and LiteFS which is interesting. I have worked a bit with the Electric SQL folks as well and I think their approach has a lot of potential for this geo-distributed concept. CRDTs are very powerful if you accept eventual consistency. And Electric SQL launched pglite, which has the eye of both Supabase and Neon. So we might see something interesting happen there. Postgres on every server perhaps? I did that as an experiment with their SQLite variant.
+Fly are trying some stuff with SQLite and LiteFS which is interesting. But I have worked a bit with the Electric SQL folks as well and I think their approach has a lot of potential for this geo-distributed concept. CRDTs are very powerful if you accept eventual consistency. And Electric SQL launched pglite, which has the eye of both Supabase and Neon. So we might see something interesting happen there. Postgres on every server perhaps? I did that as an experiment with their SQLite variant.
 
 So why does it matter if Fly and their partners pull this off? I think it makes for a very rare alignment of priorities and trade-offs from end to end. Platform, runtime, frameworks and language all sharing values and expressing a similar overall shape. Meaning Elixir would be unconstrained by the platform and the platform doesn't offer a bunch of complexity that is irrelevant to a typical Elixir app. This should give us trade-offs that cost as little as possible. You should be able to put a Phoenix-shaped app in the Fly-shaped hole without friction.
 
 And hilariously good latency for users.
 
-It matters because the goal-posts keep moving and the minimum expectations keep going up. What has worked up to here will struggle in the near future.
+It matters because the goal-posts keep moving and the minimum expectations keep going up. What has worked up to here will struggle in the near future. The need to make consistent trade-offs and leverage them as much as possible is especially important to be able to work as small, highly performant teams.
 
 It would be a true new Heroku but for Phoenix. I will leave the part about finding an aligned business model to replace the startup as a question for you all because I don't know what that looks like but I am very curious. I think indie hacking and open coops could both fit. But give me your suggestions.
 
-I am not trying to sell Fly. They do that well enough. And I don't need to sell Tigris, they are the default recommendation for Fly and I have high hopes that they will prove themselves out. I think the overall idea has interesting implications for the mainstream web SaaS side of our ecosystem. Other applications will need very different infrastructure. I really like working with Nerves which is quite different and I know Elixir performs hilariously well on bare metal. It all depends one what shape you are building.
+I am not trying to sell Fly. They do that well enough. I am selling Tigris a little bit but they are the default recommendation for Fly and I have high hopes that they will prove themselves out regardless.
+
+I think the overall idea has interesting implications for the mainstream web SaaS side of the Elixir ecosystem. Other applications will need very different infrastructure. I really like working with Nerves which is quite different. I know Elixir performs hilariously well on bare metal and that's a different approach. It all depends one what you are building.
 
 ## Build or Rent
 
@@ -159,15 +159,3 @@ And the trade-offs of cloud services, AWS, Fly, Tigris, all of them, is to take 
 Most of us are willing to pay some amount to remove operational complexity but how much and in what way varies a lot. There is a scale from the rented dedicated server to a Heroku-style platform. Sometimes it even involves Kubernetes.
 
 It goes back to managing complexity. The demands on our software systems only increase. As we build more software in response to those demands we need to find ways to keep things as simple as possible. To raise the abstraction level of the work. Ideally we want to keep reaping rewards from trade-offs we've already made.
-
-## Opinion and community / wisdom of crowds
-
-Thankfully we do not strive to find appropriate trade-offs and practical constraints entirely on our own. There is community to be found in these opinionated choices. It seems that the more opinionated the technology the tighter the community that forms. And we get to push forward together, sharing and learning.
-
-There are no perfect technical solutions. Our preferred tools are not perfect. Other tools are not necessarily wrong. Every problem is too complex to be truly solved. And every solution is implemented by a nuanced mess of humans. The computer doesn't care very much if you built something simple or complex. Simplicity is for people and software is made by and for people.
-
-And we need to make technical decisions. A lot of them. Technology that works for the majority of our needs is immensely beneficial in that it reduces rote decision making by a lot. It cuts away 80% of the calls you need to make, Pareto principle style. We find other people with opinions worth trusting and we delegate some of the research, some of the decision making, to each other and suddenly we have community. Aligning on certain ideas.
-
-So let's take our mostly great language, our rather solid frameworks, our promising platforms, our ambitious ideas and use them to build things that work kinda well for our tricky particular needs. And lets build it knowing we have a community with us that we overall agree with some of the time on several important technical priorities. We're all a bunch of humans, somewhat aligned about software. All striving for simplicity. I find that kinda neat.
-
-Thank you for having me.
