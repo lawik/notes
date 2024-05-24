@@ -6,6 +6,7 @@ I think Fly.io has an interesting proposition. I think they are not nearly there
 In the talk I went to the trouble of trying to underline the value and difficulty of making things simple. I will abbreviate those efforts significantly in this blog post. If you don't believe simplicity has value. Come back and read this later.
 
 I will offer Gall's Law.
+(TODO: format quote)
 
 ```
 A complex system that works is invariably found to have evolved from a simple system that worked. The inverse proposition also appears to be true: A complex system designed from scratch never works and cannot be made to work. You have to start over, beginning with a working simple system.
@@ -19,27 +20,25 @@ The software way to make a thing simple is abstraction. A higher-level of abstra
 
 Either we place constraints on the allowed solutions and restrict future flexibility, remove functionality or we make trade-offs in performance, in correctness or in other aspects. I would call all of these "opinionated" approaches.
 
-If we try to solve web app development and we have no opinion and we accept no constraints. Then we will end up mapping the solution space's complexity one-to-one. At best. Or worse, we make something more complex. A one-to-one mapping is not definitively evil but it does nothing to constrain complexity.
-
 Phoenix LiveView is a highly opinionated approach to web application development with significant and clear trade-offs. It collapses several concerns into one solution: the backend logic, the API contract, the frontend API client and the DOM rendering. If LiveView fits your needs it removes a lot of concerns.
 
-Ecto, the Elixir database library, while highly opinionated and while making trade-offs in the service of safety, ease of use and practicality it is also closer to a one-to-one mapping. Ecto is not intended to constrain your options significantly compared to SQL.
-
-This is a thing with databases by the way. They are the worst. And the most important. They are where trade-offs matter the most. This is also why they are the most common bottleneck. There are things we refuse to trade off.
+Databases are a bit of a special case here. They are the worst. And the most important. They are where trade-offs matter the most. This is also why they are the most common bottleneck. There are things we refuse to trade off.
 
 ## History-time
 
-Now I didn't come up in Rails but to my understanding Rails is a web framework that was willing to trade off clarity and rigour for expressiveness and productivity. It was built in a language that was willing to trade away performance for simplicity and a certain type of elegance.
+I didn't come up in Rails but to my understanding Rails is a web framework that was willing to trade off clarity and rigour for expressiveness and productivity. It was built in a language that was willing to trade away performance for simplicity and a certain type of elegance.
 
 Heroku came up and offered something that fit with Rails. The trade-offs made for Heroku didn't constrain Rails at all and offered immense conveniences. They were complementary and harmonious. You could shove a Rails-shaped piece in the Heroku-shaped slot without friction.
 
 Rails became a darling of the startup space. The startup is a very opinionated solution as well. Quickly explore a domain with disposable solutions. Create MVPs, ship prototypes, find product-market-fit then achieve growth. Performance, rigour and maintainability are not even on the list of startup priorities. There was no friction between the startup way and the Rails way.
 
-This achieves that respectable goal. The trade-offs are well aligned. The Rails startup on Heroku achieves their solution in the simplest possible way. Without friction or contradiction.
+The trade-offs are well aligned. The Rails startup on Heroku achieves their solution in the simplest possible way. Without friction or contradiction.
 
 Elsewhere, way earlier there was a wild software lab that had the task of creating a platform to operate telecom systems robustly. The requirements included performance aspects such as low latency, concurrent operation, operational aspects around deploying without downtime and strong focus on reliability. It must not go down. This was a very different industry. Decidedly not a startup and it had very different trade-offs to consider. And from this we got Erlang and OTP.
 
-For completeness we must now quote Dijkstra.
+For completeness we must quote Dijkstra.
+
+(TODO: format quote)
 
 ```
 "Simplicity is a prerequisite for reliability". - Edsger W. Dijkstra
