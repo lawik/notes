@@ -1,9 +1,9 @@
 
 Fly.io is a very visible cloud provider in the Elixir ecosystem and they put forward an interesting promise. They don't deliver on that promise currently but I think it would be very compelling if they get there. Especially for Elixir. Let's dig in.
 
-*This work is sponsored and supported by Tigris. They are also part of the subject of the post. You'll see. It is not mainly about them though they play an interesting part.*
+*This work is sponsored and supported by Tigris. Object Storage that works like a CDN on Fly. They are also part of the subject of the post. You'll see. It is not mainly about them though they play an interesting part.*
 
-This post is adapter from a talk I gave [at GigCity Elixir in Chattanooga](https://underjord.io/chattanooga-gigcityelixir-nervesconf-2024.html). In the talk I went to the trouble of trying to underline the value and difficulty of making things simple. I will abbreviate those efforts significantly in this blog post. If you don't believe simplicity has value. Come back and read this later.
+This post is adapted from a talk I gave [at GigCity Elixir in Chattanooga](https://underjord.io/chattanooga-gigcityelixir-nervesconf-2024.html). In the talk I went to the trouble of trying to underline the value and difficulty of making things simple. I will abbreviate those efforts significantly in this blog post. If you don't believe simplicity has value. Come back and read this later, when you do.
 
 I will offer Gall's Law.
 (TODO: format quote)
@@ -24,17 +24,19 @@ Phoenix LiveView is a highly opinionated approach to web application development
 
 Databases are a bit of a special case here. They are the worst. And the most important. They are where trade-offs matter the most. This is also why they are the most common bottleneck. There are things we refuse to trade off.
 
+Apparently we want to keep our data. We want it to be the same when we read it back as when we wrote it. We want it to be easy to query and manipulate. We want it to be fast. Fast can mean retrieval time for a single record, a whole-ass query with joins and also when many queries are made at the same time. We place high demand and are willing sacrifice very little with databases.
+
 ## History-time
 
 I didn't come up in Rails but to my understanding Rails is a web framework that was willing to trade off clarity and rigour for expressiveness and productivity. It was built in a language that was willing to trade away performance for simplicity and a certain type of elegance.
 
 Heroku came up and offered something that fit with Rails. The trade-offs made for Heroku didn't constrain Rails at all and offered immense conveniences. They were complementary and harmonious. You could shove a Rails-shaped piece in the Heroku-shaped slot without friction.
 
-Rails became a darling of the startup space. The startup is a very opinionated solution as well. Quickly explore a domain with disposable solutions. Create MVPs, ship prototypes, find product-market-fit then achieve growth. Performance, rigour and maintainability are not even on the list of startup priorities. There was no friction between the startup way and the Rails way.
+Rails became a darling of the startup space. The startup is a very opinionated solution as well. Quickly explore a domain with disposable solutions. Create MVPs, ship prototypes, find product-market-fit then achieve growth. Performance, rigour and maintainability are not even on the list of startup priorities usually. There was no friction between the startup way and the Rails way.
 
 The trade-offs are well aligned. The Rails startup on Heroku achieves their solution in the simplest possible way. Without friction or contradiction.
 
-Elsewhere, way earlier there was a wild software lab that had the task of creating a platform to operate telecom systems robustly. The requirements included performance aspects such as low latency, concurrent operation, operational aspects around deploying without downtime and strong focus on reliability. It must not go down. This was a very different industry. Decidedly not a startup and it had very different trade-offs to consider. And from this we got Erlang and OTP.
+About 40 years ago now in Sweden there was a wild software lab. They had the task of creating a platform to operate telecom systems robustly. The requirements included performance aspects such as low latency, concurrent operation, operational aspects around deploying without downtime and strong focus on reliability. It must not go down. This was a very different industry. Decidedly not a startup and it had very different trade-offs to consider. And from this we got Erlang and OTP.
 
 For completeness we must quote Dijkstra.
 
@@ -44,16 +46,16 @@ For completeness we must quote Dijkstra.
 "Simplicity is a prerequisite for reliability". - Edsger W. Dijkstra
 ```
 
-Erlang sacrifices some types of performance to get immutability. Immutability is a simpler view if the world. And it uses immutability to enable a set of simple building blocks. The Process. Send. Receive. This enabled safe concurrency. From this they built up more and more abstractions in service of the desired solution. And the result lives across Erlang, OTP and the BEAM virtual machine. It is a very complex system that is proven to work. And it is clearly derived from simpler parts. It has made very different choices from Ruby and Rails. And it certainly made different trade-offs from what it was competing against: C++
+Erlang sacrifices some types of performance to get immutability. Immutability is a simpler view of the world. And it uses immutability to enable a set of simple building blocks. The Process. Send. Receive. This enabled safe concurrency. From this they built up more and more abstractions in service of the desired solution. And the result lives across Erlang, OTP and the BEAM virtual machine. It is a very complex system that is proven to work. And it is clearly derived from simpler parts. It has made very different choices from Ruby and Rails. And it certainly made different trade-offs from what it was competing against: C++
 ## Changes
 
-I wish the story was that the world realised Heroku, Rails and startups were too inefficient and came together to push for more efficient use of our resources.
+I wish the story was that the world realized Heroku, Rails and startups were too inefficient and came together to push for more efficient use of our resources.
 
 Instead someone put JavaScript on a server and it ate Rails' lunch.
 
 Salesforce bought Heroku.
 
-Startups are still a thing. Off and on. And off. And on.
+Startups have remained a thing. Off and on. And off. And on.
 
 Startups did focus more on growth though. And I believe the interest in massive scalability, large engineering teams and unicorn valuations did shift technical priorities. This is not where Rails or Heroku shine. And it is where cloud native got rolling.
 
