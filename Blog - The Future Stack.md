@@ -110,7 +110,7 @@ You want to make trade-offs that cost you as little as possible. Technically, wh
 
 And depending on your team you may find that some technical opinions and constraints land very differently. It seems that generally developers with less experience benefit from more clarity, guidance and opinion. They are still learning and making technical decisions is quite difficult and demanding from that vantage point. More experienced developers might find constraints they disagree with quite cumbersome and frustrating. They may have other strong opinions they'd prefer to apply. They might have pointier and sharper trade-offs they want to make.
 
-Whether you should let your experienced devs go wild in this regard is a team question.
+Whether you should let your experienced devs go wild in this regard is a .. team question.
 
 ## The Platform
 
@@ -140,6 +140,8 @@ The managed SQL database part on Fly is unsolved. And Fly has clearly tried to s
 
 Fly are trying some stuff with SQLite and LiteFS which is interesting. But I have worked a bit with the Electric SQL folks as well and I think their approach has a lot of potential for this geo-distributed concept. CRDTs are very powerful if you accept eventual consistency. And Electric SQL launched pglite, which has the eye of both Supabase and Neon. So we might see something interesting happen there. Postgres on every server perhaps? I did that as an experiment with their SQLite variant.
 
+Some people have brought up CouchDB (the DB that did everything first, in Erlang) which is not SQL. Cassandra, which is closer to SQL from what I gather but not quite, Discord switched to ScyllaDB from that. And related to all this Phoenix will soon ship with [CockroachDB support](https://x.com/lawik/status/1791389748243648628). All of the options have fairly significant trade-offs but might be great for your workload. I think elasticity and reshaping the cluster is kind of high on the list to fit the Fly model or you need to run a node in every region you want low latency, continuously. This is not typically how these work.
+
 So why does it matter if Fly and their partners pull this off? I think it makes for a very rare alignment of priorities and trade-offs from end to end. Platform, runtime, frameworks and language all sharing values and expressing a similar overall shape. Meaning Elixir would be unconstrained by the platform and the platform doesn't offer a bunch of complexity that is irrelevant to a typical Elixir app. This should give us trade-offs that cost as little as possible. You should be able to put a Phoenix-shaped app in the Fly-shaped hole without friction.
 
 And hilariously good latency for users.
@@ -148,7 +150,7 @@ It matters because the goal-posts keep moving and the minimum expectations keep 
 
 It would be a true new Heroku but for Phoenix. I will leave the part about finding an aligned business model to replace the startup as a question for you all because I don't know what that looks like but I am very curious. I think indie hacking and open coops could both fit. But give me your suggestions.
 
-I am not trying to sell Fly. They do that well enough. I am selling Tigris a little bit but they are the default recommendation for Fly and I have high hopes that they will prove themselves out regardless.
+I am not trying to sell Fly. They do that well enough. I am selling Tigris a little bit but I don't really need to. I have high hopes that Tigris will prove themselves out regardless.
 
 I think the overall idea has interesting implications for the mainstream web SaaS side of the Elixir ecosystem. Other applications will need very different infrastructure. I really like working with Nerves which is quite different. I know Elixir performs hilariously well on bare metal and that's a different approach. It all depends one what you are building.
 
