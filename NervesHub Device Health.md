@@ -1,0 +1,11 @@
+
+- Erlang tracing to sample activity for x number of calls, see what a device is doing.
+- trigger tracing sampler on particular events, auch as a high CPU alarm set or high load? Risky?
+- support vectors for health reporting data?
+- Opinionated default alarms for health
+	- High CPU > 98% for X time
+	- High mem usage
+	- High load, load > cores for X time
+	- Configure/override thresholds from NH
+		- Alarmist? Synthetic alarms?
+- Slice and dic
