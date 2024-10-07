@@ -8,4 +8,4 @@
 	- High load, load > cores for X time
 	- Configure/override thresholds from NH
 		- Alarmist? Synthetic alarms?
-- Slice and dic
+- Slice and dice data with Livebook!
