@@ -53,6 +53,8 @@ mix upload nerves-12ab.local
 	  
 ## Things to try
 
+In no particular order:
+
 - Change firmware to Nerves Livebook
   
 ```
@@ -62,7 +64,8 @@ NERVES_WIFI_PASSPHRASE='nervescloud' \
 fwup nerves_livebook_rpi0.fw
 ```
   
-- Disable on-screen keyboard
+- Disable on-screen keyboard (oops)
+- Manipulate the `/sys/class/leds`
 - Change the Phoenix application
 - Make a new friend and make an Erlang cluster together
 	- Example: https://github.com/lawik/nerves_node
@@ -71,3 +74,4 @@ fwup nerves_livebook_rpi0.fw
 - Run Gleam
 - Set it up to talk to a Phoenix server with Phoenix Channels and Slipstream
 - Try hooking up Mobius
+- Suggest your own project, enjoy yourself :)
