@@ -64,4 +64,10 @@ fwup nerves_livebook_rpi0.fw
   
 - Disable on-screen keyboard
 - Change the Phoenix application
-- 
+- Make a new friend and make an Erlang cluster together
+	- Example: https://github.com/lawik/nerves_node
+- Set up Ecto and Sqlite (https://github.com/nerves-project/nerves_examples)
+- Run Erlang
+- Run Gleam
+- Set it up to talk to a Phoenix server with Phoenix Channels and Slipstream
+- Try hooking up Mobius
