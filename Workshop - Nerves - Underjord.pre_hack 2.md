@@ -21,18 +21,47 @@ The Raspberry Pi Zero W should be loaded with a firmware that starts a WiFi AP. 
 
 - Details on: https://underjord.io/nervescloud-welcome.html
 - The default firmware has a way of onboarding your device, most convenient via smartphone. Optional :)
-## Things to try
+## Ways to deploy
 
-- Deploy a new firmware over SSH
+- Deploy a new firmware via Micro SD card (require card reader)
 
 ```
-git clone git@github.com:lawik/nerves_cloud_kiosk.git
-cd nerves_cloud_kiosk
-export MIX_TARGET
+git clone git@github.com:lawik/rpi0kiosk.git
+cd rpi0kiosk
+export MIX_TARGET=rpi0
+mix deps.get
+mix firmware
+mix burn
 ```
   
+- Deploy firmware via SSH
+
+```
+# Confirm SSH connection, may need to burn SD card first to fix keys
+ssh nerves-12ab.local
+# iex> exit
+git clone git@github.com:lawik/rpi0kiosk.git
+cd rpi0kiosk
+export MIX_TARGET=rpi0
+mix deps.get
+mix firmware
+mix upload nerves-12ab.local
+```
+
 - Deploy a new firmware using NervesCloud
+	- https://docs.nerves-hub.org/nerves-hub/setup/firmware-signing-keys (TODO: make a smaller one)
+	  
+## Things to try
+
 - Change firmware to Nerves Livebook
+  
+```
+# Download .fw from https://github.com/nerves-livebook/nerves_livebook
+NERVES_WIFI_SSID='Nerves Workshop' \
+NERVES_WIFI_PASSPHRASE='nervescloud' \
+fwup nerves_livebook_rpi0.fw
+```
+  
 - Disable on-screen keyboard
 - Change the Phoenix application
 - 
