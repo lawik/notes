@@ -8,7 +8,7 @@ The Raspberry Pi Zero W should be loaded with a firmware that starts a WiFi AP. 
 	- USB-A to Micro-USB cable
 - Nerves T-shirt
 
-## Get connected
+## Get connected[]()
 
 - Check box for 4 characters. Example: `12ab`
 - Plug in USB or connect to WiFi AP `Setup nerves-12ab.local`

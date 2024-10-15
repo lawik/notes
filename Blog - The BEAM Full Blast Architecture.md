@@ -1,0 +1,8 @@
+- Phoenix project
+- In a Nerves project
+- With Ash application layer
+- An Erlang GenServer using Gleam for state and publishing messages through Phoenix.PubSub
+- Allowing users to put Lua (luerl/hex:Lua) code in there.
+	- FFI to Gleam
+	- Erlang
+	- Elixir
