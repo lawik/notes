@@ -1,5 +1,6 @@
 
 ## NervesHub CLI
 
-Gus Workman is well on the way to making the NervesHub CLI not suck. PR exists.
-
+- Gus PR merge
+- Owl introduced (or possibly BubbleTea)
+- 
