@@ -24,5 +24,15 @@ This will fail to boot if:
 
 - Anything within the boot.img is modified and the boot.sig is refreshed using the private key that is held by us, off device.
 
+This boots into the Linux kernel. It runs our init code.
+
+
 ## Locking down the TPM
 
+boot_tpm.sig as well?
+
+# init
+
+Our init code is responsible for mounting things, switching into the right rootfs. It will also be responsible for setting up dm-verity and dm-crypt. These require secrets.
+
+At this stage we should re-verify our situation. The code that is running needs to check that it is actually running a properly signed boot.img by checking boot.sig. The bootloader checked this but we cannot know that the bootloader checked this. We can't know we are on the right device. But we can verify that the
