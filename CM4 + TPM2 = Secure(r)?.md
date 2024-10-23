@@ -36,3 +36,28 @@ boot_tpm.sig as well?
 Our init code is responsible for mounting things, switching into the right rootfs. It will also be responsible for setting up dm-verity and dm-crypt. These require secrets.
 
 At this stage we should re-verify our situation. The code that is running needs to check that it is actually running a properly signed boot.img by checking boot.sig. The bootloader checked this but we cannot know that the bootloader checked this. We can't know we are on the right device. But we can verify that the
+
+
+
+# Setting the damn thing up
+
+
+
+```
+# from https://hackmd.io/@b55rv6TVT4qOYnDNvcFkXQ/Infineon-SLB9670-TPM2-RPi4
+sudo tpm2_clear
+sudo tpm2_createprimary -c primary.ctx
+sudo tpm2_create -C primary.ctx -Grsa2048 -u key.pub -r key.priv
+sudo tpm2_load -C primary.ctx -u key.pub -r key.priv -c key.ctx
+
+# Encrypt
+echo "my message" > msg.dat
+sudo tpm2_rsaencrypt -c key.ctx -o msg.enc msg.dat
+
+# Decrypt
+sudo tpm2_rsadecrypt -c key.ctx -o msg.ptext msg.enc
+cat msg.ptext  # my message
+```
+
+## sealing data
+https://community.infineon.com/t5/Blogs/Sealing-and-unsealing-data-in-TPM/ba-p/465547#.
