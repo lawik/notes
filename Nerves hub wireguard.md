@@ -16,7 +16,7 @@ Or more maintained:
 https://github.com/dnsimple/erldns/tree/main
 
 Dnsmasq wikl do it. https://linux.die.net/man/8/dnsmasq
-Ifnore hosts file, no dhcp, bind interface specifically.
+Ignore hosts file, no dhcp, bind interface specifically. (A start: https://stackoverflow.com/questions/9326438/dnsmasq-serve-different-ip-addresses-based-on-interface-used)
 
 Web UI for private network can be plain HTTP and on the gateway. Elixir app that manages the interfaces can also run Phoenix and based on source IP show information about network activity and hosts joined to it. Should work. May need to check some extra to protect against spoofing but should not expose sensitive information anyway. Explicitly close port 80 in firewall.
 
