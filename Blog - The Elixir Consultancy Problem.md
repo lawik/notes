@@ -14,4 +14,6 @@ I just see a lot of small Elixir teams knocking it out of the park. I haven't re
 
 If consultancies are actively, mildly painfully, aware that the ecosystem they work in is not the best money-extraction machine that may be a valid signal for others that this is where you want to be. So I figured I'd share it.
 
-As for me. I niche down to avoid success at all costs. Elixir too popular? How about embedded Elixir via Nerves? Still too much? I do security for embedded
+As for me. I niche down to avoid success at all costs. Elixir too popular? How about embedded Elixir via Nerves? Still too much? I do security for embedded Elixir via Nerves? Do I get time off now?
+
+If you have perspectives on this I'd love to hear them at {{< lars_twitter >}} on the fediverse or {{< lars_email >}} as a plain email.
