@@ -51,102 +51,41 @@ The primary CLI-tool is named `veritysetup`.
 
 Extract relevant bits from:
 ```
- 1022  truncate -s 100M hash.img
+###### Create a hash tree for a disk image
+# requires the filesystem image
+# produces a root hash and an offset for the hash tree information
 
- 1023  ls -calh
+export FS_PATH=./data.img
+# grab the size of the filesystem image as the offset for appending hash data
+export DATA_SIZE=$(stat -c %s $FS_PATH)
 
- 1024  veritysetup format data.img hash.img
+# Generate a hash-tree for $FS_PATH and save it to $FS_PATH at the offset
+# which actually means we append to the file making it larger
+# save the root hash (the "key" for validating the hash tree) to a file
+veritysetup format $FS_PATH $FS_PATH \
+  --data-block-size=4096 \
+  --hash-offset=$DATA_SIZE \
+  --root-hash-file=root-hash.txt
 
- 1025  veritysetup open data.img verity-test hash.img b94e6798bc47a967199ae438cf7e4fb9d0d2def793a1369349202ba970533dc2
+###### Mount a disk image based on the root hash and hash tree location
+# requires root hash and offset information
 
- 1026  mount /dev/mapper/verity-test mnt
+# grab the root hash
+export ROOT_HASH=$(cat root-hash.txt)
 
- 1027  cat mnt/one.txt 
+export MAPPER_NAME="verity-test"
 
- 1028  cat mnt/*
+# verity-test is just a name or label that will be used in /dev/mapper
+veritysetup open $FS_PATH $MAPPER_NAME $FS_PATH \
+  $ROOT_HASH \
+  --hash-offset=$DATA_SIZE
 
- 1029  umount mnt
+mkdir mnt
+mount /dev/mapper/$MAPPER_NAME mnt
 
- 1030  veritysetup close verity-test
+###### Un-mount and close
+umount mnt
+veritysetup close $MAPPER_NAME
+```
 
- 1031  mount -o loop data.img mnt/
-
- 1032  vim mnt/one.txt 
-
- 1033  veritysetup open data.img verity-test hash.img b94e6798bc47a967199ae438cf7e4fb9d0d2def793a1369349202ba970533dc2
-
- 1034  umount mnt
-
- 1035  veritysetup open data.img verity-test hash.img b94e6798bc47a967199ae438cf7e4fb9d0d2def793a1369349202ba970533dc2
-
- 1036  veritysetup close verity-test
-
- 1037  veritysetup open data.img verity-test hash.img b94e6798bc47a967199ae438cf7e4fb9d0d2def793a1369349202ba970533dc2
-
- 1038  veritysetup close verity-test
-
- 1039  veritysetup open data.img verity-test hash.img b94e6798bc47a967199ae438cf7e4fb9d0d2def793a1369349202ba970533dc2
-
- 1040  mount /dev/mapper/verity-test mnt
-
- 1041  ls
-
- 1042  veritysetup close verity-test
-
- 1043  mount -o loop data.img mnt/
-
- 1044  vim mnt/one.txt 
-
- 1045  umount mnt
-
- 1046  veritysetup open data.img verity-test hash.img b94e6798bc47a967199ae438cf7e4fb9d0d2def793a1369349202ba970533dc2
-
- 1047  clear
-
- 1048  veritysetup -h
-
- 1049  veritysetup format data.img hash.img
-
- 1050  umount mnt
-
- 1051  mount -o loop data.img mnt/
-
- 1052  umount mnt
-
- 1053  veritysetup close verity-test
-
- 1054  ls mnt
-
- 1055  ls -l
-
- 1056  veritysetup format data.img hash.img
-
- 1057  veritysetup format data.img data.img --data-block-size=4096 --hash-offset=134217728
-
- 1058  ls
-
- 1059  ls -l
-
- 1060  veritysetup open data.img verity-test data.img 4bd8f520fbfbf76488c5d553fa78704725092a14a651c4ca8fd0a019e2246208
-
- 1061  veritysetup open data.img verity-test data.img 4bd8f520fbfbf76488c5d553fa78704725092a14a651c4ca8fd0a019e2246208 --hash-offset=134217728
-
- 1062  ls mnt
-
- 1063  mount /dev/mapper/verity-test mnt
-
- 1064  ls mnt
-
- 1065  cat mnt/one.txt 
-
- 1066  umount mnt
-
- 1067  veritysetup close verity-test
-
- 1068  cat ~/.bash_history 
-
- 1069  cat /root/.bash_history 
-
- 1070  cat /home/lawik/.bash_history
- ```
 ## Hardware prep
