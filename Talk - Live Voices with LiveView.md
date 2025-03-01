@@ -6,9 +6,11 @@
 	- text from whisper
 	- text from LLM
 - LiveView displays in interesting ways
-	- Waveform pre-VAD
-	- Waveform post-VAD
-	- 
+	- Collected amps pre-VAD as waveform
+	- Collected amps post-VAD as waveform
+	- Transcript text as user
+	- Collected amps from TTS as waveform?
+	- LLM text as assistant
 - Explain the original pipeline for voice in, transcript out used in my original talk
 - Show reproducible examples with some speech and some keyboard clatter, maybe some noise
 - Drop-down to select various pipelines, start and stop dynamically.
