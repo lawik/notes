@@ -67,6 +67,41 @@ Presentation outline:
 - I made up my own text format so Membrane can complain at me if I don't send the right thing. Just a list of Elixir strings because it maps pretty closely to how the models like it.
 - My membrane pipeline does a few things.
 	- Specifies children, the pipeline itself.
+	- It receives notifications, side-channeled messages from the children about things that are happening.
+	- It aggregates events to avoid spamming the UI. Essentially throttling. And then broadcasts them on Phoenix PubSub topics.
+	- It runs under a DynamicSupervisor so I can stop a version of the pipeline and start another one.
+- Pipeline fundamentals
+	- An element can be a source that produces something, a sink that consumes something or a filter that both consumes and produces.
+	- The consumption side has a number of inputs, commonly a single one. Generating a video from separate audio and images would require multiple inputs.
+	- The production side has a number of outputs, commonly a single one. Making a T-junction of a stream to maybe save one to disk and livestream the other requires multiple outputs. As does unpacking a video file's container where you get audio and video streams.
+	- You connect inputs to outputs. You should start on at least one source and end on sinks.
+- I use a number of elements provided from the framework:
+	- PortAudio plugin - Provides cross-platform audio access to input devices such as microphones and output devices such as speakers.
+	- File plugin - Writes data to files. Used a lot during development when I was going quite mad figuring out a sampling rate issue. If you are producing an MP3 file this is also your last stage.
+	- Fake plugin - This is a sink that does nothing. If your pipeline is really only meant to produce side-effects this make sure it keeps running.
+	- Audiometer plugin - Provides notifications about amplitude of the audio as it passes through.
+	- FFMPEG Swresample plugin - Used for transforming audio samples from one sample rate to another when need be.
+- And then I made some custom ones:
+	- VAD - This went through a bunch of iterations. I've had versions that would replace non-voice audio with silence, or cut it and leave gaps in the stream. The current one actually buffers audio until speech stops, configurable in a few way, up to a limit. This gives nice long sentences for the transcription to work off of.
+	- Whisper - Quite straight-forward. Essentially I'm taking the samples the VAD prepares and passing them into Whisper for transcription. It produces text.
+	- SmolLM2 - The only really finicky part is building up the conversational exchange which is just a basic templating function. The element just takes input text and produces output text.
+	- Kokoro - Also straight-forward, takes text and produces audio.
+- Making custom elements:
+	- I've used manual flow control. The auto options seems nicer but I had some problems that made me stick with what was tried and true.
+	- Stream format behavior. There are some defaults that were gotchas for me with how stream formats are communicated. Because a stream format can change it needs to be communicated during the element's operation, it can't be done up-front. Add a handle_stream_format, by default it will forward what is likely the wrong format.
+	- Notifications. I use the notification mechanism to communicate interesting or important events to the pipeline process which in turn broadcasts it where the UI can pick it up. This is what drives the UI experience.
+- The VAD
+	- Let's look at the VAD.
+	- We define a bunch of options.
+		- At what confidence level do we consider something speech? Definitely 0.5
+		- How long are the chunks we deal with. The model requires some length of audio and it may also do better or worse with certain amounts. 100 ms and 200 ms have worked fine.
+		- Chunk tolerance is what I do to avoid cutting too eagerly. How many chunks of non-speech can we accept before we stop buffering once speech is started. This ensures we get a tail and also avoids a bunch of clipping. 1 prevents a lot of small problems. 2 seems quite smooth typically. It introduces at least chunk milliseconds times tolerance of latency.
+		- Max chunks before we actually just send it anyway. This I use to avoid overflowing downstream models mostly and to prevent any weird build-up issues that could conceivably occur.
+	- We define the input pad, Raw Audio. The output pad, Raw Audio.
+	- During init we start the ONNX model. Just making sure the file exists and loading it into Ortex.
+		- We set up the initial state that the VAD model continuously refreshes for us.
+		- We have a few buffers that we move things through. 
+	- 
 
 ---
 - Membrane pipelines
