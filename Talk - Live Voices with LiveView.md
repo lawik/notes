@@ -17,7 +17,7 @@ Presentation outline:
 	  That's the demo. That's as good as it gets. But I should explain what we are doing here. The nutritional contents of the talk. We will talk about the Machine Learning, then we will get into the crunchy bits about how we actually sling media around effectively.
 - The hardware
 	- This is a MacBook Air with 24Gb of RAM. On any given day it indicates that it has about 11Gb to spare.
-	- It has a GPU, it has Apples Neural Engine, it has a surprisingly capable CPU.
+	- It has a GPU, it has Apple's Neural Engine, it has a surprisingly capable CPU.
 	- It has no fan, no active cooling.
 	- Way stronger than most embedded devices I deal with. Way weaker than my Linux workstation. Leagues weaker than a typical GPU server.
 - Local first and open models
