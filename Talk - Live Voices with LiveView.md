@@ -65,12 +65,13 @@ Presentation outline:
 	- libmad will turn an MP3 into raw audio for you
 	- lame will turn raw audio into MP3
 - I made up my own text format so Membrane can complain at me if I don't send the right thing. Just a list of Elixir strings because it maps pretty closely to how the models like it.
+- DEMO the pipelines...
 - My membrane pipeline does a few things.
 	- Specifies children, the pipeline itself.
 	- It receives notifications, side-channeled messages from the children about things that are happening.
 	- It aggregates events to avoid spamming the UI. Essentially throttling. And then broadcasts them on Phoenix PubSub topics.
 	- It runs under a DynamicSupervisor so I can stop a version of the pipeline and start another one.
-- Pipeline fundamentals
+- Pipeline element fundamentals
 	- An element can be a source that produces something, a sink that consumes something or a filter that both consumes and produces.
 	- The consumption side has a number of inputs, commonly a single one. Generating a video from separate audio and images would require multiple inputs.
 	- The production side has a number of outputs, commonly a single one. Making a T-junction of a stream to maybe save one to disk and livestream the other requires multiple outputs. As does unpacking a video file's container where you get audio and video streams.
