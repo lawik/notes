@@ -60,7 +60,7 @@ Presentation outline:
 - Raw audio is actually kind of straightforward but can seem a bit scary.
 	- Channels, typically 1 or 2.
 	- Format, signed/unsigned/floating point, bit-depth, endianness. This all uses f32le, floating point 32-bit little endian.
-	- Sample rate, you've probably seen it, measures in Hertz meaning events per second. 16KHz, 24kHz are common. 16000 hertz is good for voice. Why? Because 15kHz is about how much of the audio-spectrum a human can hear and the absolute majority of voice happens in within that range. We might lose a few harmonics up towards 17kHz.
+	- Sample rate, you've probably seen it, measures in Hertz meaning events per second. 16KHz, 24kHz are common. 16000 hertz is good for voice. Why?
 	- If you have an arbitrary chunk of bytes and know these specifics, which is common in Membrane, you can convert that to a duration. It took me until writing this to realize there is of course a utility function for that in Membrane.
 	- libmad will turn an MP3 into raw audio for you
 	- lame will turn raw audio into MP3
