@@ -55,13 +55,13 @@ The day before the conference started was planned for setup. We had access to th
 
 Srinivas was a champ who showed up immediately for the prep though he wasn't even originally a volunteer. He just wanted to help and that he did. After a while Flora and Tom rolled in and started the wildest testing for their talk. When the grand piano and the old-school overhead projector gets involved that's when you know shit got real
 
-Zach Daniel showed up to test his talk which required some special effects. A few others also came to test, help and so on. Badges, lanyards and shirts were prepped, thoroughly optimized by Dan J, executed by Helene (our lovely hired gun for event know-how) and Srinivas. Plans were made. Roll-ups placed. Some was set up and then torn down again because there was an event that evening that used some of the venue.
+Zach Daniel showed up to test his talk which required some special effects. A few others also came to test, help and so on. Badges, lanyards and shirts were prepped, thoroughly optimized by Dan J, executed by Helene (our lovely hired gun/newfound friend brought in for event know-how) and Srinivas. Plans were made. Roll-ups placed. Some was set up and then torn down again because there was an event that evening that used some of the venue.
 
 An extra wifi-network was added for Nerves-devices. Would it be sufficient? Of course not. It never is.
 
 Essentially setup went super. The tech, Tobias is an absolute mensch. What a solid presence. I also can't recommend dealing with a theater enough. Where a conference venue will go "You want to do WHAT?" a venue like this will go "Typical thursday, sounds good. Need lights or smoke with that?".
 
-Right before 16 o' clock me and Stina left the venue to get drinks and snacks to [Kallbadhuset](https://kallbadhuset.se](https://kallbadhuset.se/)) (The Cold Bath House) where the first speaker social event was. Sauna and a swim in the ocean, rince and repeat. Good way to break the ice. People are various level of comfortable, makes for fun conversation. Good view. Nice old place. Not everyone attended this but it wa a good time and a good start. And then we sauntered over to the restaurant, NAMI. Japanese fusion tapas, something. Good place.
+Right before 16 o' clock me and Stina left the venue to get drinks and snacks to [Kallbadhuset](https://kallbadhuset.se](https://kallbadhuset.se/)) (The Cold Bath House) where the first speaker social event was. Sauna and a swim in the ocean, rince and repeat. Good way to break the ice. Completely stolen from the Öredev conference who do the same in Malmö. People are various level of comfortable, makes for fun conversation. Good view. Nice old place. Not everyone attended this but it wa a good time and a good start. And then we sauntered over to the restaurant, NAMI. Japanese fusion tapas, something. Good place.
 
 I was already very happy. Seeing some of my best community friends drift around my town, come to the experiences I chose, definitely bringing a smile to my lips. Watching the speakers gather, most of who I already know from the community. What a feeling. With some extra friends included we were around 36 people for dinner. Food was great. People had a great time connecting, reconnecting and so on. Then we drifted over to the bar for a bit.
 
@@ -108,18 +108,68 @@ Many great talks through the day. The sense of excitement and fun among the atte
 
 Towards the end I gave a few notes, talked a bit of logistics. And then handed things off to Sasa Juric for the last iteration of the year of the talk he has been touring that has not yet been released on video. Some say we got the best version. Tell Me a Story.
 
-It was sublime. I was riveted. When the Erlangelist asks you for 55 minute slot to present a three act monodrama you give it to him. When he asks for a skull you order the skull. And then he will enrapture your crowd and grab a standing ovation on his way out.
+It was sublime. I was riveted. When the Erlangelist asks you for 55 minute slot to present a three act monodrama you give it to him. When he asks for a skull you order the skull. And then he will enrapture your crowd and grab a standing ovation on his way out. And he really thoroughly lectured me on making better PRs...
 
 The energy of this evening was wild. I've never had so many people thank me in my life. I've never had so many people tell me about my own event in bewildered excitement. I could not be smiling more.
 
-Partially I was smiling because I was one of three people among the nearly 200 involved that knew how the next day starts.
+Partially I was smiling because I was one of three people among the nearly 200 involved that knew how the next day starts. Everyone was curious what to expect from another day at Goatmire but no-one was ready. To make sure they didn't discount the start, I pinged @everyone on Discord an teased that they should not miss it.
 
 One beer. Maybe two. In bed at a reasonable hour.
 
 ## Day 3: Goatmire Elixir ends
 
-Breakfast. Other fancy outfit, darker, more somber. 
+Other fancy outfit, darker, more somber. Breakfast. Head to venue. Piano music hits me the moment I enter. It is on.
 
-...
+I knew Flora would bring a good talk. She's an engaging person, fastidious about delivering and smart as a whip. But when had seen Sasa give Tell Me A Story at Gig City Elixir 2025 she realized what you could do at a conference and she asked if she could completely change her talk.
 
-TODO: pictures
+Her mother did puppetry professionally. Flora has done a bunch of puppetry. Our conversation spiraled into shadow puppets, old-school overhead projectors and repeatedly asking "is it okay if it's weird?" at which I would respond "fuck yes, please, kindly make it weirder". My favorite was "can I bring my husband so he can play piano?". I was in deep already. I was game for anything.
+
+Another cold open. As she spoke she found ways to put tears in my eyes. Odd that. The grand piano was out. The light of the old projector was suitably flawed compared to the previous day. She used the regular projector as well. Mixed medium in that regard.
+
+The puppetry was riveting. The scissors were .. abrupt. It was a beautiful, awe-inspiring performance. While overhead projectors have certainly seen use in computer science before I don't think this usage has been seen before. I could not be more pleased.
+
+This talk was recorded (technology be willing) but it will not be published in the near term if ever. Not under mine or Flora's control for now.
+
+The day continued with people somewhat stunned. The Oban Murders also stuck out as a talk with fabulous showmanship and a very funny performance by the Selberts.
+
+I also gave my talk during this day. Prior to it I stole a nap, or at least zonked out, in the green room for a bit. I suppose the day had caught up with me. When it was time for my talk. I had slides. I had notes. And maybe I should have used my slides, for clarity, but I felt so comfortable on this stage at this point and I knew the contents of [my 5000 Erlangs](TODO link) topic so well at that point that I just went for it with a demo in hand, a little bit of web browser. I think I stole those style notes from Sam Aaron's earlier talk on Tau5 actually. I think my talk went fine or even well. I did not know that I had a good line-up at the time when I added my own name to it. If we do another one I probably won't bother speaking though I do enjoy it.
+
+As we approached the end I had the luxury of addressing the crowd for the last time. I was just launching into a few more personal emotional notes about what this all meant to me when the frantic technical rigging happening behind me *really* needed a UK-to-EU power adapter. We improvise. Thanks to Oferlund (TODO link) for hooking us up. The ending notes were a pleasure to give. A bit of logistics, lots of thank yous. I was so pleased with the entire event, I was excited for the final presentation. Things were good and some adapter tech issue improv did not shake me in the slightest.
+
+Then Sam Aaron played us home by teaching us the fundamentals of music, the fundamentals of programming music and then showed us what it can truly do. I spoke to at least 3 people in the staff who are not programmers who expressed interest in trying their hand at Sam's Sonic Pi tool. I have tried it. I love it. (TODO link)
+
+People who've never seen Sam Aaron do his thing before were in for a treat. People who know him were thrilled. It was awesome.
+
+Each day the venue staff were a bit close to the limit for how many hours they were allowed to work. Not over it to my knowledge but close. So we tried to clear out promptly. I'd shouted people out of the venue both evenings prior. When I tried it this time. Someone shouted about thanking me and suddenly, in the fully lit theatre, not full but well seated and with two balcony levels. I got a standing ovation. This was hard to absorb. It was moving. It was very gratifying.
+
+Then I ran them out into the streets for real. We tore our stuff down and let the staff do their thing. Me and Stina, my wife who was on logistics and reception throughout the event went to eat with a couple of speakers and then joined the impromptu party at Bank 28. The bar had offered a discount for anyone with a badge so it became quite popular.
+
+I was not as careful about bedtime this evening and I didn't have to pay for a single drink throughout the night.
+
+My heart was full. I was just happy. Satisfied. It was a very weird state of being that was thoroughly enjoyable.
+
+## Bonus: Ash Summit 2025
+
+Because we accidentally accumulated most of the Ash framework's core team for the event I helped Alembic put together a little shindig at another venue on the saturday. Being responsible for the keys I showed up and checked people in, watched the door and goofed off on my computer.
+
+I am actually quite interested in Ash but I was checked out. People seemed to enjoy it. I think we checked 56 people into this sideshow. Then I had thai food. Then I went home and slept a lot.
+
+## Wrapping up
+
+There were a few major things people brought up when they grabbed me quickly during the conference:
+
+- "Thank you for making this happen"
+- "You must be so tired!"
+- "Will there be another one?"
+
+On the first. I mean "you're welcome" would seem a bit flippant or arrogant. But essentially that. I was also happy. I was glad they were glad. On the second. Surprisingly not that tired throughout the event. I feed off of this type of energy. I certainly burned a lot of resources and needed to catch up on it after but it was never brutal during the event for me. Which is surprising.
+
+I want to make another one. It just needs to not screw with my day-to-day, work-life balance and vacation time too much. This one was brutal during July especially when I'd normally be on vacation I had tons of print designs to finish, lots of random things to check off and meanwhile I was letting my team go due to business being poor, we were building a green house which took a lot of time and effort, I was trying to not lose too much income so I was trying to do billable work. It was a shit-show. It wasn't mainly *because* of the conference but the conference was part of the bad workload. It was a really crap moment in time. We did okay through it but neither me or my wife appreciated it.
+
+There are many reasons to believe we can do it with a bit less grind on a repeat because we know more about what we are doing now. We would keep the venue, the accomodations. There are things to make simpler, there are things to control better. It will never be an easy lift if it is going to be an impressive event though. The effort shows in the result. We will make a decision but quite yet.
+
+I am incredibly please with how it came out. Thanks to all who contributed to that. My family, relatives, the staff, the volunteers, the speakers and the attendees. The town.
+
+The response has been overwhelmingly positive. Currently the survey says
+
+TODO: pictures, outfits, starters, enders
