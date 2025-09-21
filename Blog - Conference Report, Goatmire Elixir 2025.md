@@ -1,6 +1,6 @@
-The quiet was unsettling. The lack of concrete things to do was stressful. Me and my wife had been fretting and flitting around the house for most of the day making sure everything was staged, that we had the various prints, checklists were ready, lots of bags and boxes were packed.
+The quiet was unsettling. The lack of concrete things to do was stressful. Me and my wife had been fretting and flitting around the house for most of the day making sure everything was staged, that we had the various prints, checklists were ready, lots of bags and boxes were packed. The event wasn't even starting today, not even fully tomorrow. The quiet after intense preparation.
 
-The event has now happened. Results are in. I am very satisfied. This is my conference report, as the organizer. Because of my deep level of involvement it may end up being quite a long post.
+Snap to today. The event has now happened. Results are in. I am very satisfied. This is my conference report, as the organizer. Because of my deep level of involvement it may end up being quite a long post.
 
 ## Conception
 
@@ -170,6 +170,6 @@ There are many reasons to believe we can do it with a bit less grind on a repeat
 
 I am incredibly please with how it came out. Thanks to all who contributed to that. My family, relatives, the staff, the volunteers, the speakers and the attendees. The town.
 
-The response has been overwhelmingly positive. Currently the survey says
+The response has been overwhelmingly positive.
 
 TODO: pictures, outfits, starters, enders
