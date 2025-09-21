@@ -53,4 +53,9 @@ I went home shortly after the pizza, more people accrued as we ate. I got to say
 
 The day before the conference started was planned for setup. We had access to the venue from 12-16 to rig stuff. Then we had plans with the speakers of the event from 16 into the evening. Me and my wife absolutely stuffed the car with stuff, including the plywood goat, drove into town. Parked at the venue and went for food.
 
-Srinivas was a champ who showed up immediately for the prep though he wasn't even originally a volunteer. He just wanted to help and that he did. After a while Flora and Tom rolled in and started the wild
+Srinivas was a champ who showed up immediately for the prep though he wasn't even originally a volunteer. He just wanted to help and that he did. After a while Flora and Tom rolled in and started the wildest testing for their talk. When the grand piano and the old-school overhead projector gets involved that's when you know shit got real.
+
+Zach Daniel showed up to test his talk which required some special effects. A few others also came to test, help and so on. Badges, lanyards and shirts were prepped. Plans were made. Roll-ups placed. Some was tested and then removed because there was an event that evening that used some of the venue.
+
+An extra wifi-network was added for Nerves-devices. Would it be sufficient? It never is.
+
