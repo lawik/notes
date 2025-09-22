@@ -1,36 +1,38 @@
 The quiet was unsettling. The lack of concrete things to do was stressful. Me and my wife had been fretting and flitting around the house for most of the day making sure everything was staged, that we had the various prints, checklists were ready, lots of bags and boxes were packed. The event wasn't even starting today, not even fully tomorrow. The quiet after intense preparation.
 
-Snap to today. The event has now happened. Results are in. I am very satisfied. This is my conference report, as the organizer. Because of my deep level of involvement it may end up being quite a long post.
+Snap to today. [The event](https://goatmire.com) has now happened. Results are in. I am very satisfied. This is my conference report, as the organizer. Because of my deep level of involvement it may end up being quite a long post.
 
 ## Conception
 
-I can't put a date to how long we've prepared for the conference. But about 6 months at increasing intensity. I picked up the bug of wanting to run and event when I visited Gig City Elixir in Chattanooga in May 2024. All credit to Maggie and Bruce Tate for that. A few things really made it a brain bug back then. Todd Resudek offered that I could freely use the NervesConf name to run an EU event. Very kind and I definitely want to gather the EU Nerves community. And when I chatted with folks about running something in Sweden they seemed optimistic. Andrea Leopardi of Elixir core team fame confirmed himself as my first speaker then and there.
+I can't put a date to how long we've prepared for the conference. But about 6 months at increasing intensity. I picked up the bug of wanting to run an event when I visited Gig City Elixir in Chattanooga in May 2024. All credit to Maggie and Bruce Tate for that, they have a special thing going. A few things really made it a brain bug back then. Todd Resudek offered that I could freely use the NervesConf name to run an EU event. Very kind and I definitely want to gather the EU Nerves community. And when I chatted with folks about running something in Sweden they seemed optimistic. Andrea Leopardi of Elixir core team fame confirmed himself as my first speaker then and there. In the middle of [Rock City](https://www.seerockcity.com/).
 
-It probably took most shape during the first quarter of this year (2025). The name, sourced from a historic name for Varberg, Getakärr, can be fairly translated to Goatmire. It was distinctive. My particular sense of humor would be a guiding blight through the process.
+It probably took most shape during the first quarter of this year (2025). The name, sourced from a historic name for Varberg, Getakärr, can be fairly translated to Goatmire. It was distinctive. In fact I think I got about 20 minutes of extra air time in the [Thinking Elixir](https://thinkingelixir.com/index.html) podcast just on the name. I bet it lived rent-free in many people's heads. My particular sense of humor would be a guiding blight throughout the process.
 
-There were a few things that confirmed it for us. Talking to some of the people around the Varberg tech hub [Techarenan](https://varbergtech.se/techarena/) I got in touch with the public sector commerce folks and they were very enthusiastic and gave me a warm introduction to Sparbanksstiftelsen. This is a foundation that owns Varbergs Sparbank, the local bank. They reinvest in the local area and after some conversation we sent a suggestion, a rough budget and applied for a stipend.
+There were a few things that confirmed it for us. Talking to some of the people around the Varberg tech hub [Techarenan](https://varbergtech.se/techarena/) was encouraging. They (thanks Sara!) put me in touch with the public sector commerce folks and they were very enthusiastic and gave me a warm introduction to Sparbanksstiftelsen. This is a foundation that owns Varbergs Sparbank, the local bank. They reinvest in the local area and after some conversation we sent a suggestion, a rough budget and we applied for a stipend.
 
-It took a minute to confirm but the year was very young when we got our base funding from them confirmed. Then we started spinning up the non-profit registration. Gathered recommendations for venues and talked to them. In the end landing on Varbergs Teater, the theatre where me and my wife married, because it seems the most interesting and the most flexible to custom ideas. There are many good venues in this little city since it is a swedish tourist-destination but I wanted something with a lot of character and I knew the theatre could deliver.
+It took a minute to confirm but the year was very young when we got our base funding from them confirmed. Then we started spinning up the non-profit registration. Gathered recommendations for venues and talked to them. In the end landing on Varbergs Teater, the theater where me and my wife married. We chose it because it was the most interesting and the most flexible to custom ideas and is still smack in the center of town. There are many good venues in this little city since it is a swedish tourist-destination but I wanted something with a lot of character and I knew the theater could deliver.
 
 Some basic funding and a venue meant we had a starting point.
 
 ## Event architecture
 
-One day NervesConf EU for IoT with Elixir and two days Goatmire Elixir for regular Elixir. I wanted to make the event distinct. I don't think we actually gave a ton of guidance to speakers towards that. The most relevant bit from the CFP was:
+One day NervesConf EU for IoT with Elixir and two days Goatmire Elixir for regular Elixir. That's the model of Gig City, so I yoinked it. Not reinventing the wheel in terms of structure. I grabbed the scheduling from Code BEAM Europe as well. And you'll see on speaker's day, I nabbed a concept from Öredev. I suppose this makes me a great artist. I hear they steal.
+
+I wanted to make the event distinct. I don't think we actually gave a ton of guidance to speakers towards that. The most relevant bit from the CFP was:
 
 "We will not be taking on talks that are "Update on project X" but are fine with talks that involve new features and either how they were built or what they allowed you to do. Avoid presenting a changelog. Teach something, tell a story, blow some minds or show your work."
 
-I wanted to do wild things but I'm also new at making events and didn't want to make my first time completely impossible. I didn't push for people to take exceptionally bold swings in the CFP but in every conversation I ended up encouraging the more interesting choice at every turn.
+I wanted to do wild things but I'm also new at making events and didn't want to make my first time completely impossible. I didn't push for people to take exceptionally bold swings in the CFP but in every conversation I ended up encouraging the more interesting choice at every turn. And there were a lot of conversations.
 
-Importantly I'd heard the great things people had to say about EMPEX and The Big Elixir. A single track conference in a theater will be a very focused affair. I had some faith that we could deliver something similar though we are decidedly not New Orleans or New York.
+Importantly I'd heard the great things people had to say about EMPEX and The Big Elixir. A single track conference in a great venue will be a very focused affair. I had some faith that we could deliver something similar though we are decidedly not New Orleans or New York levels of cool. But the town punches above its weight.
 
 3 days, the first probably smaller, single track. That's the rough of it.
 
 ## Building it up
 
-I had a single speaker so I started reaching out to my network to pin people down. The Nerves core team for NervesConf, good collaborators for more Nerves talks. Some solid names for the Elixir days of the event.
+I had a single speaker (thanks Andrea!) so I started reaching out to my network to pin people down. The Nerves core team for NervesConf, good collaborators for more Nerves talks. Some solid names for the Elixir days of the event. Added myself for padding and since I'm probably the most visible Elixir dev in Sweden.
 
-The procedure for getting sponsors was similar. Tap my network, both the local one in Varberg and the one in I have in Elixir. My sponsor journey went pretty well overall. I had a late plot twist of a sponsor pulling out shortly before payment was due but someone picked up the mantle quickly after.
+The procedure for getting sponsors was similar. Tap my network, both the local one in Varberg and the one in I have in Elixir. My sponsor journey went pretty well overall. I had a late plot twist of a sponsor pulling out shortly before payment was due but someone picked up the mantle quickly after (thanks Alembic!).
 
 At some point I launched the waiting list. We estimated we could deal with 150 people. The waiting list climbed to 90 people very quickly. Over time it drifted up to 200 before we launched tickets. If there is something I've worked up a muscle for in the last 7-8 years it is "marketing". That is, I am already actively posting on socials. I have a newsletter. I have a podcast. I know other people with podcasts.
 
