@@ -34,6 +34,12 @@
 - Incredibly powerful mechanism
 - Very inefficient for encrypting large amounts of data securely. Slow, size limits, etc. Possible but not very practical.
 
+## Fundamental 3 - Hashing
+
+- Turn a larger amount of data into a small amount of data that is a reliably unique enough representation of that data.
+- A hash cannot be turned into the data.
+- Hashes are nice for storing passwords safely. Can be verified without even having the original value in your database.
+
 ## To cover
 
-- Hybrid cryptography (use assymetric to transfer symmetric key)
+- Hybrid cryptography (use assymetric to transfer symmetric key, or even better, diffie the hellman)
