@@ -28,8 +28,8 @@
 ## Fundamental 2 - Assymetric
 
 - Encryption and decryption using a secret private key and a harmless public key
-- Public key can encrypt something. That can only be decrypted by the private key
-- Private key can encrypt something. It will be decrypted by the public key.
+- Public key can encrypt something. That can only be decrypted by the private key.
+- Private key can encrypt something. It will be decrypted by the public key. We don't call it this. We'll return to it.
 - The private key can be used to derive the public key, not the other way around
 - Incredibly powerful mechanism
 - Very inefficient for encrypting large amounts of data securely. Slow, size limits, etc. Possible but not very practical.
