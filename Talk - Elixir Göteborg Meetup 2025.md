@@ -40,6 +40,24 @@
 - A hash cannot be turned into the data.
 - Hashes are nice for storing passwords safely. Can be verified without even having the original value in your database.
 
-## To cover
+## Combining things
 
-- Hybrid cryptography (use assymetric to transfer symmetric key, or even better, diffie the hellman)
+- Hybrid cryptography. Using the special capabilities of assymetric cryptography or related algorithms like Diffie-Hellman, to safely transfer or establish a secret for symmetric encryption.
+- Signing and verifying. Usually means using assymetric cryptography to encrypt the hash of some content as trustworthy verification that it was provided by the holder of the signing key.
+- Authentication. Verifying that both parties have a secret without exposing the secret. Commonly using techniques like a MAC. Message Authentication Code. That word doesn't have any other meanings in computer science.
+- Now we've covered most of the parts of what we'll be using.
+
+## The Hardware
+
+- This thing is the Microchip ATECC608. A very affordable security chip. In the Nerves ecosystem we sometimes call it NervesKey.
+- NervesKey is actually a particular configuration of these devices and the library to use that configuration.
+- We use it for mutual TLS or mTLS to authenticate devices connecting to NervesCloud in a very secure and reliable manner. It can also be used to authenticate with Google's cloud or AWS for similar purposes. When doing this you delegate the initial handshake of the TLS connection, not the ongoing encryption. This chip is quite slow.
+- You can actually shove a bunch of keys into this thing. The typical NervesKey config only has a device private key and an auxiliary key for special purposes.
+- What I've configured here is something different.
+## The Volatile Config
+
+- I needed to store disk encryption keys.
+- From reading summary data sheets and such I had seen that this chip could do AES symmetric encryption. That should be appropriate.
+- The implementation is not very appropriate for most needs. It goes across an unencrypted I2C bus.
+- You can secure the I2C bus a bit. If you have some shared secret between the CPU and the security chip. Now where can we store a secret key... This is not really a problem with the chip. It is a conceptual limitation.
+- But the chip can be configured to only keep a secret in volatile memory. Meaning it loses the secret if the security chip 
