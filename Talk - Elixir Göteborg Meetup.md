@@ -32,8 +32,7 @@
 - Private key can encrypt something. It will be decrypted by the public key.
 - The private key can be used to derive the public key, not the other way around
 - Incredibly powerful mechanism
-- Very inefficient for encrypting large amounts of data securely.
-
+- Very inefficient for encrypting large amounts of data securely. Slow, size limits, etc. Possible but not very practical.
 
 ## To cover
 
