@@ -60,4 +60,37 @@
 - From reading summary data sheets and such I had seen that this chip could do AES symmetric encryption. That should be appropriate.
 - The implementation is not very appropriate for most needs. It goes across an unencrypted I2C bus.
 - You can secure the I2C bus a bit. If you have some shared secret between the CPU and the security chip. Now where can we store a secret key... This is not really a problem with the chip. It is a conceptual limitation.
-- But the chip can be configured to only keep a secret in volatile memory. Meaning it loses the secret if the security chip 
+- But the chip can be configured to only unlock if a secret is provided. It requires the secret again if the security chip loses power. We can then limit how exposed that secret is.
+
+## Implementing the volatile config
+
+- The hardware world is silly. This part is under NDA. You'll find the data sheet. But only the summary data sheet. Probably. Maybe you can look very hard. The internet has a lot of stuff on it. I haven't signed an NDA. One of my clients might have. But I haven't received any data sheets for it from Microchip regardless.
+- There is an open source library from Microchip called cryptoauthlib that is fairly helpful but also very annoying.
+- The summary data sheet indicated that this could be possible. Information I collected showed me how.
+
+## Config & slots
+
+- The device is divided into slots. It has a bunch of them, various sizes. You can put data or keys in them. We mostly care about slot 1, 2 and 3.
+- Slot 1 is our device private key for mTLS. Very important. It is generated inside the chip. No-one ever sees it. We just get the public key. In the volatile config we set the persistent_disable flag meaning it requires the chip to be authenticated to work.
+- Slot 2 is our secret encryption key for AES. We mostly want this to derive other keys from. We set it up when we provision the chip and lock everything down. We can save a copy but there isn't really any point. We set the same flag. Persistent disable. It doesn't work unless the chip is authenticated.
+- Slot 3 is our activation key. Also an AES-style key. But we need to keep this one around. We use this for authentication. We set it as the key referenced in the chip's volatile config. This means that if we perform a particular cryptographic dance which involves a MAC based on the activation key, we can then ask it to kindly unlock the rest of the keys. This is the only key that works when the device has not been authenticated.
+- There were a lot of details to get right. Every bit and byte has to be in the right position or a hash won't come out right.
+- Many chips died to give me this configuration.
+  This is my bag of incorrectly provisioned chips. Some of them can be used.. for something. Many are just in a bad configuration.
+
+## Developing this
+
+- Working with the hardware I essentially ran the Nerves iex console and just pasted my code changes there.
+- I used Nerves Livebook for provisioning and for running my test routines.
+- I got stuck hard. Several times. I gave up a few times.
+- Things started to come together when I realized I could probably make Claude hack together a test-program for me using cryptoauthlib. Not to configure or run the chip but to verify I was making correct MACs and constructing the data in the same way as Microchip but in my Elixir implementation.
+- If you have a reference implementation. Use it.
+- A datasheet is worth it's weight in kilobytes. It sure would be nice if one was publicly and intentionally available.
+
+## Usage & threat model
+
+- This was worked on for a Raspberry Pi-style device. They have no capabilities for secure or protected storage. They do have Secure Boot meaning you can lock a public key into a one-time-programmable part of the chip to require sig
+- This is a good foundation for a pretty aggressive degree of security for a piece of hardware. It does require physical protection where power is broken if the device is opened or the data could be snooped.
+- Depending on the level of threat you can make the physical security more intense.
+- This is an affordable solution that is fairly easy to deal with.
+- This is not the ultimate in hardware defense.
