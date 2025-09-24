@@ -89,8 +89,23 @@
 
 ## Usage & threat model
 
-- This was worked on for a Raspberry Pi-style device. They have no capabilities for secure or protected storage. They do have Secure Boot meaning you can lock a public key into a one-time-programmable part of the chip to require sig
+- This was worked on for a Raspberry Pi-style device. They have no capabilities for secure or protected storage. They do have Secure Boot meaning you can lock a public key into a one-time-programmable part of the chip to require signed code on boot. But it can't keep a secret.
 - This is a good foundation for a pretty aggressive degree of security for a piece of hardware. It does require physical protection where power is broken if the device is opened or the data could be snooped.
 - Depending on the level of threat you can make the physical security more intense.
 - This is an affordable solution that is fairly easy to deal with.
-- This is not the ultimate in hardware defense.
+- This is not the ultimate in hardware defense. But it ain't bad.
+
+## What we want
+
+- CPU should be able to verify the code it is booting to prevent malicious code from running.
+- CPU should be able to use an assymetric private key without exposing it to the world.
+- CPU should be able to use a symmetric secret key without exposing it to the world.
+
+## The current leading edge
+
+- ARM TrustZone is a mechanism for separating privilege levels in ARM CPUs. It allows isolating hardware to only be accessible to code running with secure privilege levels.
+- You have a Trusted Execution Environment and in there the CPU and memory can play with cryptography in isolation from the rest of the system.
+- Lots of serious systems ship with volatile storage and persistent secure storage. This allows fully secured devices from verifying that we boot only trusted code to allowing particularly secure trusted code access to private keys and secret keys to perform cryptographic tasks.
+- This is what we should be doing to secure devices.
+- Even more NDAs.
+- Incredibly complex documentation and very messy to figure out.
