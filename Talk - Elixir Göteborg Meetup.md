@@ -15,6 +15,26 @@
 	- Then we provide the very secret password hard-coded and burned into the device.
 	- Now a digest works.
 	- We can generate a fun variety of MACs. The chip is usable.
-- This was security mechanism cold-plunge. We did signed digests, MAC or Message Authentication Code. We used b
+- This was security mechanism cold-plunge. We did signed digests, MAC or Message Authentication Code. We used most of the common building blocks of cryptography and computer security schemes.
+- Let's talk fundamentals and build our way back into this.
 
-## 
+## Fundamental 1 - Symmetric
+
+- Symmetric encryption and decryption using a single secret key
+- Efficient, works well even on larger data
+- Can be very hard to break
+- Very challenging to keep the single secret key protected during use
+
+## Fundamental 2 - Assymetric
+
+- Encryption and decryption using a secret private key and a harmless public key
+- Public key can encrypt something. That can only be decrypted by the private key
+- Private key can encrypt something. It will be decrypted by the public key.
+- The private key can be used to derive the public key, not the other way around
+- Incredibly powerful mechanism
+- Very inefficient for encrypting large amounts of data securely.
+
+
+## To cover
+
+- Hybrid cryptography (use assymetric to transfer symmetric key)
