@@ -1,1 +1,0 @@
-Svårt internt.

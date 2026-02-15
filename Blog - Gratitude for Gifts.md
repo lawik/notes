@@ -1,1 +1,0 @@
-An expression of gratitude for various maintainers, contributors and community members. Recognizing their gifts and the way in which they are given. The thing that creates the fabric of our community 
